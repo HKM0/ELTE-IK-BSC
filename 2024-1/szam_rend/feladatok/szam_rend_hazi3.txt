@@ -1,0 +1,30 @@
+cd ~/szamrend
+
+mkdir hf2 && cd hf2
+
+echo "Éva
+Zoé
+Rita
+Dóra" > lányok
+
+echo "Géza
+Ádám
+Máté
+Jenő" > fiúk
+
+echo "Lilla
+Sára" >> lányok
+
+cat lányok fiúk | nl > gyerekek
+cat -n lányok fiúk > gyerekek
+
+ls -al > directory
+
+cat directory | head -n1
+
+cat directory | tail -n+2
+
+
+
+
+

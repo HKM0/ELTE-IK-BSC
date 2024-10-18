@@ -1,0 +1,39 @@
+prog alapok jegyzet 1
+követelmények, anyagok és faladatok canvason
+évfolyam ZH 12.16, de canvason a lottó számok is fent vannak (állítólag)
+
+programkeszites folyamata
+1-specifikalas:
+    lenyeges info/adatok kiírása
+    "egyértelmű" - tömör
+    #bemeneti adatokhoz kimenetei adatok rendelünk
+    kb így:
+        Be - Bemenet        (s eleme R, t eleme R)
+        Ki - Kimenet        (v eleme R)
+        Ef - Elfőfeltétel   (s>=0 és t>0)
+        Uf - utófeltétel    (v=s/t)
+2-tervezes:
+    leírás/ ábrázolás:
+        -pszeudokód
+        -stuktogramm (ezt fogjuk használni)
+        -folyamatábra
+
+3-kodolas:
+    C#-t használunk (OBB)
+        syntax: c_syntax.txt
+    változók fajtái és céljai:
+        Értékadás   A változó új értéket kap
+        Típus       Meghatározza az értékkészletét és típusát
+            PL egész, valós, logikai.
+    fejleszői környezet: Visual Studio 2022 (továbbiakban: VS 2022) + C# extension
+    #https://progalap.elte.hu/specifikacio/
+
+4-teszteles:
+5-hibakereses:
+6-hibajavitas:
+7-minosegvizsgalat, hatekonysag:
+8-dokumentalas:
+9-hasznalat:
+
+tulajdonságok   1- "egyértelmű"
+                    tömör

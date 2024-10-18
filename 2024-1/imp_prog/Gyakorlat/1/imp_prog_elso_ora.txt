@@ -1,0 +1,61 @@
+ls 			helyi könyvtárak
+ls 	-l		a helyi fájl jogai (jog,tipus,felhaszn.,méret,modositas,kiterjesztes)
+ls 	-al		a rejtett köyvtárakat és fájlokat is listázza
+cd 	(nev)		change directory
+cd 	..		a felsőbb könyvtárra ugrás
+pwd			kiírja az éppen használt könyvtárat
+dir			directory 
+
+man 	(command)	listázza a parancs paramétereit és leírását
+echo	(str)		kiírja az argumentum tartalmát
+touch 	(hely/nev)	 fájl létrehozása
+
+vim	(fájlnev)	(linuxon szerkesztő kilépés: Esc után :wq)
+cp	(fájl-fajlnev-hova)	(átmásolja az adott fájlt egy megadott helyre)
+mv	(fájl-hely)		áthelyezni fájlt egy adott helyre
+rm	(fájl)		afott fájl törlése
+less	(fájl)		megnyitja olvasni az adott fájlt.
+history 		egy fájlba irányítja az eddig beírt kommandokat
+history > history.txt	a history txt fájlt létrehozza és beleírányitja az előzményeket.
+
+GitHub the fuck-t telepíteni ajánlott!
+
+köv.órán röpzh fájlrendszeri kommandokból plusz manual és stb egyszerű cuccok.
+
+history | grep ls	szűr a használt ls szóra
+grep 	-r "if"		megkeresi az összes fájlt amiben if szó van. 
+
+find .. -name "a*.sh"	minden a-val kezdődő sh fájlt kilistáz,
+
+ha valami beakad azt Ctrl+C vel tudod leállítani,
+
+
+
+C gyakorlás:
+
+
+gcc név -o új fájl név		lebuildeli a c progit
+
+
+%d	- egész számok - int
+%ld	- nagy egész számok - long int
+%c	- karakter - char
+%s	- szöveg
+%f	- lebegőpontos
+
+
+int manin() {
+	char name[30];
+	printf("hogy hivnak? ");
+	scanf("%d", name);
+	printf(name);
+		}
+
+
+gcc futtatásakor használd:
+gcc -W -Wall -Wextra -pedantic (munkafájl) -o (program neve)
+
+
+
+
+

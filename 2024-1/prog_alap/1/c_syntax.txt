@@ -1,0 +1,8 @@
+//deklaráció
+double s, t;
+double v;
+//beolvasás
+console.typeweite()
+be =        Console.writte("a = ");
+            double.TryParse(Console,Readline(), out a);
+ki = 

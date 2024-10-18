@@ -1,0 +1,41 @@
+imperatív programozás első óra
+#http://gsd.web.elte.hu/
+
+A tárgy célja:
+    -mindennapos programozási nyelvek, koncepciók
+    -a programnyelvek tudatos használata
+    -programozási tudás
+    -Túlélők játékát játszani a Linux distrokban
+
+Miért C?
+    Mert energia hatékonyabb mint a python és társai, 
+    Mert gyorsabban fut, erőforrás hatékonyabb
+    Pici strukturális bázis, kevés beépített funkció
+    Közel minden eszközön elfut a memória kezelés miatt
+    A beépített eszközök, programok legkedveltebb nyelve. (szerverek)
+    Fordító barát, könnyű más más eszközökre fordítani, nyelvek közt dolgozni vele.
+
+A szemeszter menete:
+    -bevezető a programozás elemeibe, kifejezések 
+
+https://en.cppreference.com/w/c
+
+
+syntax: 
+    a nyelv megfelelő használata
+    a programnyelv helyes "nyelvtani" formája.
+    a jelek és elválasztók helyes használata, (pl python "," ";" "#")
+
+include <studio.h>
+int main()
+(
+    prinf("hello world\n");
+    return 0; /*nem szükséges a c99 óta*/
+)
+
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}

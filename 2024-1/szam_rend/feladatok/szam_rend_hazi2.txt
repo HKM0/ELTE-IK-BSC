@@ -1,0 +1,107 @@
+------------------------
+1. feladat
+------------------------
+cd hf1
+mkdir német
+mkdir francia
+mkdir amerikai
+mkdir olasz
+cd német
+mkdir audi
+mkdir bmw
+mkdir mercedes
+cd ../francia
+mkdir bugatti
+mkdir peugeot
+mkdir renault
+cd ../amerikai
+mkdir buick
+mkdir cadillac
+mkdir dodge
+cd ../olasz
+mkdir ferrari
+mkdir fiat
+mkdir Maserati
+
+------------------------
+2. feladat
+------------------------
+cd ~/hf1
+touch allante
+touch deville
+touch eldorado
+touch escalade
+touch fleetwood
+touch seville
+
+------------------------
+3-41 feladatok
+------------------------
+
+3	mv hf1.tar hf1
+4	tar -xvf hf1.tar -C ~/hf1
+
+5	cd ~/hf1 
+	ls -laR
+
+6	ls -ltrh
+7	ls ~/hf1/olasz vagy ls ./olasz
+8	ls ???????
+9	ls ??[cde]*
+10	ls [^ef]*
+11	ls *[e]
+12	ls /
+13	ls -r ~
+14	cd ..
+15	cd ./dodge vagy cd dodge
+16	cd ~
+17	cd /
+18	cd ~/hf1/olasz
+19	cd ../francia
+20	cp ~/hf1/.rejtett látható ~/hf1
+21	cp ~/hf1/látható ~/hf1/francia/Renault
+22	cp -rf ~/hf1/ ~/hf1/német/bmw		Nem futott végig!
+
+23	cd ~/hf1/amerikai
+	cp -r ./Cadillac gm
+24	cp -r ./amerikai ./német/audi
+25	mv ketkilobyte kétkilobájt
+26	mv kétkilobájt .kétkilobájt
+27	mv .kétkilobájt ~/hf1/olasz/fiat
+28	ln ~/hf1/byte ezisabyte
+29	ln -s ~/hf1/byte ~/hf1/német/mercedes/ittabyte
+30	chmod -Rv go-rwx ~/hf1/amerikai/cadillac/e*
+31	chmod -Rv g+x ~/hf1/amerikai/cadillac/*e
+32	chmod -v g-rwx ~/hf1/amerikai/cadillac/allante
+33	chmod -v g=rwx ~/hf1/amerikai/cadillac/fleetwood
+34	chmod -Rv u=rx g=wx o=r ~/hf1/amerikai/cadillac/Seville
+
+35	zip -r ~/hf1/amerikai ~/hf1/amerikai * 
+Az output pl:  adding: fleetwood (stored 0%), 
+0% a tömörítés mértékét jelenti, a többi pedig hogy hozzá lett adva a fájlnév ha nem szertnénk ezt a kimenetet akkor a -q (quiet) módot lehet használni.
+
+36	unzip -l ~/hf1/amerikai.zip 
+vagy részletes listázással unzip -v ~/hf1/amerikai.zip
+
+37	tar -cvjf ~/hf1.bz2 -C ~/hf1 .
+38	tar -tf ~/hf1.bz2
+39	rm -r ~/hf1
+40	rm ~/hf1.bz2
+41	logout
+
+
+chmod (bitmappal)
+	4	2	1
+0 	- 	- 	- 	nincs jogosultság
+1 	- 	- 	x 	végrehajtási jog
+2 	- 	w 	- 	írás jog
+3 	- 	w 	x 	írás, végrehajtás jog
+4 	r 	- 	- 	olvasási jog
+5 	r 	- 	x 	olvasás, végrehajtás jog
+6 	r 	w 	- 	olvasás, írás jog
+7 	r 	w 	x 	minden jog 
+
+
+
+
+

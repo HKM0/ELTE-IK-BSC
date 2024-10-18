@@ -1,0 +1,31 @@
+/ 	root a könyvtárfa kiindulópontja,legfelső szintje a könyvtárszerkezetnek
+.	a munkakönyvtár
+.. 	a munkakönyvtár szülőkönyvtára
+~ 	a felhasználó saját könyvtára (home)
+
+könyvtáraknál a / jelet hasznnáljuk mint elválasztójel.
+
+abszolút hivatkozás: a gyökérhez viszonyítva adjuk meg a teljes elérési utat. / jellel kezdődik mint a gyökértár
+	pl: /gyömülcs/körte/public
+
+Relatív hivatkozás: A munkakönyvtárhoz viszonyíta adjuk mneg az elérési utat. 
+	pl: ../../ka
+
+
+?[kl]* 		a mádosik karakteren vagy k vagy l áll, utána bármi.
+*b* 		van benne b
+*[kl]*		van benne karakter pozíció ahol k vagy l
+??[!an]*	minimum 3 karakter hosszúságú és a harmadik helyen nem állhat a vagy n.
+
+
+Adott mappa megnyitása a WinSCP ből ami a homeba lett rakkva (a public mellé):
+	~/szamrend/(mappanev)/
+
+ls -laR		mindent részletesen listáz
+cp 		másolás de könyvtár esetám kell a -r mint rekurív másolás
+
+Házifeladat:
+	-mv parancs és a többi kipróbálása és gyakorlása.
+
+
+

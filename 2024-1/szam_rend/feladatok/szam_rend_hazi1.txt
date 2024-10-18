@@ -1,0 +1,8 @@
+date "+%y/%m/%d %H-%M-%S"
+
+date "+Ma %A, a hét %u. napja van. Időszámítás szerint %Y. év %B havának %d. napja. Ez az év %V. hete és %j. napja!"
+
+who 
+(de ha a valaha bejelentkezett kell akkor getent passwd)
+
+logout
