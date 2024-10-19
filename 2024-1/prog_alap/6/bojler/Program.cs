@@ -12,7 +12,7 @@ namespace Bojler
             public int fiz;
         }
 
-        static int maxkor(BeAdat[] k)
+        static int maxkor(int dolgozokszama, BeAdat[] k)
         {
             int Z = 0;
             for (int i = 0; i < k.Length; i++)
@@ -25,9 +25,9 @@ namespace Bojler
             return Z;
         }
 
-        static int ki40(BeAdat[] k)
+        static int ki40(int dolgozokszama, BeAdat[] k)
         {
-            for (int i = 0; i < k.Length; i++)
+            for (int i = 0; i < dolgozokszama; i++)
             {
                 if (k[i].kor > 40 && k[i].fiz < 300)
                 {
@@ -37,38 +37,43 @@ namespace Bojler
             return -1;
         }
 
-        static int hanyfele(int n,BeAdat[] k)
+        static int hanyfele(int n, BeAdat[] k)
         {
-            int Z = 0;
-                for (int i = 0; i < n; i++)
+            int z = 0;
+            for (int i = 0; i < n; i++)
+            {
+                bool egyedi = true;
+                for (int j = 0; j < i; j++)
                 {
-                    for (int j = 0; j < k[i].kor; j++)
+                    if (k[i].kor == k[j].kor)
                     {
-                        if (k[i].kor == k[j].kor)
-                        {
-                            Z += 1;
-                        }
-
+                        egyedi = false;
+                        break;
                     }
                 }
-            
-            return Z - (Z - n);
-        }
-
-        static void kik30(BeAdat[] k)
-        {
-            int Z = 0;
-            for (int i = 0; i > k.Length; i++)
-            {
-                if (k[i].kor < 30 && k[i].kor != 0)
+                if (egyedi)
                 {
-                    Z ++;
+                    z++;
                 }
             }
-            Console.Write($"\n{Z}");
-            for (int i = 0; i < k.Length; i++)
+            return z;
+        }
+
+
+        static void kik30(int dolgozokszama, BeAdat[] k)
+        {
+            int Z = 0;
+            for (int i = 0; i < dolgozokszama; i++)
             {
-                if (k[i].kor < 30 && k[i].kor !=0)
+                if (k[i].kor < 30)
+                {
+                    Z = Z+1;
+                }
+            }
+            Console.Write($"{Z} darab:");
+            for (int i = 0; i < dolgozokszama; i++)
+            {
+                if (k[i].kor < 30)
                 {
                     Console.Write($" {i + 1}");
                 }
@@ -80,10 +85,10 @@ namespace Bojler
             BeAdat[] k = new BeAdat[MaxN];
 
             // Beolvasás
-            Console.WriteLine("Kérem a dolgozók számát: ");
+            Console.Error.WriteLine("Kérem a dolgozók számát: ");
             int dolgozokszama = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Kérem az adatokat, soronként: [kor] [fizetes]");
+            Console.Error.WriteLine("Kérem az adatokat, soronként: [kor] [fizetes]");
             for (int i = 0; i < dolgozokszama; i++)
             {
                 string[] tmp = Console.ReadLine().Split(' ');
@@ -92,20 +97,20 @@ namespace Bojler
             }
 
             // Beolvasás teszt
-            Console.WriteLine($"Összesen {dolgozokszama} darab munkás van");
+            Console.Error.WriteLine($"Összesen {dolgozokszama} darab munkás van");
             for (int j = 0; j < dolgozokszama; j++)
             {
-                Console.WriteLine($"Kor: {k[j].kor}, Fizetés: {k[j].fiz}");
+                Console.Error.WriteLine($"Kor: {k[j].kor}, Fizetés: {k[j].fiz}");
             }
 
             // Feladat megoldás
             //legidosebb kora
-            Console.WriteLine($"Legidősebb dolgozó kora: {maxkor(k)}");
+            Console.WriteLine($"Legidősebb dolgozó kora: {maxkor(dolgozokszama, k)}");
             //40 feletti aki 400 at keres
-            int kiindex = ki40(k);
+            int kiindex = ki40(dolgozokszama, k);
             if (kiindex != -1)
             {
-                Console.WriteLine($"Az első dolgozó, aki 40 év feletti és fizetése 300 alatt: {kiindex + 1}");
+                Console.WriteLine($"Az első dolgozó, aki 40 év feletti és fizetése 300 alatt: {kiindex + 1}.");
             }
             else
             {
@@ -115,8 +120,8 @@ namespace Bojler
             Console.WriteLine($"Különböző korú dolgozók száma: {hanyfele(dolgozokszama,k)}");
 
             //30 ev alattiak
-            Console.WriteLine("30 év feletti dolgozók:");
-            kik30(k);
+            Console.WriteLine("30 év alatti dolgozók:");
+            kik30(dolgozokszama,k);
         }
     }
 }
