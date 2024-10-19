@@ -1,0 +1,15 @@
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Debug\net6.0\KomplexBeadandoFeladatRendes.exe
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Debug\net6.0\KomplexBeadandoFeladatRendes.deps.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Debug\net6.0\KomplexBeadandoFeladatRendes.runtimeconfig.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Debug\net6.0\KomplexBeadandoFeladatRendes.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Debug\net6.0\KomplexBeadandoFeladatRendes.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\KomplexBeadandoFeladatRendes.csproj.AssemblyReference.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\KomplexBeadandoFeladatRendes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\KomplexBeadandoFeladatRendes.AssemblyInfoInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\KomplexBeadandoFeladatRendes.AssemblyInfo.cs
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\KomplexBeadandoFeladatRendes.csproj.CoreCompileInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\KomplexBeadandoFeladatRendes.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\refint\KomplexBeadandoFeladatRendes.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\KomplexBeadandoFeladatRendes.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\KomplexBeadandoFeladatRendes.genruntimeconfig.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\obj\Debug\net6.0\ref\KomplexBeadandoFeladatRendes.dll

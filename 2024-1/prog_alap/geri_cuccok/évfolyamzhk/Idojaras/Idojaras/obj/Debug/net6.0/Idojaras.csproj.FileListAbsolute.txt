@@ -1,0 +1,15 @@
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\bin\Debug\net6.0\Idojaras.exe
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\bin\Debug\net6.0\Idojaras.deps.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\bin\Debug\net6.0\Idojaras.runtimeconfig.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\bin\Debug\net6.0\Idojaras.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\bin\Debug\net6.0\Idojaras.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\Idojaras.csproj.AssemblyReference.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\Idojaras.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\Idojaras.AssemblyInfoInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\Idojaras.AssemblyInfo.cs
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\Idojaras.csproj.CoreCompileInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\Idojaras.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\refint\Idojaras.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\Idojaras.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\Idojaras.genruntimeconfig.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Idojaras\Idojaras\obj\Debug\net6.0\ref\Idojaras.dll

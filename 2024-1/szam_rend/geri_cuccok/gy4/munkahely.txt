@@ -1,0 +1,6 @@
+Arany János Iskola,1010 Budapest,5,3
+Móricz Zsigmond Gimnázium,1111 Budapest,0,9
+Petőfi Sándor Iskola,1091 Budapest,9,0
+Ady Endre Gimnázium,1101 Budapest,3,3
+Kukorica János Iskola,1123 Budapest,7,1
+Ferenc József Általános- és középiskola,1111 Budapest,0,10

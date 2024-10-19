@@ -1,0 +1,15 @@
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\bin\Debug\net6.0\UjNemzetiKivalosagProgram.exe
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\bin\Debug\net6.0\UjNemzetiKivalosagProgram.deps.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\bin\Debug\net6.0\UjNemzetiKivalosagProgram.runtimeconfig.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\bin\Debug\net6.0\UjNemzetiKivalosagProgram.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\bin\Debug\net6.0\UjNemzetiKivalosagProgram.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\UjNemzetiKivalosagProgram.csproj.AssemblyReference.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\UjNemzetiKivalosagProgram.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\UjNemzetiKivalosagProgram.AssemblyInfoInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\UjNemzetiKivalosagProgram.AssemblyInfo.cs
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\UjNemzetiKivalosagProgram.csproj.CoreCompileInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\UjNemzetiKivalosagProgram.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\refint\UjNemzetiKivalosagProgram.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\UjNemzetiKivalosagProgram.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\UjNemzetiKivalosagProgram.genruntimeconfig.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\UjNemzetiKivalosagProgram\UjNemzetiKivalosagProgram\obj\Debug\net6.0\ref\UjNemzetiKivalosagProgram.dll

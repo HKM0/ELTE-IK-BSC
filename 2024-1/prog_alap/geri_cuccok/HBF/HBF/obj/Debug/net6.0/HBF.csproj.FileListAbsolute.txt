@@ -1,0 +1,15 @@
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\bin\Debug\net6.0\HBF.exe
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\bin\Debug\net6.0\HBF.deps.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\bin\Debug\net6.0\HBF.runtimeconfig.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\bin\Debug\net6.0\HBF.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\bin\Debug\net6.0\HBF.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\HBF.csproj.AssemblyReference.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\HBF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\HBF.AssemblyInfoInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\HBF.AssemblyInfo.cs
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\HBF.csproj.CoreCompileInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\HBF.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\refint\HBF.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\HBF.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\HBF.genruntimeconfig.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\HBF\HBF\obj\Debug\net6.0\ref\HBF.dll

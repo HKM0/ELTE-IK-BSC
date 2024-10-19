@@ -1,0 +1,15 @@
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\bin\Debug\net6.0\Emberek.exe
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\bin\Debug\net6.0\Emberek.deps.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\bin\Debug\net6.0\Emberek.runtimeconfig.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\bin\Debug\net6.0\Emberek.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\bin\Debug\net6.0\Emberek.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\Emberek.csproj.AssemblyReference.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\Emberek.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\Emberek.AssemblyInfoInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\Emberek.AssemblyInfo.cs
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\Emberek.csproj.CoreCompileInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\Emberek.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\refint\Emberek.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\Emberek.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\Emberek.genruntimeconfig.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Emberek\Emberek\obj\Debug\net6.0\ref\Emberek.dll

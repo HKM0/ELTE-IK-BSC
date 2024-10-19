@@ -1,0 +1,3 @@
+Arany,1111 Budapest,1,5
+Petofi,1123 Budapest,6,5
+Radnoti,1234 Budapest,6,7

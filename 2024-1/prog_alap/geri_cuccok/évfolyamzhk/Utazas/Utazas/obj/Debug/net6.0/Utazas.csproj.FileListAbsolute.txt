@@ -1,0 +1,15 @@
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\bin\Debug\net6.0\Utazas.exe
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\bin\Debug\net6.0\Utazas.deps.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\bin\Debug\net6.0\Utazas.runtimeconfig.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\bin\Debug\net6.0\Utazas.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\bin\Debug\net6.0\Utazas.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\Utazas.csproj.AssemblyReference.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\Utazas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\Utazas.AssemblyInfoInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\Utazas.AssemblyInfo.cs
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\Utazas.csproj.CoreCompileInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\Utazas.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\refint\Utazas.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\Utazas.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\Utazas.genruntimeconfig.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\Utazas\Utazas\obj\Debug\net6.0\ref\Utazas.dll

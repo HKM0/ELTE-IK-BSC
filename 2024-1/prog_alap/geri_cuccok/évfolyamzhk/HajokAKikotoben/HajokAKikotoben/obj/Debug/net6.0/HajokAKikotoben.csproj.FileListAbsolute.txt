@@ -1,0 +1,15 @@
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\bin\Debug\net6.0\HajokAKikotoben.exe
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\bin\Debug\net6.0\HajokAKikotoben.deps.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\bin\Debug\net6.0\HajokAKikotoben.runtimeconfig.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\bin\Debug\net6.0\HajokAKikotoben.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\bin\Debug\net6.0\HajokAKikotoben.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\HajokAKikotoben.csproj.AssemblyReference.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\HajokAKikotoben.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\HajokAKikotoben.AssemblyInfoInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\HajokAKikotoben.AssemblyInfo.cs
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\HajokAKikotoben.csproj.CoreCompileInputs.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\HajokAKikotoben.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\refint\HajokAKikotoben.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\HajokAKikotoben.pdb
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\HajokAKikotoben.genruntimeconfig.cache
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\évfolyamzhk\HajokAKikotoben\HajokAKikotoben\obj\Debug\net6.0\ref\HajokAKikotoben.dll

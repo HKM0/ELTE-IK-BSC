@@ -1,0 +1,5 @@
+Fűzfa fütyülő kft,1111 Budapest Ökör utca 6,5,4
+Fűzfa fütyülő kft2,1111 Budapest Ökör utca 6,0,3
+Fűzfa fütyülő kft3,1111 Budapest Ökör utca 6,5,3
+Fűzfa fütyülő kft4,1111 Budapest Ökör utca 6,1,3
+Fűzfa fütyülő kft5,1111 Budapest Ökör utca 6,5,3

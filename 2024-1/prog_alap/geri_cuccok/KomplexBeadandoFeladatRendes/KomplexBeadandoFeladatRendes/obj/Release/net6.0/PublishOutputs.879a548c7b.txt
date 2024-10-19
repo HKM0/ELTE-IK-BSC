@@ -1,0 +1,5 @@
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Release\net6.0\KomplexBeadandoFeladatRendes.exe
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Release\net6.0\KomplexBeadandoFeladatRendes.dll
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Release\net6.0\KomplexBeadandoFeladatRendes.deps.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Release\net6.0\KomplexBeadandoFeladatRendes.runtimeconfig.json
+C:\Users\gergo\OneDrive\Fontos\Gergő\Házi\ELTE\Prog.alap\KomplexBeadandoFeladatRendes\KomplexBeadandoFeladatRendes\bin\Release\net6.0\KomplexBeadandoFeladatRendes.pdb
