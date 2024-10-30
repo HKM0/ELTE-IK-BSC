@@ -16,29 +16,28 @@ namespace esos_napok_szama
             int[] ml = new int[MaxN];
 
             //Beolvasás
-            bool nHibas = false;
+            bool hibas = false;
             do
             {
                 Console.Error.Write("Napok száma: ");
-                nHibas = ((!Int32.TryParse(Console.ReadLine(), out n)) || (n < 0) || (n > 100));
-                if (nHibas)
+                hibas = ((!Int32.TryParse(Console.ReadLine(), out n)) || (n < 0) || (n > 100));
+                if (hibas)
                 {
                     Console.Error.WriteLine("Hiba! 0 és 100 közötti egész számot adjon meg.");
                 }
-            } while (nHibas);
+            } while (hibas);
 
             for (int i = 0; i < n; i++)
             {
-                bool mlHibas = false;
                 do
                 {
                     Console.Error.Write("{0}. nap: ", i + 1);
-                    mlHibas = ((!Int32.TryParse(Console.ReadLine(), out ml[i])) || (ml[i] < 0) || (ml[i] > 1000));
-                    if (mlHibas)
+                    hibas = ((!Int32.TryParse(Console.ReadLine(), out ml[i])) || (ml[i] < 0) || (ml[i] > 1000));
+                    if (hibas)
                     {
                         Console.Error.WriteLine("Hiba! 0 és 1000 közötti egész számot adjon meg.");
                     }
-                } while (mlHibas);
+                } while (hibas);
             }
 
             //Feldolgozás
