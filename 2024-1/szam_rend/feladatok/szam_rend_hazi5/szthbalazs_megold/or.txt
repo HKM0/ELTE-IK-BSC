@@ -1,0 +1,19 @@
+Tartalmazzak or-t:
+orrszarvu
+traktor
+orv
+oszlopsor
+kor
+kortalan
+orator
+
+or-ral kezdodnek:
+orrszarvu
+orv
+orator
+
+or-ral vegzodnek:
+traktor
+oszlopsor
+kor
+orator
