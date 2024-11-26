@@ -1,0 +1,28 @@
+   9 Get-Help ls                                                                                                                                                
+  10 Get-ChildItem                                                                                                                                              
+  11 Get-Help date                                                                                                                                              
+  12 Get-Date                                                                                                                                                   
+  13 Get-Help tr                                                                                                                                                
+  14 Write-Output 1,2,"a","b"                                                                                                                                   
+  15 Write-Output 1,2,"a"+"b"                                                                                                                                   
+  16 Write-Output 1,2,"a","b"                                                                                                                                   
+  17 Write-Output (-join(1,2,"a","b"))                                                                                                                          
+  18 Write-Output ("a"-join(1,2,"a","b"))                                                                                                                       
+  19 Write-Output ("a",-join(1,2,"a","b"))                                                                                                                      
+  21 Write-Host Hello $args[0]...                                                                                                                               
+  22 .\helloparam.ps1                                                                                                                                           
+  23 .\helloparam.ps1 Józsi                                                                                                                                 
+  26 Write-Output(-join(.\helloparam.ps1 "József Attila Kecske"))                                                                                            
+  28 .\helloparam.ps1 1 2 3                                                                                                                                     
+  31 .\param2.ps1 2                                                                                                                                             
+  32 .\param2.ps1 2 3 4                                                                                                                                         
+  33 .\param2.ps1 34                                                                                                                                            
+  39 .\param2.ps1 egér                                                                                                                                          
+  55 .\feladat2.ps1 kommandok.txt                                                                                                                               
+  56 .\feladat2.ps1 kommandok.txt                                                                                                                               
+  59 Get-Help get-content -Detailed                                                                                                                             
+  60 .\feladat4.ps1 kommandok.txt                                                                                                                               
+  69 .\feladat5.ps1 test.txt                                                                                                                                    
+  70 .\feladat5.ps1 kommandok.txt                                                                                                                               
+  78 .\feladat6.ps1 test.txt                                                                                                                                    
+  79 Get-Help echo                                                                                                                                              
