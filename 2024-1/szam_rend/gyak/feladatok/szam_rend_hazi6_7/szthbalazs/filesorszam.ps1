@@ -1,0 +1,1 @@
+﻿Get-Content $args[0] | Measure-Object -Line | Select-Object lines | Format-List
