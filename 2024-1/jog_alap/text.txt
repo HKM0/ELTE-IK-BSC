@@ -33,20 +33,6 @@ B) Az erkölcsi normák szankciórendszerét a társadalmi nyomás jellemzi.
 C) A jogi norma az emberek formális magatartására irányul.
 D) Mindhárom előző állítás igaz.
 A
-5/A.
-Hányféle módját ismerjük a jogképződésnek, a jogi normák létrejöttének? Sorolja is fel ezeket.
-A) 2
-B) 3 szokásjogi, jogalkalmazói (bírói), jogalkotói
-C) 4
-D) 5
-B
-5/B.
-Melyik jogképződési mód során jön létre a precedensjog?
-A) Szokásjogi jogképződés útján.
-B) Jogalkalmazói jogképződés útján.
-C) Jogalkotói jogképződés útján.
-D) Megyegyezés útján.
-B
 6.
 A jog melyik funkciójának megvalósítását biztosítja elsősorban a bírósági szervezet?
 A) Az integráló funkciót.
@@ -54,13 +40,6 @@ B) A konfliktus-feloldó funkciót.
 C) A társadalomszervező funkciót.
 D) Egyik funkció megvalósítását sem biztosítja.
 B
-6/A.
-A jog melyik funkciójának megvalósítását biztosítják elsősorban a közigazgatási hatóságok?
-A) Az integráló funkciót.
-B) A konfliktus-feloldó funkciót.
-C) A társadalomszervező funkciót.
-D) Egyik funkció megvalósítását sem biztosítják.
-C
 7.
 Az alábbi 3 állítás (a,b,c) közül melyik hamis?
 A) Az anyagi jogforrás azt a szervet jelenti, amelytől a jogi norma ered.
@@ -75,13 +54,6 @@ B) A speciális jogszabályt kell alkalmazni az általánossal szemben.
 C) Alacsonyabb szintű jogszabály nem ellenkezhet magasabb szintűvel.
 D) Jogszabállyal ellentétes másik jogszabályt nem lehet alkotni.
 C
-8/A.
-Mit mond ki a "Lex posterior derogat legi priori" alapelv?
-A) A később megalkotott jogszabály a korábbinak a hatályát lerontja.
-B) A speciális jogszabályt kell alkalmazni az általánossal szemben.
-C) Alacsonyabb szintű jogszabály nem ellenkezhet magasabb szintűvel.
-D) Jogszabállyal ellentétes másik jogszabályt nem lehet alkotni.
-A
 9.
 Az alábbi jogszabályok közül melyik tartozik az anyagi jog körébe?
 A) A büntetőeljárásról szóló törvény.
@@ -110,20 +82,6 @@ B) A büntetőjog a magánjog területéhez tartozik.
 C) A kereskedelmi jog a magánjog területéhez tartozik.
 D) A közigazgatási jog a magánjog területéhez tartozik.
 C
-12/A.
-Mit nevezünk joghézagnak?
-A) Amikor a bíróság nem tud választani két alkalmazandó jogszabály közül.
-B) Amikor két jogszabály egymásnak ellentmondó.
-C) Amikor a jog nem tartalmaz választ egy adott kérdésre.
-D) Amikor nincs olyan bíróság, amelyik dönthetne egy adott kérdésben.
-C
-12/B.
-Melyik jogág szabályozási körébe tartozik a gyülekezési jog?
-A) Polgári jog.
-B) Alkotmányjog.
-C) Munkajog.
-D) Közigazgatási jog.
-B
 13.
 Melyik állítás igaz az angolszász jogrendszerekre?
 A) A jogalkotás és jogalkalmazás szférája mereven elválik egymástól.
@@ -271,13 +229,6 @@ B) A törvényszék.
 C) Az ítélőtábla.
 D) A Kúria.
 D
-33/A 
-Mely szerv biztosítja a bíróságok egységes jogalkalmazását?
-A) Az alkotmánybíróság.
-B) Az ítélőtábla.
-C) A Kúria.
-D) Egyik sem.
-C
 34.
 Melyik nem tartozik a jogszabály értelmezésének módszerei közé?
 A) A rendszertani értelmezés.
@@ -313,13 +264,6 @@ B) Az egyesület.
 C) A társasház.
 D) Mindegyik rendelkezik.
 C
-38/A.
-Az alábbiak (a,b,c) közül melyik nem rendelkezik jogi személyiséggel?
-A) Az Állam.
-B) Az egyesület.
-C) Az egyetem.
-D) Mindegyik rendelkezik.
-D
 39.
 Melyik állítás igaz?
 A) Együttes kötelezettek bármelyikétől az egész tartozás követelhető.
@@ -530,13 +474,6 @@ B) A betéti társaság.
 C) A részvénytársaság.
 D) Mindegyik rendelkezik.
 D
-68/A.
-Az alábbiak közül melyik szervezet nem rendelkezik jogi személyiséggel?
-A) A korlátolt felelősségű társaság.
-B) Az egyéni cég.
-C) A részvénytársaság.
-D) Mindegyik rendelkezik.
-B
 69.
 Az alábbiak közül melyik nem lehet apport gazdasági társaság alapítása során?
 A) Egy személyautó.
@@ -705,13 +642,6 @@ B) Magyar Ügyvédi Kamara
 C) Magyar Labdarúgó Szövetség
 D) Mindhárom köztestület
 C
-92/A.
-Az alábbiak közül (a,b,c) melyik nem köztestület?
-A) Magyar Tudományos Akadémia
-B) Magyar Ügyvédi Kamara
-C) Magyar Kereskedelmi és Iparkamara
-D) Mindhárom köztestület
-D
 93.
 Az alábbiak közül melyik nem lehet közhasznú státuszú?
 A) A köztestület.
@@ -1342,13 +1272,6 @@ B) A helyesbítéshez való joggal.
 C) Az előzetes tájékozódáshoz való joggal.
 D) Mindhárom fenti joggal rendelkezik.
 D
-182/A.
-Az alábbi állítások közül melyik hamis?
-A) A NAIH elnökét a köztársasági elnök nevezi ki 9 évre.
-B) Az adatigénylésnek a közfeladatot ellátó szerv 15 napon belül köteles eleget tenni.
-C) Az adatigénylés költségtérítése a kézbesítés költségét nem tartalmazhatja.
-D) Adatigénylés benyújtása esetén a jogi képviselet nem kötelező.
-C
 183.
 Az alábbiak közül melyik alkotás nem áll a szerzői jog védelme alatt?
 A) Ötlet, eljárás.
@@ -1377,3 +1300,80 @@ B) 20 évig.
 C) A szabadalmas élete végéig.
 D) A szabadalmas életében és halála után 20 évig.
 B
+187.
+Mely szerv biztosítja a bíróságok egységes jogalkalmazását?
+A) Az alkotmánybíróság.
+B) Az ítélőtábla.
+C) A Kúria.
+D) Egyik sem.
+C
+188.
+Az alábbi állítások közül melyik hamis?
+A) A NAIH elnökét a köztársasági elnök nevezi ki 9 évre.
+B) Az adatigénylésnek a közfeladatot ellátó szerv 15 napon belül köteles eleget tenni.
+C) Az adatigénylés költségtérítése a kézbesítés költségét nem tartalmazhatja.
+D) Adatigénylés benyújtása esetén a jogi képviselet nem kötelező.
+C
+189.
+Melyik jogképződési mód során jön létre a precedensjog?
+A) Szokásjogi jogképződés útján.
+B) Jogalkalmazói jogképződés útján.
+C) Jogalkotói jogképződés útján.
+D) Megyegyezés útján.
+B
+190.
+Hányféle módját ismerjük a jogképződésnek, a jogi normák létrejöttének? Sorolja is fel ezeket.
+A) 2
+B) 3 szokásjogi, jogalkalmazói (bírói), jogalkotói
+C) 4
+D) 5
+B
+191.
+Az alábbiak közül (a,b,c) melyik nem köztestület?
+A) Magyar Tudományos Akadémia
+B) Magyar Ügyvédi Kamara
+C) Magyar Kereskedelmi és Iparkamara
+D) Mindhárom köztestület
+D
+192.
+Az alábbiak közül melyik szervezet nem rendelkezik jogi személyiséggel?
+A) A korlátolt felelősségű társaság.
+B) Az egyéni cég.
+C) A részvénytársaság.
+D) Mindegyik rendelkezik.
+B
+193.
+Az alábbiak (a,b,c) közül melyik nem rendelkezik jogi személyiséggel?
+A) Az Állam.
+B) Az egyesület.
+C) Az egyetem.
+D) Mindegyik rendelkezik.
+D
+194.
+Melyik jogág szabályozási körébe tartozik a gyülekezési jog?
+A) Polgári jog.
+B) Alkotmányjog.
+C) Munkajog.
+D) Közigazgatási jog.
+B
+195.
+Mit nevezünk joghézagnak?
+A) Amikor a bíróság nem tud választani két alkalmazandó jogszabály közül.
+B) Amikor két jogszabály egymásnak ellentmondó.
+C) Amikor a jog nem tartalmaz választ egy adott kérdésre.
+D) Amikor nincs olyan bíróság, amelyik dönthetne egy adott kérdésben.
+C
+196.
+A jog melyik funkciójának megvalósítását biztosítják elsősorban a közigazgatási hatóságok?
+A) Az integráló funkciót.
+B) A konfliktus-feloldó funkciót.
+C) A társadalomszervező funkciót.
+D) Egyik funkció megvalósítását sem biztosítják.
+C
+197.
+Mit mond ki a "Lex posterior derogat legi priori" alapelv?
+A) A később megalkotott jogszabály a korábbinak a hatályát lerontja.
+B) A speciális jogszabályt kell alkalmazni az általánossal szemben.
+C) Alacsonyabb szintű jogszabály nem ellenkezhet magasabb szintűvel.
+D) Jogszabállyal ellentétes másik jogszabályt nem lehet alkotni.
+A

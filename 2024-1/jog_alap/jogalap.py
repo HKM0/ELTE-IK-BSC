@@ -92,15 +92,18 @@ class QuizApp(ctk.CTk):
         with open(KERDES_FAJL, "r", encoding="utf-8") as f:
             sorok = f.read().strip().split("\n")
         kerdesek = []
-        for i in range(0, len(sorok), 5):
+        i = 0
+        while i < len(sorok):
             try:
-                kerdes_szoveg = sorok[i].strip()
-                valaszok = sorok[i+1:i+5]
-                helyes = sorok[i+5].strip()
+                kerdes_szam = sorok[i].strip()
+                kerdes_szoveg = sorok[i + 1].strip()
+                valaszok = [sorok[i + 2].strip(), sorok[i + 3].strip(), sorok[i + 4].strip(), sorok[i + 5].strip()]
+                helyes = sorok[i + 6].strip()
                 if len(valaszok) == 4 and helyes in "ABCD":
                     kerdesek.append((kerdes_szoveg, valaszok, helyes))
+                i += 7
             except:
-                pass
+                i += 1
         return kerdesek
 
     def betolt_haladas(self):
