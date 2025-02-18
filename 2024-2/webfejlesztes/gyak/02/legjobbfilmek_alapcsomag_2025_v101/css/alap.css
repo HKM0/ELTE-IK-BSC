@@ -1,0 +1,211 @@
+/* General Styles */
+html {
+    background-image     : url("../media/hatter.jpg");
+    background-attachment: fixed;
+    background-size      : cover;
+    background-color     : #272822;
+}
+
+body {
+    font-family     : Arial, sans-serif;
+    margin          : 20px auto;
+    padding         : 10px 20px;
+    background-color: #f9f9f9;
+    color           : #333;
+    line-height     : 1.6;
+    border-radius   : 10px;
+    border          : 2px solid black;
+    max-width       : 1000px;
+    box-shadow      : 5px 5px 10px black;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align      : center;
+    background-color: #724b39;
+    padding         : 10px;
+    color           : white;
+    text-shadow     : 3px 5px 6px black;
+    border-radius   : 5px 5px 0 0;
+}
+
+h2 {
+    color: rgb(110, 54, 54)
+}
+
+main h2:before {
+    content      : '🎞️';
+    padding-right: 10px;
+}
+
+h2.forras:before {
+    content      : '📚';
+    padding-right: 10px;
+}
+
+h3 {
+    margin-left: 10px;
+    color      : darkslategray;
+}
+
+h3+p {
+    margin-left: 10px;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 15px;
+}
+
+/* Images */
+img {
+    max-width    : 100%;
+    height       : auto;
+    display      : block;
+    margin       : 10px auto;
+    border-radius: 5px;
+    box-shadow   : 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Audio and Video */
+audio,
+video {
+    display  : block;
+    margin   : 15px auto;
+    max-width: 100%;
+}
+
+/* Code Blocks */
+pre {
+    background   : #272822;
+    color        : #f8f8f2;
+    padding      : 15px;
+    border-radius: 5px;
+    overflow-x   : auto;
+}
+
+code {
+    font-family: "Courier New", monospace;
+}
+
+/*  Text alignment */
+p {
+    text-align: justify;
+}
+
+figcaption {
+    text-align: center;
+}
+
+footer p {
+    text-align: center;
+}
+
+/*  Tables  */
+table,
+td,
+th {
+    border : 1px solid gray;
+    padding: 5px;
+}
+
+table {
+    border-collapse : collapse;
+    background-color: lightgray;
+    caption-side    : bottom;
+}
+
+/* Navigation */
+nav#fomenu {
+    font-size     : 1.3rem;
+    text-transform: uppercase;
+}
+
+nav#fomenu a {
+    padding: 0 10px;
+}
+
+nav#tartalomra a {
+    position: absolute;
+    left    : -9999px;
+}
+
+nav#tartalomra a:focus {
+    position: static;
+}
+
+nav#fomenu p {
+    text-align: center;
+}
+
+/* Special blocks */
+div#bevezeto {
+    border          : 1px dotted gray;
+    padding         : 10px;
+    background-color: #faf4e3;
+    column-count    : 2;
+    column-gap      : 30px;
+    border-radius   : 5px;
+}
+
+div#bevezeto ol {
+    padding-left: 0;
+    margin-left : 20px;
+}
+
+div#bevezeto li:before {
+    content      : '🎞️';
+    padding-right: 10px;
+}
+
+iframe {
+    display: block;
+    margin : 0 auto;
+    width  : 100%;
+    border : none;
+}
+
+hr {
+    border-top: 2px dashed #5e5e5e;
+    margin    : 20px 0 10px 0;
+}
+
+/* Responsive Design */
+@media (min-width: 769px) {
+    table {
+        float      : right;
+        margin-left: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    img,
+    video,
+    audio {
+        max-width: 100%;
+    }
+
+    div#bevezeto {
+        column-count: 1;
+    }
+
+    table {
+        float : none;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+}
