@@ -1,6 +1,6 @@
 # Fontos tudnivalók
 
-**A 2,4,6,7. feladat változik kitöltésenként!**
+**A 1,2,4,6,7. feladat változik kitöltésenként!**
 
 **ELdöntések:**
 ## 1. 
