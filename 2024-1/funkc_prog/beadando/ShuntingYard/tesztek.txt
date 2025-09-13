@@ -1,0 +1,636 @@
+-- test basicInstances points: 0
+show BrckOpen == "BrckOpen"
+show BrckClose == "BrckClose"
+show (TokLit 1) == "TokLit 1"
+show (TokLit True) == "TokLit True"
+show (TokBinOp (+) '+' 6 InfixL) == "TokBinOp '+' 6 InfixL"
+show (TokBinOp (**) '^' 8 InfixR) == "TokBinOp '^' 8 InfixR"
+BrckOpen == BrckOpen
+BrckOpen /= BrckClose
+BrckClose == BrckClose
+BrckClose /= BrckOpen
+(TokLit 1) == (TokLit 1)
+(TokLit "almafa") == (TokLit "almafa")
+(TokLit "alma") /= (TokLit "almafa")
+(TokLit 2) /= (TokLit 1)
+(TokBinOp (+) '+' 6 InfixL) == (TokBinOp (+) '+' 6 InfixL)
+(TokBinOp (+) '+' 6 InfixL) == (TokBinOp (*) '+' 6 InfixL)
+(TokBinOp (**) '^' 8 InfixR) == (TokBinOp (**) '^' 8 InfixR)
+(TokBinOp (+) '+' 6 InfixL) /= (TokBinOp (+) '*' 6 InfixL)
+(TokBinOp (+) '+' 6 InfixL) /= (TokBinOp (+) '+' 7 InfixL)
+(TokBinOp (+) '+' 6 InfixL) /= (TokBinOp (+) '+' 6 InfixR)
+(TokBinOp (**) '^' 8 InfixR) /= (TokBinOp (+) '+' 6 InfixL)
+InfixL == InfixL
+InfixR == InfixR
+InfixL /= InfixR
+InfixR /= InfixL
+show InfixL == "InfixL"
+show InfixR == "InfixR"
+InfixL < InfixR
+InfixR > InfixL
+
+-- test getOp points: 0
+getOp '+' == Just tAdd
+getOp '-' == Just tMinus
+getOp '*' == Just tMul
+getOp '/' == Just tDiv
+getOp '^' == Just tPow
+getOp '#' == Nothing
+getOp '%' == Nothing
+
+-- test operatorFromChar points: 0
+operatorFromChar [] '+' == Nothing
+operatorFromChar [('+', ((/), 7, InfixL))] '+' == Just (TokBinOp (/) '+' 7 InfixL)
+operatorFromChar [('+', ((/), 7, InfixL))] 'a' == Nothing
+operatorFromChar [('*', ((*), 6, InfixR)),('+', ((/), 7, InfixL))] '*' == Just (TokBinOp (*) '*' 6 InfixR)
+operatorFromChar [('*', ((*), 6, InfixR)),('+', ((/), 7, InfixL))] '+' == Just (TokBinOp (/) '+' 7 InfixL)
+operatorFromChar [('*', ((*), 6, InfixR)),('+', ((/), 7, InfixL))] 'a' == Nothing
+operatorFromChar [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] '&' == Just (TokBinOp (&&) '&' 3 InfixL)
+operatorFromChar [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] '|' == Just (TokBinOp (||) '|' 3 InfixL)
+operatorFromChar [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] '>' == Just (TokBinOp (\x y -> case x of {True -> y; False -> True}) '>' 1 InfixR)
+operatorFromChar [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] 'a' == Nothing
+operatorFromChar [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] '+' == Nothing
+operatorFromChar [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] '-' == Nothing
+operatorFromChar (cycle [('&', ((&&), 3, InfixL)), ('|', ((||), 2, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) '>' == Just (TokBinOp (\x y -> case x of {True -> y; False -> True}) '>' 1 InfixR)
+
+-- test parse points: 0
+parse "" == Just []
+parse "   " == Just []
+parse "()" == Just [BrckOpen,BrckClose]
+parse ")(" == Just [BrckClose,BrckOpen]
+parse "1 + 2" == Just [TokLit 1, tAdd, TokLit 2]
+parse "1+2" == Nothing
+parse "  1+ 2  " == Nothing
+parse "  1    +  2    " == Just [TokLit 1, tAdd, TokLit 2]
+parse "1     + 2" == Just [TokLit 1, tAdd, TokLit 2]
+parse "1 +      2" == Just [TokLit 1, tAdd, TokLit 2]
+parse "1 + 2    " == Just [TokLit 1, tAdd, TokLit 2]
+parse "+ +" == Just [tAdd, tAdd]
+parse "   +   +   " == Just [tAdd, tAdd]
+parse "1 - ( 2 / 3 )" == Just [TokLit 1, tMinus, BrckOpen, TokLit 2, tDiv, TokLit 3, BrckClose]
+parse "((" == Just [BrckOpen, BrckOpen]
+parse "1 12 + )" == Just [TokLit 1, TokLit 12, tAdd, BrckClose]
+parse "1 # 2" == Nothing
+parse "5 * 1 % 2 + 4" == Nothing
+parse "almafa" == Nothing
+parse "( 10 * 10 ) - 12" == Just [BrckOpen,TokLit 10.0,TokBinOp (*) '*' 7 InfixL,TokLit 10.0,BrckClose,TokBinOp (-) '-' 6 InfixL,TokLit 12.0]
+parse "1 * 2 * 3 + a" == Nothing
+parse "(1 * 2 * 3) + 4" == Nothing
+parse "( (( ( 1 * 2 ) * 3 )) + 4 )" == Just [BrckOpen,BrckOpen,BrckOpen,BrckOpen,TokLit 1.0,TokBinOp (*) '*' 7 InfixL,TokLit 2.0,BrckClose,TokBinOp (*) '*' 7 InfixL,TokLit 3.0,BrckClose,BrckClose,TokBinOp (+) '+' 6 InfixL,TokLit 4.0,BrckClose]
+parse "1 + 3 +4" == Nothing
+parse "1 + 3 - -4" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,TokLit 3.0,TokBinOp (-) '-' 6 InfixL,TokLit (-4.0)]
+parse "3 + 3 * ( ) 2" == Just [TokLit 3.0,TokBinOp (+) '+' 6 InfixL,TokLit 3.0,TokBinOp (*) '*' 7 InfixL,BrckOpen,BrckClose,TokLit 2.0]
+parse "1.5 + 2" == Just [TokLit 1.5, tAdd, TokLit 2]
+parse "10 * 10 * 12" == Just [TokLit 10.0,TokBinOp (*) '*' 7 InfixL,TokLit 10.0,TokBinOp (*) '*' 7 InfixL,TokLit 12.0]
+parse "1 ^ 8 + 9 ^ 7" == Just [TokLit 1.0,TokBinOp (**) '^' 8 InfixR,TokLit 8.0,TokBinOp (+) '+' 6 InfixL,TokLit 9.0,TokBinOp (**) '^' 8 InfixR,TokLit 7.0]
+parse "( 1 + 4 ) ^ 7" == Just [BrckOpen,TokLit 1.0,TokBinOp (+) '+' 6 InfixL,TokLit 4.0,BrckClose,TokBinOp (**) '^' 8 InfixR,TokLit 7.0]
+parse "( 1 + 4 ) ^ ( 1 - 5 )" == Just [BrckOpen,TokLit 1.0,TokBinOp (+) '+' 6 InfixL,TokLit 4.0,BrckClose,TokBinOp (**) '^' 8 InfixR,BrckOpen,TokLit 1.0,TokBinOp (-) '-' 6 InfixL,TokLit 5.0,BrckClose]
+parse "( 1 + 4 ) ^ ( 1 - 5 ) + 9" == Just [BrckOpen,TokLit 1.0,TokBinOp (+) '+' 6 InfixL,TokLit 4.0,BrckClose,TokBinOp (**) '^' 8 InfixR,BrckOpen,TokLit 1.0,TokBinOp (-) '-' 6 InfixL,TokLit 5.0,BrckClose,TokBinOp (+) '+' 6 InfixL,TokLit 9.0]
+parse "( ( 1 + 4 ) ^ ( 1 - 5 ) + 9 ) * 3" == Just [BrckOpen,BrckOpen,TokLit 1.0,TokBinOp (+) '+' 6 InfixL,TokLit 4.0,BrckClose,TokBinOp (**) '^' 8 InfixR,BrckOpen,TokLit 1.0,TokBinOp (-) '-' 6 InfixL,TokLit 5.0,BrckClose,TokBinOp (+) '+' 6 InfixL,TokLit 9.0,BrckClose,TokBinOp (*) '*' 7 InfixL,TokLit 3.0]
+parse "1 + ( 3 + 5 ) / ( 2 + 4 ) + 0" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,TokLit 3.0,TokBinOp (+) '+' 6 InfixL,TokLit 5.0,BrckClose,TokBinOp (/) '/' 7 InfixL,BrckOpen,TokLit 2.0,TokBinOp (+) '+' 6 InfixL,TokLit 4.0,BrckClose,TokBinOp (+) '+' 6 InfixL,TokLit 0.0]
+parse "1 + ( 3 + 5 ) / 2 + 4 + 0" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,TokLit 3.0,TokBinOp (+) '+' 6 InfixL,TokLit 5.0,BrckClose,TokBinOp (/) '/' 7 InfixL,TokLit 2.0,TokBinOp (+) '+' 6 InfixL,TokLit 4.0,TokBinOp (+) '+' 6 InfixL,TokLit 0.0]
+parse "1 + ( 3 + 5 / 2 + 4 ) + 0" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,TokLit 3.0,TokBinOp (+) '+' 6 InfixL,TokLit 5.0,TokBinOp (/) '/' 7 InfixL,TokLit 2.0,TokBinOp (+) '+' 6 InfixL,TokLit 4.0,BrckClose,TokBinOp (+) '+' 6 InfixL,TokLit 0.0]
+parse "1 + 2 - 3 * 4 / 5 ^ 6" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,TokLit 2.0,TokBinOp (-) '-' 6 InfixL,TokLit 3.0,TokBinOp (*) '*' 7 InfixL,TokLit 4.0,TokBinOp (/) '/' 7 InfixL,TokLit 5.0,TokBinOp (**) '^' 8 InfixR,TokLit 6.0]
+parse "1 + 2 - ( 3 * 4 / 5 ) ^ 6" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,TokLit 2.0,TokBinOp (-) '-' 6 InfixL,BrckOpen,TokLit 3.0,TokBinOp (*) '*' 7 InfixL,TokLit 4.0,TokBinOp (/) '/' 7 InfixL,TokLit 5.0,BrckClose,TokBinOp (**) '^' 8 InfixR,TokLit 6.0]
+parse "1 + 2 - 3 * 4 / ( 5 ^ 6 )" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,TokLit 2.0,TokBinOp (-) '-' 6 InfixL,TokLit 3.0,TokBinOp (*) '*' 7 InfixL,TokLit 4.0,TokBinOp (/) '/' 7 InfixL,BrckOpen,TokLit 5.0,TokBinOp (**) '^' 8 InfixR,TokLit 6.0,BrckClose]
+parse "1 + ( 2 - 3 ) * 4 / ( 5 ^ 6 )" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,TokLit 2.0,TokBinOp (-) '-' 6 InfixL,TokLit 3.0,BrckClose,TokBinOp (*) '*' 7 InfixL,TokLit 4.0,TokBinOp (/) '/' 7 InfixL,BrckOpen,TokLit 5.0,TokBinOp (**) '^' 8 InfixR,TokLit 6.0,BrckClose]
+parse "1 + ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 )" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,BrckOpen,TokLit 2.0,TokBinOp (-) '-' 6 InfixL,TokLit 3.0,BrckClose,TokBinOp (*) '*' 7 InfixL,TokLit 4.0,BrckClose,TokBinOp (/) '/' 7 InfixL,BrckOpen,TokLit 5.0,TokBinOp (**) '^' 8 InfixR,TokLit 6.0,BrckClose]
+parse "1 + ( ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 ) )" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,BrckOpen,BrckOpen,TokLit 2.0,TokBinOp (-) '-' 6 InfixL,TokLit 3.0,BrckClose,TokBinOp (*) '*' 7 InfixL,TokLit 4.0,BrckClose,TokBinOp (/) '/' 7 InfixL,BrckOpen,TokLit 5.0,TokBinOp (**) '^' 8 InfixR,TokLit 6.0,BrckClose,BrckClose]
+parse "1 + ( 2 + ( 3 * 4 ) )" == Just [TokLit 1.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,TokLit 2.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,TokLit 3.0,TokBinOp (*) '*' 7 InfixL,TokLit 4.0,BrckClose,BrckClose]
+parse "( 1 / 5 ) + ( 2 + ( 3 * 4 ) )" == Just [BrckOpen,TokLit 1.0,TokBinOp (/) '/' 7 InfixL,TokLit 5.0,BrckClose,TokBinOp (+) '+' 6 InfixL,BrckOpen,TokLit 2.0,TokBinOp (+) '+' 6 InfixL,BrckOpen,TokLit 3.0,TokBinOp (*) '*' 7 InfixL,TokLit 4.0,BrckClose,BrckClose]
+parse (intercalate " " ("1" : concat (replicate 20000 ["+", "1"]))) == Just (take 40001 (cycle [TokLit 1.0, TokBinOp (+) '+' 6 InfixL]))
+parseTokens [('+', ((+), 6, InfixL)), ('-', ((-), 6, InfixL)), ('*', ((*), 7, InfixL)), ('/', (div, 7, InfixL)), ('^', ((^), 8, InfixR)), ('%', (mod, 7, InfixL))] "  2   %  3 " == Just [TokLit 2,TokBinOp mod '%' 7 InfixL,TokLit 3]
+parseTokens [('+', ((+), 6, InfixL)), ('-', ((-), 6, InfixL)), ('*', ((*), 7, InfixL)), ('/', (div, 7, InfixL)), ('^', ((^), 8, InfixR)), ('%', (mod, 7, InfixL))] "9 + ((  2   %  3 )) " == Just [TokLit 9,TokBinOp (+) '+' 6 InfixL,BrckOpen,BrckOpen,TokLit 2,TokBinOp mod '%' 7 InfixL,TokLit 3,BrckClose,BrckClose]
+parseTokens [('+', ((+), 6, InfixL)), ('-', ((-), 6, InfixL)), ('*', ((*), 7, InfixL)), ('/', (div, 7, InfixL)), ('^', ((^), 8, InfixR)), ('%', (mod, 7, InfixL))] "9 + ((  2.0   %  3 )) " == Nothing
+parseTokens [('+', ((+), 6, InfixL)), ('-', ((-), 6, InfixL)), ('*', ((*), 7, InfixL)), ('/', (div, 7, InfixL)), ('^', ((^), 8, InfixR)), ('%', (mod, 7, InfixL))] "  2   ^  % * 2 " == Just [TokLit 2,TokBinOp (^) '^' 8 InfixR,TokBinOp mod '%' 7 InfixL,TokBinOp (*) '*' 7 InfixL,TokLit 2]
+parseTokens (cycle [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) "  " == Just []
+parseTokens (cycle [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) " True False &   & " == Just [TokLit True,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokBinOp (&&) '&' 3 InfixL]
+(parseTokens (repeat ('#', (const, 0, InfixL))) "11" :: Maybe [Tok Integer]) == Just [TokLit 11]
+(parseTokens (repeat ('#', (const, 0, InfixL))) "  11   " :: Maybe [Tok Double]) == Just [TokLit 11]
+parseTokens [] "()" == Just [BrckOpen, BrckClose]
+parseTokens [] "(9 3)" == Nothing
+(parseTokens [] "(( 9 ) 3 )  " :: Maybe [Tok Integer]) == Just [BrckOpen,BrckOpen,TokLit 9,BrckClose,TokLit 3,BrckClose]
+(parseTokens [('#', (const, 0, InfixL))] "1 # 2" :: Maybe [Tok Int]) == Just [TokLit 1,TokBinOp const '#' 0 InfixL,TokLit 2]
+(parseTokens [('#', (const, 0, InfixL))] "1 + 2" :: Maybe [Tok Int]) == Nothing
+(parseTokens [] " (  ) \"almafa\" )" :: Maybe [Tok String]) == Just [BrckOpen,BrckClose,TokLit "almafa",BrckClose]
+(parseTokens [] "'t'  'r' 'u'  'e' " :: Maybe [Tok Char]) == Just [TokLit 't',TokLit 'r',TokLit 'u',TokLit 'e']
+(parseTokens [] "'t'  'r' 'u'  'e' + " :: Maybe [Tok Char]) == Nothing
+parseTokens [('f', ((+), 8, InfixL)),('g', ((*), 7, InfixR))] "() (( 2 f 4 g 9 ))" == Just [BrckOpen,BrckClose,BrckOpen,BrckOpen,TokLit 2,TokBinOp (+) 'f' 8 InfixL,TokLit 4,TokBinOp (*) 'g' 7 InfixR,TokLit 9,BrckClose,BrckClose]
+parseTokens [] "" == Just []
+parseTokens [('#', (const, 0, InfixL))] "" == Just []
+parseTokens [] "()" == Just [BrckOpen,BrckClose]
+parseTokens [] ")(" == Just [BrckClose,BrckOpen]
+parseTokens (repeat ('#', (const, 0, InfixL))) "()" == Just [BrckOpen,BrckClose]
+parseTokens (repeat ('#', (const, 0, InfixL))) ")(" == Just [BrckClose,BrckOpen]
+parseTokens [] "((a))))" == Nothing
+parseTokens [] "((((a))" == Nothing
+parseTokens [] "(( a ))))" == Nothing
+parseTokens [] "(((( a ))" == Nothing
+parseTokens [] ")()))(())))()" == Just [BrckClose,BrckOpen,BrckClose,BrckClose,BrckClose,BrckOpen,BrckOpen,BrckClose,BrckClose,BrckClose,BrckClose,BrckOpen,BrckClose]
+(parseTokens [] "(( 12 33 ))(((( 12    ) 43 " :: Maybe [Tok Int]) == Just [BrckOpen,BrckOpen,TokLit 12,TokLit 33,BrckClose,BrckClose,BrckOpen,BrckOpen,BrckOpen,BrckOpen,TokLit 12,BrckClose,TokLit 43]
+parse "1 + *2" == Nothing
+parse "  +3 -4 5 + 4" == Nothing
+parse "  3++ 5 " == Nothing
+parse "  3 ++ 4  " == Nothing
+parse "  3 ++4  " == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "  &True   |       False     " == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "  & True   |       False     " == Just [TokBinOp (&&) '&' 3 InfixL,TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False]
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "  &  True  ¬  False     " == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "  &  True |False     " == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "  &  True  ||  False     " == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "  &  >True  False     " == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "  &True   |       False     " == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "  & True   |       False     " == Just [TokBinOp (&&) '&' 3 InfixL,TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False]
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "& True  ¬  False" == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "& True |False" == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "& True || False" == Nothing
+parseTokens [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "& >True  False" == Nothing
+(parseTokens [] "EQ" :: Maybe [Tok Ordering]) == Just [TokLit EQ]
+
+-- test syNoEval points: 0
+shuntingYardBasic [] == ([],[])
+shuntingYardBasic [BrckOpen] == ([],[BrckOpen])
+shuntingYardBasic [TokLit 4, tAdd] == ([4],[tAdd])
+shuntingYardBasic [TokLit True, TokLit False, BrckOpen, TokLit True, TokLit False, BrckClose] == ([False,True,False,True],[])
+shuntingYardBasic [TokLit True, TokLit False, BrckOpen, TokLit True, TokLit False, TokBinOp (||) '|' 2 InfixL, TokLit True] == ([True,False,True,False,True],[TokBinOp (||) '|' 2 InfixL,BrckOpen])
+shuntingYardBasic [BrckOpen,BrckClose,BrckOpen,BrckOpen,TokLit 2,TokBinOp (+) 'f' 8 InfixL,TokLit 4,TokBinOp (*) 'g' 7 InfixR,TokLit 9,BrckClose,BrckClose] == ([38],[])
+shuntingYardBasic [TokLit 2,TokBinOp (+) 'f' 8 InfixL,TokLit 4,TokBinOp (*) 'g' 7 InfixR,TokLit 9] == ([9,4,2],[TokBinOp (*) 'g' 7 InfixR,TokBinOp (+) 'f' 8 InfixL])
+syNoEval "1 + 2" == Just ([2.0,1.0],[tAdd])
+syNoEval "10 * 10 * 12" == Just ([12.0,10.0,10.0],[tMul, tMul])
+syNoEval "10 * 10 - 12" == Just ([12.0,10.0,10.0],[tMinus, tMul])
+syNoEval "( 10 * 10 ) - 12" == Just ([12.0,100.0],[tMinus])
+syNoEval "1 + 2 * 3 - 4" == Just ([4.0,3.0,2.0,1.0],[tMinus,tMul,tAdd])
+syNoEval "1 + 2 ^ 3" == Just ([3.0,2.0,1.0],[TokBinOp (**) '^' 8 InfixR,TokBinOp (+) '+' 6 InfixL])
+syNoEval "( ( )" == Just ([],[BrckOpen])
+syNoEval "3 + 3 * ( ) 2" == Just ([2.0,3.0,3.0],[TokBinOp (*) '*' 7 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 * 2 * 3 + a" == Nothing
+syNoEval "+ +" == Just ([],[TokBinOp (+) '+' 6 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "+ + 1 2 3" == Just ([3.0,2.0,1.0],[TokBinOp (+) '+' 6 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1.5 + 2" == Just ([2.0,1.5],[TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 - ( 2 / 3 )" == Just ([(2/3),1.0],[TokBinOp (-) '-' 6 InfixL])
+syNoEval "1 - 2 / 3" == Just ([3.0,2.0,1.0],[TokBinOp (/) '/' 7 InfixL,TokBinOp (-) '-' 6 InfixL])
+syNoEval "1 + 3 + -4" == Just ([(-4.0),3.0,1.0],[TokBinOp (+) '+' 6 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 ^ 8 + 9 ^ 7" == Just ([7.0,9.0,8.0,1.0],[TokBinOp (**) '^' 8 InfixR,TokBinOp (+) '+' 6 InfixL,TokBinOp (**) '^' 8 InfixR])
+syNoEval "( 1 + 4 ) ^ 7" == Just ([7.0,5.0],[TokBinOp (**) '^' 8 InfixR])
+syNoEval "( 1 + 4 ) ^ ( 1 - 5 )" == Just ([-4.0,5.0],[TokBinOp (**) '^' 8 InfixR])
+syNoEval "( 1 + 4 ) ^ ( 1 - 5 ) + 9" == Just ([9.0,-4.0,5.0],[TokBinOp (+) '+' 6 InfixL,TokBinOp (**) '^' 8 InfixR])
+syNoEval "( ( 1 + 4 ) ^ ( 1 - 5 ) + 9 ) * 3" == Just ([3.0,3125.0],[TokBinOp (*) '*' 7 InfixL])
+syNoEval "1 + ( 3 + 5 ) / ( 2 + 4 ) + 0" == Just ([0.0,6.0,8.0,1.0],[TokBinOp (+) '+' 6 InfixL,TokBinOp (/) '/' 7 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + ( 3 + 5 ) / 2 + 4 + 0" == Just ([0.0,4.0,2.0,8.0,1.0],[TokBinOp (+) '+' 6 InfixL,TokBinOp (+) '+' 6 InfixL,TokBinOp (/) '/' 7 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + ( 3 + 5 / 2 + 4 ) + 0" == Just ([0.0,3.8333333333333335,1.0],[TokBinOp (+) '+' 6 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + 2 - 3 * 4 / 5 ^ 6" == Just ([6.0,5.0,4.0,3.0,2.0,1.0],[TokBinOp (**) '^' 8 InfixR,TokBinOp (/) '/' 7 InfixL,TokBinOp (*) '*' 7 InfixL,TokBinOp (-) '-' 6 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + 2 - ( 3 * 4 / 5 ) ^ 6" == Just ([6.0,2.4000000000000004,2.0,1.0],[TokBinOp (**) '^' 8 InfixR,TokBinOp (-) '-' 6 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + 2 - 3 * 4 / ( 5 ^ 6 )" == Just ([15625.0,4.0,3.0,2.0,1.0],[TokBinOp (/) '/' 7 InfixL,TokBinOp (*) '*' 7 InfixL,TokBinOp (-) '-' 6 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + ( 2 - 3 ) * 4 / ( 5 ^ 6 )" == Just ([15625.0,4.0,-1.0,1.0],[TokBinOp (/) '/' 7 InfixL,TokBinOp (*) '*' 7 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 )" == Just ([15625.0,-4.0,1.0],[TokBinOp (/) '/' 7 InfixL,TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + ( ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 ) )" == Just ([-2.56e-4,1.0],[TokBinOp (+) '+' 6 InfixL])
+syNoEval "1 + ( 2 + ( 3 * 4 ) )" == Just ([14.0,1.0],[TokBinOp (+) '+' 6 InfixL])
+syNoEval "( 1 / 5 ) + ( 2 + ( 3 * 4 ) )" == Just ([14.0,0.2],[TokBinOp (+) '+' 6 InfixL])
+syNoEval "    (     9     +    4   )  " == Just ([13.0],[])
+syNoEval "    (     9     +    4   ) 4 " == Just ([4.0,13.0],[])
+syNoEval "    (     9     +    4   ) 4 5" == Just ([5.0,4.0,13.0],[])
+syNoEval "    (     9     +    4   ) 4 5 +" == Just ([5.0,4.0,13.0],[TokBinOp (+) '+' 6 InfixL])
+syNoEval "    (     9     +    4   ) 4 5 + 9" == Just ([9.0,5.0,4.0,13.0],[TokBinOp (+) '+' 6 InfixL])
+
+-- test syEvalBasic points: 0
+syEvalBasic "1 + 2" == Just ([3.0],[])
+syEvalBasic "10 * 10 * 12" == Just ([1200.0],[])
+syEvalBasic "10 * 10 - 12" == Just ([-20.0],[])
+syEvalBasic "( 10 * 10 ) - 12" == Just ([88.0],[])
+syEvalBasic "1 + 2 * 3 - 4" == Just ([-1.0],[])
+syEvalBasic "1 + 2 ^ 3" == Just ([9],[])
+syEvalBasic "( ( )" == Just ([],[BrckOpen])
+syEvalBasic "3 + 3 * ( ) 2" == Just ([9.0],[])
+syEvalBasic "1 * 2 * 3 + a" == Nothing
+syEvalBasic "1.5 + 2" == Just ([3.5],[])
+syEvalBasic "1 - ( 2 / 3 )"  == Just ([0.33333333333333337],[])
+syEvalBasic "1 - 2 / 3" == Just ([0.33333333333333337],[])
+syEvalBasic "1 + 3 + -4" == Just ([0.0],[])
+syEvalBasic "1 ^ 8 + 9 ^ 7"  == Just ([1.0],[])
+syEvalBasic "( 1 + 4 ) ^ 7" ==  Just ([78125.0],[])
+syEvalBasic "( 1 + 4 ) ^ ( 1 - 5 ) + 9" == Just ([3125.0],[])
+syEvalBasic "( ( 1 + 4 ) ^ ( 1 - 5 ) + 9 ) * 3" == Just ([9375.0],[])
+syEvalBasic "1 + ( 3 + 5 ) / ( 2 + 4 ) + 0" == Just ([2.333333333333333],[])
+syEvalBasic "1 + ( 3 + 5 ) / 2 + 4 + 0" == Just ([2.333333333333333],[])
+syEvalBasic "1 + ( 3 + 5 / 2 + 4 ) + 0" == Just ([4.833333333333334],[])
+syEvalBasic "1 + 2 - 3 * 4 / 5 ^ 6" == Just ([2.999232],[])
+syEvalBasic "1 + 2 - 3 * 4 / ( 5 ^ 6 )" == Just ([2.999232],[])
+syEvalBasic "1 + ( 2 - 3 ) * 4 / ( 5 ^ 6 )" == Just ([0.999744],[])
+syEvalBasic "1 + ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 )" == Just ([0.999744],[])
+syEvalBasic "1 + ( ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 ) )" == Just ([0.999744],[])
+syEvalBasic "1 + ( 2 + ( 3 * 4 ) )" == Just ([15.0],[])
+syEvalBasic "( 1 / 5 ) + ( 2 + ( 3 * 4 ) )" == Just ([14.2],[])
+syEvalBasic (List.intercalate " " ("1" : concat (replicate 20000 ["+", "1"]))) == Just ([20001],[])
+
+-- test syEvalPrecedence points: 0
+shuntingYardPrecedence [] == ([],[])
+shuntingYardPrecedence [TokLit 1, tAdd, TokLit 2] == ([2.0,1.0],[TokBinOp (+) '+' 6 InfixL])
+shuntingYardPrecedence [TokLit 1, tAdd, TokLit 2, tMul, TokLit 3] == ([3.0,2.0,1.0],[TokBinOp (*) '*' 7 InfixL,TokBinOp (+) '+' 6 InfixL])
+shuntingYardPrecedence [TokLit 1, tAdd, TokLit 2, tMul, TokLit 3, tAdd, TokLit 4] == ([4.0,7.0],[TokBinOp (+) '+' 6 InfixL])
+shuntingYardPrecedence [TokLit True, TokLit False, BrckOpen, TokLit True, TokLit False, BrckClose] == ([False,True,False,True],[])
+shuntingYardPrecedence [TokLit True, TokLit False, BrckOpen, TokLit True, TokLit False, TokBinOp (||) '|' 2 InfixL, TokLit True, BrckClose] == ([True,True,False,True],[])
+shuntingYardPrecedence [BrckOpen, TokLit 2, TokBinOp (**) '%' 8 InfixL, TokLit 3, TokBinOp (**) '^' 8 InfixL, TokLit 2, BrckClose] == ([64.0],[])
+shuntingYardPrecedence [BrckOpen, TokLit 2, TokBinOp (**) '%' 8 InfixL, TokLit 3, TokBinOp (**) '^' 8 InfixR, TokLit 2, BrckClose] == ([512.0],[])
+shuntingYardPrecedence [BrckOpen, TokLit 2, TokBinOp (**) '%' 8 InfixR, TokLit 3, TokBinOp (**) '^' 8 InfixL, TokLit 2, BrckClose] == ([64.0],[])
+shuntingYardPrecedence [BrckOpen, TokLit 2, TokBinOp (**) '%' 8 InfixR, TokLit 3, TokBinOp (**) '^' 8 InfixR, TokLit 2, BrckClose] == ([512.0],[])
+shuntingYardPrecedence [BrckOpen, TokLit 5, TokBinOp (-) '-' 4 InfixR, TokLit 1, TokBinOp (/) '/' 4 InfixL, TokLit 2, BrckClose] == ([2.0],[])
+shuntingYardPrecedence [BrckOpen, TokLit 5, TokBinOp (-) '-' 4 InfixL, TokLit 1, TokBinOp (/) '/' 4 InfixL, TokLit 2, BrckClose] == ([2.0],[])
+shuntingYardPrecedence [BrckOpen, TokLit 5, TokBinOp (-) '-' 4 InfixR, TokLit 1, TokBinOp (/) '/' 4 InfixR, TokLit 2, BrckClose] == ([4.5],[])
+shuntingYardPrecedence [BrckOpen, TokLit 5, TokBinOp (-) '-' 4 InfixL, TokLit 1, TokBinOp (/) '/' 4 InfixR, TokLit 2, BrckClose] == ([4.5],[])
+shuntingYardPrecedence [TokLit 2,TokBinOp (+) 'f' 8 InfixL,TokLit 4,TokBinOp (*) 'g' 7 InfixR,TokLit 9] == ([9,6],[TokBinOp (*) 'g' 7 InfixR])
+shuntingYardPrecedence [TokLit 2, TokBinOp (**) '^' 8 InfixR, BrckOpen, TokLit 3, tMul, TokLit 2, tAdd, TokLit 5, BrckClose] == ([11.0,2.0],[TokBinOp (**) '^' 8 InfixR])
+shuntingYardPrecedence [TokLit 5, tAdd, TokLit 4, tMul, TokLit 3, tDiv, TokLit 2] == ([2.0,12.0,5.0],[TokBinOp (/) '/' 7 InfixL,TokBinOp (+) '+' 6 InfixL])
+syEvalPrecedence "1 + 2" == Just ([3.0],[])
+syEvalPrecedence "1 + 2 * 3 + 4" == Just ([11.0],[])
+syEvalPrecedence "( 1 + 2 ) * 3 + 4" == Just ([13.0],[])
+syEvalPrecedence "( 1 + 2 ) * ( 3 + 4 )" == Just ([21.0],[])
+syEvalPrecedence "1 + 2 * 3 - 4 / 5" == Just ([6.2],[])
+syEvalPrecedence "2 ^ 2 * 3" == Just ([12.0],[])
+syEvalPrecedence "1 - 2 - 3" == Just ([-4.0],[])
+syEvalPrecedence "+ 1 2" == Just ([3.0],[])
+syEvalPrecedence "3 + 3 * ( ) 2" == Just ([9.0],[])
+syEvalPrecedence "1 * 2 * 3 + a" == Nothing
+syEvalPrecedence "1.5 + 2" == Just ([3.5],[])
+syEvalPrecedence "1 - ( 2 / 3 )"  == Just ([0.33333333333333337],[])
+syEvalPrecedence "1 - 2 / 3" == Just ([0.33333333333333337],[])
+syEvalPrecedence "1 + 3 + -4" == Just ([0.0],[])
+syEvalPrecedence "1 ^ 8 + 9 ^ 7"  == Just ([4782970.0],[])
+syEvalPrecedence "( 1 + 4 ) ^ 7" == Just ([78125.0],[])
+syEvalPrecedence "( 1 + 4 ) ^ ( 1 - 5 ) + 9" == Just ([9.0016],[])
+syEvalPrecedence "( ( 1 + 4 ) ^ ( 1 - 5 ) + 9 ) * 3" == Just ([27.0048],[])
+syEvalPrecedence "1 + ( 3 + 5 ) / ( 2 + 4 ) + 0" == Just ([2.333333333333333],[])
+syEvalPrecedence "1 + ( 3 + 5 ) / 2 + 4 + 0" == Just ([9.0],[])
+syEvalPrecedence "1 + ( 3 + 5 / 2 + 4 ) + 0" == Just ([10.5],[])
+syEvalPrecedence "1 + 2 - 3 * 4 / 5 ^ 6" == Just ([2.999232],[])
+syEvalPrecedence "1 + 2 - 3 * 4 / ( 5 ^ 6 )" == Just ([2.999232],[])
+syEvalPrecedence "1 + ( 2 - 3 ) * 4 / ( 5 ^ 6 )" == Just ([0.999744],[])
+syEvalPrecedence "1 + ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 )" == Just ([0.999744],[])
+syEvalPrecedence "1 + ( ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 ) )" == Just ([0.999744],[])
+syEvalPrecedence "1 + ( 2 + ( 3 * 4 ) )" == Just ([15.0],[])
+syEvalPrecedence "( 1 / 5 ) + ( 2 + ( 3 * 4 ) )" == Just ([14.2],[])
+
+-- test eqError points: 1
+OperatorOrClosingParenExpected == OperatorOrClosingParenExpected
+LiteralOrOpeningParenExpected == LiteralOrOpeningParenExpected
+NoClosingParen == NoClosingParen
+NoOpeningParen == NoOpeningParen
+ParseError == ParseError
+ParseError /= NoOpeningParen
+ParseError /= NoClosingParen
+ParseError /= OperatorOrClosingParenExpected
+ParseError /= LiteralOrOpeningParenExpected
+NoOpeningParen /= ParseError
+NoOpeningParen /= NoClosingParen
+NoOpeningParen /= OperatorOrClosingParenExpected
+NoOpeningParen /= LiteralOrOpeningParenExpected
+NoClosingParen /= NoOpeningParen
+NoClosingParen /= ParseError
+NoClosingParen /= OperatorOrClosingParenExpected
+NoClosingParen /= LiteralOrOpeningParenExpected
+OperatorOrClosingParenExpected /= LiteralOrOpeningParenExpected
+OperatorOrClosingParenExpected /= NoOpeningParen
+OperatorOrClosingParenExpected /= ParseError
+OperatorOrClosingParenExpected /= NoClosingParen
+LiteralOrOpeningParenExpected /= OperatorOrClosingParenExpected
+LiteralOrOpeningParenExpected /= NoOpeningParen
+LiteralOrOpeningParenExpected /= ParseError
+LiteralOrOpeningParenExpected /= NoClosingParen
+
+-- test parseSafe points: 0
+parseSafe [] "((a))))" == Left ParseError
+parseSafe [] "(( a ))))" == Left ParseError
+parseSafe [] "(((( a ))" == Left ParseError
+parseSafe [] ")()))(())))()" == Right [BrckClose,BrckOpen,BrckClose,BrckClose,BrckClose,BrckOpen,BrckOpen,BrckClose,BrckClose,BrckClose,BrckClose,BrckOpen,BrckClose]
+(parseSafe [] "(( 12 33 ))(((( 12    ) 43 " :: ShuntingYardResult [Tok Int]) == Right [BrckOpen,BrckOpen,TokLit 12,TokLit 33,BrckClose,BrckClose,BrckOpen,BrckOpen,BrckOpen,BrckOpen,TokLit 12,BrckClose,TokLit 43]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True | False" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True & False" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True | False |" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True | False & > True False" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "( True > False ) & False | True" == Right [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False & ( False | True )" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "( True > False ) & ( False | True )" == Right [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "( ( True > False ) & False ) | True" == Right [BrckOpen,BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "( (" == Right [BrckOpen,BrckOpen]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True False" == Right [TokLit True,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True + False" == Left ParseError
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False > True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False > True & False | True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True & False > True & False > True" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False | True > False & True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True & | > False" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokBinOp (||) '|' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseSafe operatorTable (List.intercalate " " ("1" : concat (replicate 20000 ["+", "1"]))) == Right (take 40001 (cycle [TokLit 1.0, TokBinOp (+) '+' 6 InfixL]))
+
+-- test parseAndEvalSafe points: 3
+parseSafe [] "((a))))" == Left ParseError
+parseSafe [] "((((a))" == Left ParseError
+parseSafe [] "(( a ))))" == Left ParseError
+parseSafe [] "(((( a ))" == Left ParseError
+parseSafe [] ")()))(())))()" == Right [BrckClose,BrckOpen,BrckClose,BrckClose,BrckClose,BrckOpen,BrckOpen,BrckClose,BrckClose,BrckClose,BrckClose,BrckOpen,BrckClose]
+(parseSafe [] "(( 12 33 ))(((( 12    ) 43 " :: ShuntingYardResult [Tok Int]) == Right [BrckOpen,BrckOpen,TokLit 12,TokLit 33,BrckClose,BrckClose,BrckOpen,BrckOpen,BrckOpen,BrckOpen,TokLit 12,BrckClose,TokLit 43]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True | False" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True & False" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True | False |" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True | False & > True False" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "( True > False ) & False | True" == Right [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False & ( False | True )" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "( True > False ) & ( False | True )" == Right [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "( ( True > False ) & False ) | True" == Right [BrckOpen,BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "( (" == Right [BrckOpen,BrckOpen]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True False" == Right [TokLit True,TokLit False]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True + False" == Left ParseError
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False > True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False > True & False | True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True & False > True & False > True" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True > False | True > False & True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokLit True]
+parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] "True & | > False" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokBinOp (||) '|' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseSafe operatorTable (List.intercalate " " ("1" : concat (replicate 20000 ["+", "1"]))) == Right (take 40001 (cycle [TokLit 1.0, TokBinOp (+) '+' 6 InfixL]))
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) (List.intercalate " " ("1" : concat (replicate 20000 ["+", "1"]))) == Right ([20001.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + 2" == Right ([3.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "+ 1 2" == Left LiteralOrOpeningParenExpected
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 2 +" == Left OperatorOrClosingParenExpected
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 ( 2 + 3 )" == Left OperatorOrClosingParenExpected
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 )" == Left NoOpeningParen
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( 1 " == Left NoClosingParen
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "+ +" == Left LiteralOrOpeningParenExpected
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 - ( 2 / 3 )" == Right ([0.33333333333333337],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "((" == Left LiteralOrOpeningParenExpected
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 12 + )" == Left OperatorOrClosingParenExpected
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 # 2" == Left ParseError
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "almafa" == Left ParseError
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( 10 * 10 ) - 12" == Right ([88.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 * 2 * 3 + a" == Left ParseError
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + 3 +4" == Left ParseError
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + 3 - -4" == Right ([8.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "2 ^ 2 * 3" == Right ([12.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 - 2 - 3" == Right ([-4.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "3 + 3 * ( ) 2" == Left LiteralOrOpeningParenExpected
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 * 2 * 3 + a" == Left ParseError
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1.5 + 2" == Right ([3.5],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 - ( 2 / 3 )"  == Right ([0.33333333333333337],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 - 2 / 3" == Right ([0.33333333333333337],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + 3 + -4" == Right ([0.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 ^ 8 + 9 ^ 7"  == Right ([4782970.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( 1 + 4 ) ^ 7" == Right ([78125.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( 1 + 4 ) ^ ( 1 - 5 ) + 9" == Right ([9.0016],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( ( 1 + 4 ) ^ ( 1 - 5 ) + 9 ) * 3" == Right ([27.0048],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + ( 3 + 5 ) / ( 2 + 4 ) + 0" == Right ([2.333333333333333],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + ( 3 + 5 ) / 2 + 4 + 0" == Right ([9.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + ( 3 + 5 / 2 + 4 ) + 0" == Right ([10.5],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + 2 - 3 * 4 / 5 ^ 6" == Right ([2.999232],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + 2 - 3 * 4 / ( 5 ^ 6 )" == Right ([2.999232],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + ( 2 - 3 ) * 4 / ( 5 ^ 6 )" == Right ([0.999744],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 )" == Right ([0.999744],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + ( ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 ) )" == Right ([0.999744],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "1 + ( 2 + ( 3 * 4 ) )" == Right ([15.0],[])
+parseAndEvalSafe (parseSafe operatorTable) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( 1 / 5 ) + ( 2 + ( 3 * 4 ) )" == Right ([14.2],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True | False" == Right ([True],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True & False" == Right ([False],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True > False" == Right ([False],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True | False |" == Left LiteralOrOpeningParenExpected
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True | False & > True False" == Left LiteralOrOpeningParenExpected
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( True > False ) & False | True" == Right ([True],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True > False & ( False | True )" == Right ([False],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( True > False ) & ( False | True )" == Right ([False],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( ( True > False ) & False ) | True" == Right ([True],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "( (" == Left LiteralOrOpeningParenExpected
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True False" == Left OperatorOrClosingParenExpected
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True + False" == Left ParseError
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True & | > False" == Left LiteralOrOpeningParenExpected
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True > False > True" == Right ([True],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True > False > True & False | True" == Right ([True],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True & False > True & False > True" == Right ([True],[])
+parseAndEvalSafe (parseSafe [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))]) (\ts -> shuntingYardSafe (BrckOpen : ts ++ [BrckClose])) "True > False | True > False & True" == Right ([False],[])
+
+-- test functionTable points: 1
+show (TokFun id "id") == "TokFun id"
+show (TokFun (\x -> x) "titkos lambda") == "TokFun titkos lambda"
+(TokFun id "id") == (TokFun id "id")
+(TokFun (\x -> x) "titkos lambda") == (TokFun (\x -> x) "titkos lambda")
+(TokFun (\x -> x) "titkos lambda") /= (TokFun id "id")
+
+-- test parseWithFunctions points: 0
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False" == Just [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & False" == Just [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False |" == Just [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False & > True False" == Just [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( True > False ) & False | True" == Just [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False & ( False | True )" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( True > False ) & ( False | True )" == Just [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( ( True > False ) & False ) | True" == Just [BrckOpen,BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( (" == Just [BrckOpen,BrckOpen]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True False" == Just [TokLit True,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True + False" == Nothing
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & | > False" == Just [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokBinOp (||) '|' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False > True" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False > True & False | True" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & False > True & False > True" == Just [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False | True > False & True" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg True" == Just [TokFun not "neg",TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg neg True" == Just [TokFun not "neg",TokFun not "neg",TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg False > False" == Just [TokFun not "neg",TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( False > False )" == Just [TokFun not "neg",BrckOpen,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg" == Just [TokFun not "neg"]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( True | False & neg False )" == Just [TokFun not "neg",BrckOpen,TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokFun not "neg",TokLit False,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( True > False > neg False )" == Just [TokFun not "neg",BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokFun not "neg",TokLit False,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True" == Just [TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg True > neg ( True > False ) | neg True" == Just [TokFun not "neg",TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokFun not "neg",BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokFun not "neg",TokLit True]
+
+-- test shuntingYardWithFunctions points: 2
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False" == Just [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & False" == Just [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False |" == Just [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False & > True False" == Just [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( True > False ) & False | True" == Just [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False & ( False | True )" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( True > False ) & ( False | True )" == Just [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( ( True > False ) & False ) | True" == Just [BrckOpen,BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( (" == Just [BrckOpen,BrckOpen]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True False" == Just [TokLit True,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True + False" == Nothing
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & | > False" == Just [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokBinOp (||) '|' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False > True" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False > True & False | True" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & False > True & False > True" == Just [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False | True > False & True" == Just [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg True" == Just [TokFun not "neg",TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg neg True" == Just [TokFun not "neg",TokFun not "neg",TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg False > False" == Just [TokFun not "neg",TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( False > False )" == Just [TokFun not "neg",BrckOpen,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg" == Just [TokFun not "neg"]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( True | False & neg False )" == Just [TokFun not "neg",BrckOpen,TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokFun not "neg",TokLit False,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( True > False > neg False )" == Just [TokFun not "neg",BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokFun not "neg",TokLit False,BrckClose]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True" == Just [TokLit True]
+parseWithFunctions [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg True > neg ( True > False ) | neg True" == Just [TokFun not "neg",TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokFun not "neg",BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokFun not "neg",TokLit True]
+parseWithFunctions [('f', ((*), 6, InfixL)), ('g', ((+), 7, InfixL))] [("+", (+1))] "3 f 4 g + 5" == Just [TokLit 3,TokBinOp (*) 'f' 6 InfixL,TokLit 4,TokBinOp (+) 'g' 7 InfixL,TokFun (+1) "+",TokLit 5]
+parseWithFunctions [] [] "" == Just []
+(parseWithFunctions [] [] "9" :: Maybe [Tok Double]) == Just [TokLit 9.0]
+(parseWithFunctions [] (repeat ("f",(+1))) "" :: Maybe [Tok Double]) == Just []
+(parseWithFunctions (repeat ('f',((+),6,InfixR))) [] "" :: Maybe [Tok Double]) == Just []
+(parseWithFunctions [] [("f",(+1)),("g",(+2))] "19" :: Maybe [Tok Double]) == Just [TokLit 19.0]
+(parseWithFunctions [('f',((+),6,InfixR)),('g',((+),6,InfixR)),('+',((+),6,InfixR))] [] "19 12" :: Maybe [Tok Double]) == Just [TokLit 19.0,TokLit 12.0]
+parseWithFunctions operatorTable [] (List.intercalate " " ("1" : concat (replicate 20000 ["+", "1"]))) == Just (take 40001 (cycle [TokLit 1, TokBinOp (+) '+' 6 InfixL]))
+syFun "round ( sin ( 22 / 7 ) )" == Just ([0.0],[])
+syFun "round 2 / 3 + 4" == Just ([4.666666666666667],[])
+syFun "sin ( cos 0 )" == Just ([0.8414709848078965],[])
+syFun "cos ( sin 1 )" == Just ([0.6663667453928805],[])
+syFun "round ( sqrt 2 )" == Just ([1.0],[])
+syFun "sqrt 4" == Just ([2],[])
+syFun "sin ( sqrt 16 ) + 8 * 4" == Just ([31.243197504692073],[])
+syFun "sin 0" == Just ([0.0],[])
+syFun "cos 0" == Just ([1.0],[])
+syFun "cos 3.141215" == Just ([-0.9999999286888839],[])
+syFun "round ( cos 3.141215 )" == Just ([-1.0],[])
+syFun "round ( cos ( 42 / 3 ) )" == Just ([0.0],[])
+syFun "round ( log 13 )" == Just ([3.0],[])
+syFun "round 1 / 15 * 3" == Just ([0.2],[])
+syFun "exp # 15" == Nothing
+syFun "round ( exp ( 18 / 43 ) )" == Just ([2.0],[])
+syFun "round ( exp ( sqrt ( 12 * 4 + 9 ) ) )" == Just ([1900.0],[])
+syFun "round ( sqrt ( 4 + 2 * 3 ) )" == Just ([3.0],[])
+syFun "sqrt 121 + 13" == Just ([24.0],[])
+syFun "round ( log 42 )" == Just ([4.0],[])
+syFun "round ( log ( 13 - 9 ) )" == Just ([1.0],[])
+syFun "log ( exp ( 5 + 2 ) )" == Just ([7.0],[])
+syFun "round ( exp ( sin ( sqrt 15 ) ) )" == Just ([1.0],[])
+syFun "round ( cos ( round ( 13 / 9 ) ) )" == Just ([1.0],[])
+syFun "round ( sin ( 12 * 20 ) )" == Just ([1.0],[])
+syFun "round ( exp ( sin ( 2 + 9 ) ) )" == Just ([0.0],[])
+syFun "cos almafa" == Nothing
+syFun "round ( log ( 42 + exp ( 2 * 3.24 ) ) )" == Just ([7.0],[])
+syFun "sqrt ( 12 ^ 2 )" == Just ([12.0],[])
+syFun "round ( exp ( sqrt ( 8 - 3 / 4 ) ) )" == Just ([15.0],[])
+syFun "round ( sin ( sqrt ( 5 + 6 ) ) + 3 )" == Just ([3.0],[])
+syFun "round ( sin ( 12 / 4 ) + cos 0 )" == Just ([1.0],[])
+syFun "exp ( log ( 13 ) )" == Just ([13.0],[])
+syFun "round ( log ( sqrt ( 7 ^ 4 ) ) )" == Just ([4.0],[])
+syFun "round ( cos ( 3 * sin ( 42 ) ) )" == Just ([-1.0],[])
+syFun "sqrt ( 16 * 4 )" == Just ([8.0],[])
+syFun "round ( log ( sqrt ( 7 * 3 ) ) ) + 4 / 5" == Just ([2.8],[])
+syFun "9 / 4 - round ( sin ( 2 + 8 / 17 ) )" == Just ([1.25],[])
+syFun "round ( 42 + exp ( 24 / 7 ) )" == Just ([73.0],[])
+syFun "round ( cos ( log 10 ) ) - 12 ^ 3" == Just ([-1729.0],[])
+syFun "round ( sin ( 98 - cos 0 ) + sqrt 42 )" == Just ([7.0],[])
+
+-- test parseComplete points: 0
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & False" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False |" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False & > True False" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( True > False ) & False | True" == Right [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False & ( False | True )" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( True > False ) & ( False | True )" == Right [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( ( True > False ) & False ) | True" == Right [BrckOpen,BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( (" == Right [BrckOpen,BrckOpen]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True False" == Right [TokLit True,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True + False" == Left ParseError
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & | > False" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokBinOp (||) '|' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False > True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False > True & False | True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & False > True & False > True" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False | True > False & True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg True" == Right [TokFun not "neg",TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg neg True" == Right [TokFun not "neg",TokFun not "neg",TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg False > False" == Right [TokFun not "neg",TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( False > False )" == Right [TokFun not "neg",BrckOpen,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg" == Right [TokFun not "neg"]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( True | False & neg False )" == Right [TokFun not "neg",BrckOpen,TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokFun not "neg",TokLit False,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( True > False > neg False )" == Right [TokFun not "neg",BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokFun not "neg",TokLit False,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True" == Right [TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg True > neg ( True > False ) | neg True" == Right [TokFun not "neg",TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokFun not "neg",BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokFun not "neg",TokLit True]
+
+-- test shuntingYardComplete points: 1
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & False" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False |" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True | False & > True False" == Right [TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( True > False ) & False | True" == Right [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False & ( False | True )" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( True > False ) & ( False | True )" == Right [BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,BrckOpen,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( ( True > False ) & False ) | True" == Right [BrckOpen,BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (&&) '&' 3 InfixL,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "( (" == Right [BrckOpen,BrckOpen]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True False" == Right [TokLit True,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True + False" == Left ParseError
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & | > False" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokBinOp (||) '|' 3 InfixL,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False > True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False > True & False | True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True & False > True & False > True" == Right [TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True,TokBinOp (&&) '&' 3 InfixL,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True > False | True > False & True" == Right [TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (||) '|' 3 InfixL,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg True" == Right [TokFun not "neg",TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg neg True" == Right [TokFun not "neg",TokFun not "neg",TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg False > False" == Right [TokFun not "neg",TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( False > False )" == Right [TokFun not "neg",BrckOpen,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg" == Right [TokFun not "neg"]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( True | False & neg False )" == Right [TokFun not "neg",BrckOpen,TokLit True,TokBinOp (||) '|' 3 InfixL,TokLit False,TokBinOp (&&) '&' 3 InfixL,TokFun not "neg",TokLit False,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg ( True > False > neg False )" == Right [TokFun not "neg",BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokFun not "neg",TokLit False,BrckClose]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "True" == Right [TokLit True]
+parseComplete [('&', ((&&), 3, InfixL)), ('|', ((||), 3, InfixL)), ('>', ((\x y -> case x of {True -> y; False -> True}), 1, InfixR))] [("neg", not)] "neg True > neg ( True > False ) | neg True" == Right [TokFun not "neg",TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokFun not "neg",BrckOpen,TokLit True,TokBinOp (\x y -> case x of {True -> y; False -> True})  '>' 1 InfixR,TokLit False,BrckClose,TokBinOp (||) '|' 3 InfixL,TokFun not "neg",TokLit True]
+parseComplete [] [] "" == Right []
+(parseComplete [] [] "9" :: ShuntingYardResult [Tok Integer]) == Right [TokLit 9]
+(parseComplete [] (repeat ("f",(+1))) "" :: ShuntingYardResult [Tok Double]) == Right []
+(parseComplete (repeat ('f',((+),6,InfixR))) [] "" :: ShuntingYardResult [Tok Double]) == Right []
+(parseComplete [] [("f",(+1)),("g",(+2))] "19" :: ShuntingYardResult [Tok Double]) == Right [TokLit 19.0]
+(parseComplete [('f',((+),6,InfixR)),('g',((+),6,InfixR)),('+',((+),6,InfixR))] [] "19 12" :: ShuntingYardResult [Tok Double]) == Right [TokLit 19.0,TokLit 12.0]
+parseComplete operatorTable [] (List.intercalate " " ("1" : concat (replicate 20000 ["+", "1"]))) == Right (take 40001 (cycle [TokLit 1, TokBinOp (+) '+' 6 InfixL]))
+shuntingYardComplete [TokLit 19.0,TokLit 12.0] == Left OperatorOrClosingParenExpected
+shuntingYardComplete [TokLit 3,TokBinOp (*) 'f' 6 InfixL,TokLit 4,TokBinOp (+) 'g' 7 InfixL,TokFun (+1) "+",TokLit 5] == Right ([5,4,3],[TokFun (+1) "+",TokBinOp (+) 'g' 7 InfixL,TokBinOp (*) 'f' 6 InfixL])
+shuntingYardComplete [] == Right ([],[])
+syComplete "1 + 2" == Right ([3.0],[])
+syComplete "+ 1 2" == Left LiteralOrOpeningParenExpected
+syComplete "1 2 +" == Left OperatorOrClosingParenExpected
+syComplete "1 ( 2 + 3 )" == Left OperatorOrClosingParenExpected
+syComplete "1 )" == Left NoOpeningParen
+syComplete "( 1 " == Left NoClosingParen
+syComplete "+ +" == Left LiteralOrOpeningParenExpected
+syComplete "1 - ( 2 / 3 )" == Right ([0.33333333333333337],[])
+syComplete "((" == Left LiteralOrOpeningParenExpected
+syComplete "1 12 + )" == Left OperatorOrClosingParenExpected
+syComplete "1 # 2" == Left ParseError
+syComplete "almafa" == Left ParseError
+syComplete "( 10 * 10 ) - 12" == Right ([88.0],[])
+syComplete "1 * 2 * 3 + a" == Left ParseError
+syComplete "1 + 3 +4" == Left ParseError
+syComplete "1 + 3 - -4" == Right ([8.0],[])
+syComplete "2 ^ 2 * 3" == Right ([12.0],[])
+syComplete "1 - 2 - 3" == Right ([-4.0],[])
+syComplete "+ 1 2" == Left LiteralOrOpeningParenExpected
+syComplete "3 + 3 * ( ) 2" == Left LiteralOrOpeningParenExpected
+syComplete "1 * 2 * 3 + a" == Left ParseError
+syComplete "1.5 + 2" == Right ([3.5],[])
+syComplete "1 - ( 2 / 3 )"  == Right ([0.33333333333333337],[])
+syComplete "1 - 2 / 3" == Right ([0.33333333333333337],[])
+syComplete "1 + 3 + -4" == Right ([0.0],[])
+syComplete "1 ^ 8 + 9 ^ 7"  == Right ([4782970.0],[])
+syComplete "( 1 + 4 ) ^ 7" == Right ([78125.0],[])
+syComplete "round (( 1 + 4 ) ^ ( 1 - 5 ))" == Right ([0],[])
+syComplete "( 1 + 4 ) ^ ( 1 - 5 ) + 9" == Right ([9.0016],[])
+syComplete "( ( 1 + 4 ) ^ ( 1 - 5 ) + 9 ) * 3" == Right ([27.0048],[])
+syComplete "1 + ( 3 + 5 ) / ( 2 + 4 ) + 0" == Right ([2.333333333333333],[])
+syComplete "1 + ( 3 + 5 ) / 2 + 4 + 0" == Right ([9.0],[])
+syComplete "1 + ( 3 + 5 / 2 + 4 ) + 0" == Right ([10.5],[])
+syComplete "1 + 2 - 3 * 4 / 5 ^ 6" == Right ([2.999232],[])
+syComplete "1 + 2 - 3 * 4 / ( 5 ^ 6 )" == Right ([2.999232],[])
+syComplete "1 + ( 2 - 3 ) * 4 / ( 5 ^ 6 )" == Right ([0.999744],[])
+syComplete "1 + ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 )" == Right ([0.999744],[])
+syComplete "1 + ( ( ( 2 - 3 ) * 4 ) / ( 5 ^ 6 ) )" == Right ([0.999744],[])
+syComplete "1 + ( 2 + ( 3 * 4 ) )" == Right ([15.0],[])
+syComplete "( 1 / 5 ) + ( 2 + ( 3 * 4 ) )" == Right ([14.2],[])
+syComplete "round ( sin ( 22 / 7 ) )" == Right ([0.0],[])
+syComplete "round ( sin ( 22 / 7 ) )" == Right ([0.0],[])
+syComplete "round 2 / 3 + 4" == Right ([4.666666666666667],[])
+syComplete "sin ( cos 0 )" == Right ([0.8414709848078965],[])
+syComplete "cos ( sin 1 )" == Right ([0.6663667453928805],[])
+syComplete "round ( sqrt 2 )" == Right ([1.0],[])
+syComplete "sqrt 4" == Right ([2],[])
+syComplete "sin ( sqrt 16 ) + 8 * 4" == Right ([31.243197504692073],[])
+syComplete "sin 0" == Right ([0.0],[])
+syComplete "cos 0" == Right ([1.0],[])
+syComplete "cos 3.141215" == Right ([-0.9999999286888839],[])
+syComplete "round ( cos 3.141215 )" == Right ([-1.0],[])
+syComplete "sin cos" == Left LiteralOrOpeningParenExpected
+syComplete "si" == Left ParseError
