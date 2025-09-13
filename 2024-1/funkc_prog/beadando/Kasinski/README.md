@@ -1,7 +1,14 @@
-## Nagybeadandó
+# Pótbeadandó – Második beadandó lehetőség
+## Fontos megjegyzés
+
+> **Figyelem!**  
+> Ez a beadandó nem saját készítésű munka.  
+> Az itt található minden tartalom Miksa munkája.
 
 ---
 
-- A nagybeadandó feladatának a szövege, illetve a nagybeadandó megoldásához szükséges tudnivalók elérhetők a tárgy honlapján [ezen a linken](http://lambda.inf.elte.hu/ShuntingYard.html).
+## Eredeti leírás
 
-- A feladathoz tartozik egy üres skeleton fájl is, amiben el lehet kezdeni dolgozni. A fájl letölthető innen a TMS-ből.
+Az eredeti feladatleírás elérhető az alábbi linken:  
+[Kasinski elemzés - pótbeadandó](http://lambda.inf.elte.hu/KasinskiExaminationAssignment.xml)
+
