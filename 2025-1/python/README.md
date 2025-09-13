@@ -1,31 +1,91 @@
-# Python bevezetés, telepítés, bevezetés a Pythonba és az AI etikus használata
+# 🐍 Python kurzus – 2024/25 2. félév
 
-## Mi várható?
+## 📌 Tematika
 
-- Alap AI eszközök
-- Computer Vision, OpenCV alapjai
-- LLM finomhangolás, PyTorch, Llama modelleken
-- Alap neurális hálózatok tanítása és használata
-- Adatvizualizáció, Big Data alapok
-- GUI alapok
-- API-k
-- Objektumorientált programozás Pythonban
-- stb.
-
----
-
-## Gyakorlatokon
-
-**"Warmup" számonkérés** – a jegy 20%-át éri. Az előadáson elhangzottakból kérnek számon.
-
-Ezek a **7.** gyakorlat elején és a **13.** gyakorlat elején várhatóak. Lesznek tesztek az addigi warmup feladatokból (a jegy 20% + 20%-át éri).
+- Python bevezetés, telepítés, AI etikus használata
+- Adattípusok és változók
+- Függvények és hibakezelés
+- Objektumorientált programozás (OOP)
+- OOP gyakorlati példákkal
+- Csomagkezelés (PIP/PIP3), GUI, játékfejlesztés
+- Webfejlesztés: Flask, Django
+- REST API, FastAPI
+- OpenCV – képfeldolgozás
+- LLM-ek használata (fine-tuning)
+- AI és gépi tanulás (TensorFlow)
+- Adatkezelés, Big Data
+- Adatvizualizáció, térképes megjelenítés
+- Párhuzamos és elosztott programozás
 
 ---
 
-## Beadandók
+## 📝 Értékelés
 
-A félév során **2 beadandó program** lesz (20-20% értékkel):
+- Aktív részvétel (WarmUp feladatok) – **20%**
+- Max. 3 hiányzás
+- Teszt 1. (7. gyakorlat elején) – **20%**
+- Teszt 2. (13. gyakorlat elején) – **20%**
+- 2 beadandó program – **20–20%** (védés kötelező)
 
-1. Például egy egyszerű REST API – pl. program
+---
 
+## 📖 Előadás fő témái
 
+### Python története
+
+- Guido van Rossum, 1990-es évek
+
+### Előnyök
+
+- Könnyen tanulható
+- Egyszerű szintaxis
+- Nagy közösség
+- Sok könyvtár
+
+### Főbb jellemzők
+
+- Magas szintű nyelv
+- Több paradigma (imperatív, funkcionális, OOP)
+- Interpreter, indentálás kötelező
+- Case sensitive
+
+### Felhasználási területek
+
+- Adattudomány, gépi tanulás (NumPy, Pandas, TensorFlow)
+- Webfejlesztés (Flask, Django, FastAPI)
+- Automatizálás
+- Pénzügy, kutatás, AI, játékfejlesztés, blockchain, DevOps
+
+---
+
+## ⚙️ Telepítés és környezetek
+
+- Letöltés: [python.org/downloads](https://python.org/downloads)
+
+---
+
+## 🤖 AI-alapú kódgenerálás
+
+**Előnyök:** gyorsabb fejlesztés, kisebb problémák megoldása  
+**Korlátok:** hibás kód, felülvizsgálat szükséges
+
+**Eszközök:**
+- CoCalc – természetes nyelvű input → kódjavaslat
+- GitHub Copilot – Codex modell, integráció pl. VSCode
+
+---
+
+## ⚖️ AI etikus használata
+
+- Plágium elkerülése
+- Saját kód egyediségének megőrzése
+- Kódminőség és felelősség a generált kódért
+
+---
+
+## ✅ Összegzés
+
+- Kurzus tematikájának áttekintése
+- Értékelési rendszer tisztázása
+- Python alapjai és felhasználási területei
+- AI használata és etikus alkalmazása
