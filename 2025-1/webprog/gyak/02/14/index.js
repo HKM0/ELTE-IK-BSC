@@ -52,10 +52,15 @@ function kattintas() {
 
 
 
-
-
-
-
+function released_after_1990(){
+    console.log(library.filter(x=>x.ev>1990).map(x=>x.cim.toUpperCase()))
+}
+function isbnfilter()
+{
+    console.log(library.filter(x=>x.cim.length>10 &&x.isbn.charAt(0)==9).length ? "Van":"Nincs")
+}
+isbnfilter()
+released_after_1990()
 //+feladatok
 //A 1990 után megjelent könyvek címei nagybetűsen consol-ra kiírva
 //Van-e olyan könyv, aminek a címe 10 karakternél hosszabb, és „9”-essel kezdődik az ISBN-je?
