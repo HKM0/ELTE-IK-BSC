@@ -53,7 +53,7 @@ function kattintas() {
 
 
 function released_after_1990(){
-    console.log(library.filter(x=>x.ev>1990).map(x=>x.cim.toUpperCase()))
+    console.log(library.filter(x => x.ev > 1990).map(x => x.cim.toUpperCase()).join(', '))
 }
 function isbnfilter()
 {

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .kesz:before {
+            content: "***";
+        }
+    </style>
+</head>
+<body>
+    <ul class="lista">
+        <li>első</li>
+        <li class="kesz">második</li>
+        <li>harmadik</li>
+    </ul>
+    <script>
+        //A közös szülőhöz, az ul-hez regisztráljuk az eseményt: delegálás
+        //kezelőobjektum, amelyre az eseménykezelőt regisztráltuk, ami figyel az eseményre: ul
+        //ha nincs fat arrow, akkor legtöbbször: console.log(this);
+        const ul = document.querySelector('ul.lista')
+        ul.addEventListener('click', kattintas)
+
+        function kattintas(e) {
+            //console.log(e);
+            //  forrásobjektum, e.target: ami ténylegesen kiváltotta az eseményt: li
+            console.log(e.target);
+            if (e.target.matches('li')) {
+                //ez azért kell, hogy máshova, pl a paddingre kattintva ne váltódjon ki az esemény
+                e.target.classList.toggle('kesz')
+            }
+        }
+    </script>
+</body>
+</html>
