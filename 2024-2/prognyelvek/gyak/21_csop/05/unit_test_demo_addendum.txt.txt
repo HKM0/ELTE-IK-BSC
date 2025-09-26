@@ -1,0 +1,6 @@
+Note that this demonstration of unit testing explains the general idea of what unit testing is about using JUnit4.
+In the current semester however (2025 Spring semester) we use JUnit5 for our unit testing purposes.
+If you are looking for specific JUnit5 example codes, please see the example.zip in the general channel of
+the course's MS Teams platform or the link below
+
+https://junit.org/junit5/docs/current/user-guide/

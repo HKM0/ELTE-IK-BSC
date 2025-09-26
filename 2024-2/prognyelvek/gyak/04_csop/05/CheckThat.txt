@@ -1,0 +1,50 @@
+
+Preparation.
+    Download from: https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.11.1/junit-platform-console-standalone-1.11.1.jar
+    Rename it to : junit5all.jar
+    Move it to   : your compilation's root folder (along with the other jar files and check.cmd)
+
+Details by system.
+    Linux and Mac: run once     : chmod +x check.cmd
+    Mac:           run once     : xattr -d com.apple.quarantine check.cmd
+    Windows cmd (not PowerShell): leave out "./" in the commands below
+
+Run structural/functional/suite tests like this:
+    ./check.cmd time/TimeStructureTest.java time.TimeStructureTest
+    ./check.cmd time/TimeTest.java time.TimeTest
+    ./check.cmd time/TimeTestSuite.java time.TimeTestSuite
+
+Use a third argument to modify behaviour like this:
+    PowerShell: ./check.cmd time/TimeTestSuite.java time.TimeTestSuite '"-Dchecks=hide-success_and_lang-EN"'
+    Others    : ./check.cmd time/TimeTestSuite.java time.TimeTestSuite "-Dchecks=hide-success_and_lang-EN"
+
+More details:
+    JUnit 5  : User guide: https://junit.org/junit5/docs/current/user-guide/
+    CheckThat: Run the script without arguments.
+
+; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; : ; :
+
+Here is the expected output of the full suite.
+The failures are intentional. See the comments in Time.java for the trivial fixes.
+
+└─ TimeTestSuite ✔
+   ├─ StructuralTests ✔
+   │  └─ TimeStructureTest ✔
+   │     ├─ constructor() ✔
+   │     ├─ fieldMin() ✔
+   │     ├─ fieldHour() ✘ Wrong return type for field Time.hour
+   │     └─ methodGetEarlier() ✔
+   └─ FunctionalTests ✔
+      └─ TimeTest ✔
+         ├─ testGetHour() ✘ expected: <12.0> but was: <13.0>
+         ├─ testGetMin() ✔
+         ├─ testSetHour() ✘ expected: <12.0> but was: <13.0>
+         ├─ testSetMin() ✔
+         └─ testEarlier(int, int, int, int, int, int) ↷ Required structure is not OK: fieldHour
+
+Failures (3):
+   ...
+[5/8 tests successful] [3/8 tests failed]
+
+After applying the trivial fixes, the final printout changes to:
+[All 11 tests successful]
