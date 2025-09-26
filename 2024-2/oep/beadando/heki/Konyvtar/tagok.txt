@@ -1,0 +1,3 @@
+Gipsz Jakab;Budapest, Mimir utca 1.;123456
+Kiss Pista;Debrecen, Petőfi tér 3.;987654
+Németh Anna;Győr, Szent István út 10.;111111

@@ -1,0 +1,3 @@
+Egri csillagok;Gárdonyi Géza;Móra;1234567890;ritka;szepirodalmi
+Biológia tankönyv;Kovács Béla;OFI;9876543210;sok;termeszettudomanyi
+Harry Potter;J.K. Rowling;Animus;1111111111;keves;ifjusagi

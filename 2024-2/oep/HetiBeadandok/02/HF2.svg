@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="676" height="471">
+  <g>
+    <g>
+      <rect fill="#C0C0C0" stroke="none" x="167" y="495" width="272" height="131" transform="matrix(1 0 0 1 -150 -326)" fill-opacity="0.2"/>
+    </g>
+    <g>
+      <rect fill="#ffffff" stroke="none" x="160" y="488" width="272" height="131" transform="matrix(1 0 0 1 -150 -326)"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 10 162 L 282 162 L 282 293 L 10 293 L 10 162 Z Z" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 10 187 L 282 187" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 10 240 L 282 240" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="bold" text-decoration="undefined" x="296.5" y="501.5" text-anchor="middle" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">Labirynth</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="524.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">-n: int { n &gt; = 0 }</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="539.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">-m: int { m &gt; = 0 }</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="554.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">-map: Content[,]</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="577.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">+Labirynth(map: Content[n,m])</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="592.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">+LookAt(x: int, y: int, dir: Direction): Content</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="607.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">+Collect(x: int, y: int): void</text>
+      </g>
+    </g>
+    <g>
+      <path fill="#ffffff" stroke="none" paint-order="stroke fill markers" d=" M 313 178 L 454 178 L 464 188 L 464 232 L 313 232 L 313 178"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 313 178 L 454 178 L 464 188 L 464 232 L 313 232 L 313 178 L 313 178" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 454 178 L 454 188 L 464 188 L 454 178" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="468" y="509" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">this.n := map.dim(0)</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="468" y="524" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">this.m := map.dim(1)</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="468" y="539" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">this.map := map</text>
+      </g>
+    </g>
+    <g>
+      <rect fill="#C0C0C0" stroke="none" x="167" y="343" width="126.34619140625" height="106" transform="matrix(1 0 0 1 -150 -326)" fill-opacity="0.2"/>
+    </g>
+    <g>
+      <rect fill="#ffffff" stroke="none" x="160" y="336" width="126.34619140625" height="106" transform="matrix(1 0 0 1 -150 -326)"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 10 10 L 136.34619140625 10 L 136.34619140625 116 L 10 116 L 10 10 Z Z" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 10 48 L 136.34619140625 48" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="223.673095703125" y="347.5" text-anchor="middle" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">«enumeration»</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="bold" text-decoration="undefined" x="223.673095703125" y="362.5" text-anchor="middle" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">Content</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="385.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">Empty</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="400.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">Wall</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="415.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">Ghost</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="165" y="430.5" text-anchor="start" dominant-baseline="central" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">Treasure</text>
+      </g>
+    </g>
+    <g>
+      <path fill="#ffffff" stroke="none" paint-order="stroke fill markers" d=" M 202 10 L 295 10 L 305 20 L 305 81 L 202 81 L 202 10"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 202 10 L 295 10 L 305 20 L 305 81 L 202 81 L 202 10 L 202 10" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 295 10 L 295 20 L 305 20 L 295 10" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="357" y="341" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">«record»</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="357" y="356" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">Direction</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="357" y="371" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">+ x: int</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="357" y="386" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">+ y: int</text>
+      </g>
+    </g>
+    <g style="" transform="matrix(0.994528, 0, 0, 0.576768, 3.639163, 110.886726)">
+      <path fill="#ffffff" stroke="none" paint-order="stroke fill markers" d=" M 314 262 L 655 262 L 665 272 L 665 380 L 314 380 L 314 262"/>
+    </g>
+    <g style="" transform="matrix(0.994528, 0, 0, 0.576768, 3.639163, 110.886726)">
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 314 262 L 655 262 L 665 272 L 665 380 L 314 380 L 314 262 L 314 262" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 655 262 L 655 272 L 665 272 L 655 262" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, -46.139297)">
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="469" y="638" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">if not (x + dir.x ∈ [1..n] and y + dir.y ∈ [1..m]) then </text>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, -46.139297)">
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="469" y="653" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">error</text>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, -46.139297)">
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="469" y="668" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">endif</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, -46.139297)">
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="469" y="685" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">return this.map[x + dir.x, y + dir.y]</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+      </g>
+    </g>
+    <g>
+      <path fill="#ffffff" stroke="none" paint-order="stroke fill markers" d=" M 314 391 L 559 391 L 569 401 L 569 460 L 314 460 L 314 391"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 314 391 L 559 391 L 569 401 L 569 460 L 314 460 L 314 391 L 314 391" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 559 391 L 559 401 L 569 401 L 559 391" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="469" y="722" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">if this.map[x, y] ≠ Content.Treasure then</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="469" y="737" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">error</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="469" y="752" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">endif</text>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path fill="none" stroke="none"/>
+        <text fill="#000000" stroke="none" font-family="Arial" font-size="13px" font-style="normal" font-weight="normal" text-decoration="undefined" x="469" y="767" text-anchor="start" dominant-baseline="text-before-edge" transform="matrix(1 0 0 1 -150 -326)" style="white-space: pre;">this.map[x, y] := Content.Empty</text>
+      </g>
+    </g>
+    <g>
+      <path fill="#FFFFFF00" stroke="none" paint-order="stroke fill markers" d=" M 269 250 C 269 247.79086080000002 270.7908608 246 273 246 C 275.2091392 246 277 247.79086080000002 277 250 C 277 252.20913919999998 275.2091392 254 273 254 C 270.7908608 254 269 252.20913919999998 269 250 Z"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 269 250 C 269 247.79086080000002 270.7908608 246 273 246 C 275.2091392 246 277 247.79086080000002 277 250 C 277 252.20913919999998 275.2091392 254 273 254 C 270.7908608 254 269 252.20913919999998 269 250 Z" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="#FFFFFF00" stroke="none" paint-order="stroke fill markers" d=" M 269 266 C 269 263.7908608 270.7908608 262 273 262 C 275.2091392 262 277 263.7908608 277 266 C 277 268.2091392 275.2091392 270 273 270 C 270.7908608 270 269 268.2091392 269 266 Z"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 269 266 C 269 263.7908608 270.7908608 262 273 262 C 275.2091392 262 277 263.7908608 277 266 C 277 268.2091392 275.2091392 270 273 270 C 270.7908608 270 269 268.2091392 269 266 Z" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 277 266 L 314 266" stroke-miterlimit="10" stroke-dasharray="3"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 277 250 L 298 250 L 298 183 L 313 183" stroke-miterlimit="10" stroke-dasharray="3"/>
+    </g>
+    <g>
+      <path fill="#FFFFFF00" stroke="none" paint-order="stroke fill markers" d=" M 269 282 C 269 279.7908608 270.7908608 278 273 278 C 275.2091392 278 277 279.7908608 277 282 C 277 284.2091392 275.2091392 286 273 286 C 270.7908608 286 269 284.2091392 269 282 Z"/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 269 282 C 269 279.7908608 270.7908608 278 273 278 C 275.2091392 278 277 279.7908608 277 282 C 277 284.2091392 275.2091392 286 273 286 C 270.7908608 286 269 284.2091392 269 282 Z" stroke-miterlimit="10" stroke-dasharray=""/>
+    </g>
+    <g>
+      <path fill="none" stroke="#000000" paint-order="fill stroke markers" d=" M 277 282 L 298 282 L 298 400 L 314 400" stroke-miterlimit="10" stroke-dasharray="3"/>
+    </g>
+  </g>
+</svg>
