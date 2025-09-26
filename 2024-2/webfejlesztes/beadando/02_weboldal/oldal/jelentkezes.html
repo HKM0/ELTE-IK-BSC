@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapcsolat - Zakariás Biztosító honlapja</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="meretezesek.css">
+    <link rel="stylesheet" media="print" href="print.css">
+</head>
+<body class="dark">
+    <a href="#contentStart" class="skip-link">Ugrás a tartalomhoz</a>
+    <header>
+        <div class="altmenu">
+            <a href="index.html">Főoldal</a>
+            <a href="biztositas.html">Biztosítások</a>
+            <a href="jelentkezes.html" class="active">Kapcsolat felvétel</a>
+        </div>
+        <div class="menu" id="menu" onclick="document.getElementById('dropdown').classList.toggle('show')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="dropdown" id="dropdown">
+            <a href="index.html">Főoldal</a>
+            <a href="biztositas.html">Biztosítások</a>
+            <a href="jelentkezes.html" class="active">Kapcsolat felvétel</a>
+        </nav>
+        <h1>Kapcsolat</h1>
+        <div class="theme-toggle">
+            <div onclick="tdnn()" class="tdnn">
+                <div class="hold"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="prlx10">
+            <div class="transparent-margin"></div>
+            <section class="survey-section">
+                <h2>Kapcsolatfelvételi űrlap</h2>
+                <form id="kerdoiv">
+                    <label for="name">Név:</label>
+                    <input type="text" id="name" placeholder="Pl: Agyalá Gyula" name="Név" required maxlength="40" size="30">
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Pl: peldamail@valami.com" name="Email" required maxlength="50" size="30">
+                    
+                    <label for="phone">Telefonszám:</label>
+                    <input type="tel" id="phone" pattern="[0-9]{2} [0-9]{3} [0-9]{4}" maxlength="12" size="14" placeholder="Pl: 70 123 4567" name="Telefonszám" required>
+
+                    <label>Nem:</label>
+                    <div class="gender-options">
+                        <input type="radio" id="ferfi" name="nem" value="ferfi" required>
+                        <label for="ferfi">Férfi</label>
+                        <input type="radio" id="holgy" name="nem" value="holgy" required>
+                        <label for="holgy">Nő</label>
+                    </div><br>
+                    <label for="comment">További információ:</label>
+                    <textarea name="comment" id="comment" maxlength="250" rows="4" cols="32" placeholder="Bármi ami segíthet a biztosítás megkötésében."></textarea>
+                    <label>
+                        <input type="checkbox" id="terms" name="terms" required>
+                        18. életévemet betöltöttem
+                    </label>
+                    
+                    <button type="submit" formmethod="post" formaction="mailto:pelda@valami.hu" formenctype="text/plain">Küldés</button>
+                    <button type="reset">Törlés</button>
+                </form>
+            </section>
+            <div class="prlx12">
+                <section class="faq-section">
+                    <div class="faq-content">
+                        <div class="faq-text">
+                            <h2>Gyakran Ismételt Kérdések</h2>
+                            <details>
+                                <summary>Mi történik, ha kitöltöm ezt a kérdőívet?</summary>
+                                <p>Egy kedves kollégánk felveszi Önnel a kapcsolatot! (És nem, nem küldünk galambpostát vagy füstjeleket, ígérjük.)</p>
+                            </details>
+                            <details>
+                                <summary>Milyen gyorsan válaszolnak?</summary>
+                                <p>Olyan gyorsan, hogy még a kávé sem hűl ki! (Ha mégis, legalább lesz ideje főzni egy másikat.)</p>
+                            </details>
+                            <details>
+                                <summary>Szükségem van biztosításra?</summary>
+                                <p>Ha van autója, háza, élete, akkor valószínűleg igen! Ha nincs, akkor is érdemes, mert ki tudja, lehet, hogy épp most nyert egy jachtot!</p>
+                            </details>
+                            <details>
+                                <summary>Mi van, ha bonyolult kérdésem van?</summary>
+                                <p>Nyugi, ügyfélszolgálatunk olyan tapasztalt, hogy még egy macska biztosítási igényét is el tudná intézni.</p>
+                            </details>
+                            <details>
+                                <summary>És ha még mindig hezitálok?</summary>
+                                <p>Gondoljon arra, hogy Murphy törvénye mindig működik. Ha van biztosítása, semmi sem történik. Ha nincs… nos, akkor jobb, ha kitölti a kérdőívet!</p>
+                            </details>
+                        </div>
+                        <div class="faq-image">
+                            <img src="source/images/info.png" alt="FAQ kép">
+                        </div>
+                    </div>
+                </section>
+                <div class="transparent-margin"></div>
+            </div>
+            <div class="about-us-bg">
+                <section class="about-us-section">
+                    <h2>Biztosítás, ami nem csak papír - hanem valódi biztonság!</h2>
+                    <div class="about-us-content">
+                        <p>Üdvözöljük a [Biztosító Neve] világában, ahol a biztosítás nem unalmas jogi szöveg, hanem egy láthatatlan szuperhős, aki akkor lép akcióba, amikor a legnagyobb szüksége van rá!</p> 
+                        <p>Olyan biztosításokat, amik gyorsabban térülnek meg, mint egy elhagyott lottószelvény.
+                            Ügyfélszolgálatot, ami nem tűnik el úgy, mint egy internetkapcsolat vihar idején. Kárrendezést, ami egyszerűbb, mint egy IKEA-szék összeszerelése (és ehhez még külön szerszám sem kell!).</p>
+                        <p>Legyen szó autóról, otthonról, utazásról, életbiztosításról vagy arról, hogy a nagymama macskája leverte a drága vázát - mi mindenre fel vagyunk készülve! Mert nálunk a biztosítás nem csak egy papír, hanem egy kézfogás, egy nyugodt éjszaka és egy stresszmentes jövő.</p>
+                        <p>Ne várja meg, hogy Murphy törvénye dolgozni kezdjen - kösse meg biztosítását nálunk, és aludjon úgy, mint egy macska a napon!</p>
+                        <img src="source/images/about_us.jpg" alt="egy idősebb férfi üzleti tanácsadáson van egy másik szemüveges úrral.">
+                    </div>
+                </section>
+            </div>
+            <div class="transparent-margin"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-kontener">
+            <div class="info-cucc">
+                <p><a href="https://www.ceginformacio.hu/cr9310047174" target="_blank">Zakariás Biztosító kft.</a></p>
+            </div>
+            <div class="info-cucc2">
+                <p><a href="https://g.co/kgs/Q56xo3R" target="_blank">Budapest, Pázmány Péter stny. 1/C, 1117</a></p>
+            </div>
+            <div class="info-cucc3">
+                <p><a href="https://telefonkonyv.hu/" target="_blank">tel.: +69 69 696 9696</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

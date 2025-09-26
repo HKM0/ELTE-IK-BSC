@@ -1,0 +1,130 @@
+/* kipozícionálás */
+
+/* KITÖLTENI - Blokkok elkerülése*/
+
+
+#skiptocontent a:focus {
+    position: static;
+    /* Az elem elhelyezési módjának meghatározása */
+    width: auto;
+    /* Elem szélességének meghatározása */
+    height: auto;
+    /* Elem magasságának meghatározása */
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    /* Az elem megjelenítési módjának beállítása */
+    justify-content: space-between;
+    /* Flexbox esetén a tartalom vízszintes igazítása */
+    align-items: center;
+    /* Flexbox esetén a tartalom függőleges igazítása */
+    background: #ccc;
+    /* Háttér beállítása */
+    padding: 5px;
+    /* Belső margó beállítása */
+    position: relative;
+    /* Az elem elhelyezési módjának meghatározása */
+}
+
+/* HAMBURGER MENÜ (ikon) */
+.hamburger {
+    font-size: 2em;
+    /* Betűméret meghatározása */
+    cursor: pointer;
+    /* Egérkurzor megjelenésének beállítása */
+    display: none;
+    /* Csak mobilon jelenik meg */
+    color: black;
+    /* Szöveg színének beállítása */
+}
+
+/* NAVIGÁCIÓS MENÜ */
+.menu {
+    list-style: none;
+    /* Az listaelemek alapértelmezett jelölőit eltávolítja */
+    display: flex;
+    /* Az elem megjelenítési módjának beállítása */
+    gap: 0px;
+    /* A flexbox vagy grid elemek közötti távolságot 0px-re állítja, vagyis nincs rés közöttük */
+    z-index: 1;
+    /* Rétegsorrend beállítása */
+}
+
+.menu li {
+    padding: 10px;
+    /* Belső margó beállítása */
+}
+
+.menu a {
+    text-decoration: none;
+    /* Szöveg díszítésének beállítása */
+    color: black;
+    /* Szöveg színének beállítása */
+    font-size: 1.2em;
+    /* Betűméret meghatározása */
+}
+
+.active {
+    font-weight: bold;
+    /* Az "active" osztályú elem szövegét félkövérré alakítja */
+}
+
+/* REJTETT MENÜ KAPCSOLÓ (HAMBURGER) */
+#menu-toggle {
+    display: none;
+    /* Az elem eltüntetése */
+}
+
+/* KISEBB KÉPERNYŐN - HAMBURGER MENÜ AKTIVÁLÁSA */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        /* Megjelenik a hamburger ikon */
+    }
+
+    .menu {
+        display: flex;
+        /* Az elemet flexbox konténerré alakítja, lehetővé téve a rugalmas elrendezést */
+        flex-direction: column;
+        /* A flexbox elemeit oszlopirányban (függőlegesen) rendezi el */
+        position: absolute;
+        /* Az elem abszolút igazítása */
+        top: 4%;
+        /* Az elem távolsága a szülőelem tetejétől */
+        left: 2em;
+        /* Az elem távolsága a szülőelem bal szélétől */
+        width: 80%;
+        /* Elem szélességének meghatározása */
+        background: #ccc;
+        /* Háttér beállítása */
+        text-align: left;
+        /* Szöveg igazítása */
+        padding: 0;
+        /* Belső margó beállítása */
+        max-height: 0;
+        /* Maximális magasság meghatározása */
+        overflow: hidden;
+        /* Az elem túlcsordulásának kezelése */
+        transition: max-height 0.4s ease-in-out;
+        /* A maximális magasság változása 0.4 másodperc alatt fokozatosan történik */
+
+    }
+
+    .menu li {
+        padding: 15px 0;
+        /* Belső margó beállítása */
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        /* Felső szegély beállítása */
+    }
+
+
+    /* Ha a checkbox be van pipálva, akkor megjelenik a menü legördülve */
+    #menu-toggle:checked+.hamburger+.menu {
+        max-height: 300px;
+        /* Elég nagy méret beállítása, hogy az összes elem beleférjen */
+    }
+}
+
+/* max-width 768*/

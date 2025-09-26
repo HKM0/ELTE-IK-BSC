@@ -1,0 +1,27 @@
+@media (prefers-color-scheme: dark){    /* arculati színek felülírása */
+    :root {
+        --main-color: #8db4c6;
+        --link-normal: yellow;
+        --link-visited: orange;
+        --link-hover: purple;
+        --link-active: red;
+        --bg-color: black;
+        --text-color: white;
+        --border-color: gray;
+        --secondary-color: #2c2c2c;
+    }
+
+    h1 {
+        background: var(--bg-color);
+        color: var(--text-color);  /* Sötét módban nem lesz átmenetes a címsor háttere, csak sötét*/
+    }
+
+   body{
+    background-image: url("../media/hatter_sotet.jpg");
+   }
+/* KITÖLTENI - Sötét háttérkép beállítása*/
+   canvas{
+    filter: invert(1);
+   }
+/* KITÖLTENI - Canvas grafika invertálása*/
+}

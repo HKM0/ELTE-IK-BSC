@@ -1,0 +1,21 @@
+    /* arculati színek felülírása */
+    :root {
+        --main-color: #8db4c6;
+        --link-normal: yellow;
+        --link-visited: orange;
+        --link-hover: purple;
+        --link-active: red;
+        --bg-color: black;
+        --text-color: white;
+        --border-color: gray;
+        --secondary-color: #2c2c2c;
+    }
+
+    h1 {
+        background: var(--bg-color);  /* Sötét módban nem lesz átmenetes a címsor háttere, csak sötét*/
+    }
+
+   
+/* KITÖLTENI - Sötét háttérkép beállítása*/
+
+/* KITÖLTENI - Canvas grafika invertálása*/

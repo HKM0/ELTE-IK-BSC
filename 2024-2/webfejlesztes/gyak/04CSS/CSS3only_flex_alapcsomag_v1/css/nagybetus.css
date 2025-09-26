@@ -1,0 +1,68 @@
+/* stílusváltás */
+#styleswitch {
+  text-align: right;
+  /* Szöveg igazítása */
+  margin: 10px;
+  /* Külső margó beállítása */
+}
+
+body.large {
+  font-size: 2rem !important;
+  /* Betűméret beállítása */
+}
+
+
+body.large .container {
+  max-width: 100% !important
+    /*Max szélesség átállítása*/
+}
+
+body.large .col-lg-6,
+body.large .col-md-6,
+body.large .col-md-4,
+body.large .col-md-8,
+body.large .col-lg-4 {
+  flex: 0 0 100% !important;
+  /* Flexbox rugalmas elrendezési beállításai */
+  width: 100% !important;
+  /* Elem szélességének beállítása */
+  max-width: 100% !important;
+  /* Maximális szélesség beállítása */
+}
+
+body.large fieldset {
+  margin: 30px 0;
+}
+
+
+:is(body.large) :is(input[type="text"], input[type="url"], input[type="email"], textarea) {
+  width: 100%;
+  /* Elem szélességének beállítása */
+  font-size: inherit;
+  /* Betűméret beállítása */
+  margin: 20px 0;
+  /* Külső margó beállítása */
+}
+
+  
+
+
+.KITOLTENI { /* KITÖLTENI - jelölőnégyzet és rádiógomb beállítása */
+  
+  /* Az elem átalakításainak (nagyítás) beállítása */
+  
+  /* Külső 10px-es margó beállítása */
+}
+
+:is(body.large) :is(input[type="submit"], input[type="reset"], select) {
+  width: auto;
+  /* Elem szélességének beállítása */
+  height: 60px;
+  /* Elem magasságának beállítása */
+  font-size: inherit;
+  /* Betűméret beállítása */
+  padding: 10px;
+  /* Belső margó beállítása */
+
+}
+

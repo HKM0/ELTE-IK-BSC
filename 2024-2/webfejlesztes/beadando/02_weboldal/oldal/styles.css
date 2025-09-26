@@ -1,0 +1,814 @@
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*>>>>>>>>>>>>>>>>>>Oldal alapok>>>>>>>>>>>>>>>>>>>>>>*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/* CSS változók */
+:root {
+    --bgColor--night: #423966;
+    --mooncolor: #d9fbff;
+    --bgColor--day: #9ee3fb;
+    
+    --toggleHeight: 16em;
+    --toggleWidth: 30em;
+    --toggleBtnRadius: 10em;
+}
+html {
+    scroll-behavior: smooth; 
+}
+body.light {
+    --page-background-image: #f4f4f4;
+    /*--page-background-image: url('source/images/health_insurance.jpg');*/
+    --background-color: #55605B;
+    --text-color: #15181C;
+    --header-footer-bg: #15181C;    
+    --header-footer-text: #f4f4f4;  
+    --hover-color: #BCD1D2;   
+    --h1color: #f4f4f4; 
+    --hover-text-color: #000000;
+    --menu-text-color: #f4f4f4;
+    --menu-icon-color: #f4f4f4;
+    --visited-link: #24baff;
+
+    /*
+    background-image: var(--page-background-image);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+}
+body.dark{
+    --page-background-image: #15181C;
+    /*    --page-background-image: url('source/images/prlx1.jpg');*/
+    --background-color: #222; 
+    --text-color: #ffff24;
+    --header-footer-bg: #15181C;       
+    --header-footer-text: #ffff24;  
+    --hover-color: #ffff24;         
+    --h1color: #ffff24;
+    --hover-text-color: #000000;
+    --menu-text-color: #ffff24;
+    --menu-icon-color: #ffff24;
+    --visited-link: #f78c00;
+    /*
+    background-image: var(--page-background-image);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+}  
+
+/*---------------------------------------------------*/
+/*------------------Oldal stílus---------------------*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color, #ffffff); 
+    color: var(--text-color, #000000); 
+    transition: background-color 0.3s, color 0.3s;
+    text-align: justify; 
+}
+main {
+    padding-top: 60px; 
+    transition: padding-top 0.3s ease; 
+}
+main.blurred {
+    filter: blur(10px); 
+    pointer-events: none; 
+}
+header, .menu {
+    filter: none; 
+    pointer-events: initial; 
+}
+header {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: 1px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 9999;
+}
+
+/*---------------------------------------------------*/
+/*-A fejléc színe így mindig jó színnel jelenik meg.-*/
+/*---------------------------------------------------*/
+header h1 {
+    color: var(--h1color);
+    font-size: 200%;
+    align-items: center;
+}
+
+/*---------------------------------------------------*/
+/*--------------------Menu styling-------------------*/
+.menu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: none;
+    cursor: pointer;
+    z-index: 200; 
+    background-color: var(--header-footer-bg, #15181C); 
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--menu-text-color, #f4f4f4); 
+    display: none;
+}
+
+.menu span {
+    width: 40px; 
+    height: 5px; 
+    margin: 5px 0;
+    background-color: var(--menu-text-color);
+    transition: 0.3s;
+    display: none;
+
+}
+.menu:hover span {
+    width: 40px; 
+    margin: 5px 0;
+    border-radius: 0%;
+}
+
+.altmenu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 200; 
+    background-color: var(--header-footer-bg, #15181C); 
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--menu-text-color, #f4f4f4); 
+}
+.altmenu a {
+    color: var(--menu-text-color);
+    text-decoration: underline; 
+    padding: 15px 20px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; 
+    font-size: 125%;
+}
+.altmenu a:hover {
+    background-color: var(--hover-color); 
+    color: var(--hover-text-color); 
+    box-shadow: 0 0 8px var(--hover-color);
+}
+
+.altmenu a.active {
+    background-color: var(--hover-color); 
+    color: var(--hover-text-color); 
+    box-shadow: 0 0 8px var(--hover-color);
+}
+
+/*---------------------------------------------------*/
+/*---------------lenyíló menü x alak-----------------*/
+.menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/*---------------------------------------------------*/
+/*-------------------lenyíló menü--------------------*/
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0; 
+    width: 100%; 
+    background-color: var(--header-footer-bg);
+    padding: 10px 0;
+    border-radius: 0; 
+    z-index: 100;
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+    opacity: 0;
+    transform: translateY(-10px); 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    pointer-events: none; 
+}
+.dropdown.show {
+    display: flex; 
+    opacity: 1;
+    transform: translateY(0); 
+    pointer-events: initial; 
+}
+.dropdown a {
+    color: var(--menu-text-color);
+    text-decoration: underline; 
+    padding: 10px 20px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center; 
+}
+.dropdown a:hover {
+    background-color: var(--hover-color); 
+    color: var(--hover-text-color); 
+    box-shadow: 0 0 8px var(--hover-color);
+}
+
+.dropdown a.active {
+    background-color: var(--hover-color); 
+    color: var(--hover-text-color); 
+    box-shadow: 0 0 8px var(--hover-color);
+}
+
+/*---------------------------------------------------*/
+/*-------------------Téma gomb stílus ---------------*/
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.light {
+    background: var(--lightbg);
+    color: var(--lightt);
+}
+.tdnn {
+    cursor: pointer;
+    margin: 0 auto;
+    font-size: 15%;
+    margin-top: 10%;
+    position: relative;
+    height: var(--toggleHeight);
+    width: var(--toggleWidth);
+    border-radius: var(--toggleHeight);
+    background: var(--bgColor--night);
+    transition: 0.3s;
+
+}
+.nap {
+    background: #ffbf71;
+}
+.hold {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    top: 3em;
+    left: 3em;
+    width: var(--toggleBtnRadius);
+    height: var(--toggleBtnRadius);
+    transition: all 0.2s ease-out;
+    transform: rotate(-75deg);
+    background: var(--bgColor--night);
+    box-shadow: 3em 2.5em 0 0em var(--mooncolor) inset,
+      rgba(255, 255, 255, 0.1) 0em -7em 0 -4.5em,
+      rgba(255, 255, 255, 0.1) 3em 7em 0 -4.5em,
+      rgba(255, 255, 255, 0.1) 2em 13em 0 -4em,
+      rgba(255, 255, 255, 0.1) 6em 2em 0 -4.1em,
+      rgba(255, 255, 255, 0.1) 8em 8em 0 -4.5em,
+      rgba(255, 255, 255, 0.1) 6em 13em 0 -4.5em,
+      rgba(255, 255, 255, 0.1) -4em 7em 0 -4.5em,
+      rgba(255, 255, 255, 0.1) -1em 10em 0 -4.5em;
+}
+.napocska {
+    top: 4.5em;
+    left: 18em;
+    transform: rotate(0deg);
+    width: 7em;
+    height: 7em;
+    background: var(--bgColor--day);
+    box-shadow: 3em 3em 0 5em var(--bgColor--day) inset, 0 -5em 0 -2.7em var(--bgColor--day),
+      3.5em -3.5em 0 -3em var(--bgColor--day), 5em 0 0 -2.7em var(--bgColor--day),
+      3.5em 3.5em 0 -3em var(--bgColor--day), 0 5em 0 -2.7em var(--bgColor--day),
+      -3.5em 3.5em 0 -3em var(--bgColor--day), -5em 0 0 -2.7em var(--bgColor--day),
+      -3.5em -3.5em 0 -3em var(--bgColor--day);
+}
+  
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*<<<<<<<<<<<<<<<<<<index elemek<<<<<<<<<<<<<<<<<<<<<<*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+* {box-sizing:border-box}
+.ppt-kontener {
+    display: flex; 
+    justify-content:center ; 
+    align-items: center; 
+    padding: 3%; 
+    margin: 2%; 
+    background-color: var(--header-footer-bg); 
+    border-radius: 1em; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease; 
+    margin-top: 50px; 
+}
+
+.ppt-text {
+    max-width: 45%; 
+    text-align: left; 
+    margin: 2%; 
+    font-size: 175%;
+    line-height: 1.6; 
+    background-color: var(--header-footer-bg); 
+    color: var(--h1color); 
+}
+
+.ppt-kepnezegeto {
+  max-width: 50%;
+  position: relative;
+  margin: auto;
+}
+
+.ppt-dia {
+  display: none;
+  
+}
+
+.elozo, .kovetkezo {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  margin-top: 0;
+  padding: 3%;
+  color: white;
+  font-weight: bold;
+  font-size: 200%;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.elozo {
+  left: 0;
+}
+
+.kovetkezo {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.elozo:hover, .kovetkezo:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.portfolio-kontener,
+.video-kontener {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+    margin: 2%;
+    background-color: var(--header-footer-bg);
+    border-radius: 1em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    margin-top: 50px;
+}
+
+.portfolio-text,
+.video-text {
+    max-width: 45%;
+    text-align: left;
+    margin: 2%;
+    font-size: 175%;
+    line-height: 1.6;
+    background-color: var(--header-footer-bg);
+    color: var(--h1color);
+}
+
+.portfolio-kontener img {
+    max-width: 50%;
+    height: auto;
+}
+
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer-kontener {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    font-size: 100%;
+}
+
+.footer-kontener div {
+    margin: 0;
+}
+.footer-kontener a {
+    color:  var(--header-footer-text);
+}
+
+.info-cucc,
+.info-cucc2,
+.info-cucc3{
+    color: var(--header-footer-text);
+}
+
+.video {
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    transform-origin: center;
+    margin-left: 2em;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*>>>>>>>>>>>>>felfele gomb>>>>>>>>>>>>>>>>>>>>>>*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+#felGomb {
+    display: none; 
+    position: fixed;
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: rgba(250, 79, 0, 0.50); 
+    color: white; 
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 50%;
+    font-size: 18px; 
+    margin-bottom: 20px;
+  }
+  
+  #felGomb:hover {
+    background-color: rgba(250, 79, 0, 0.364); 
+      }
+
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*>>>>>>>>>>>>bootstrap kiemelt részlet>>>>>>>>>>>>>>>*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.embed-responsive {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden
+}
+.embed-responsive::before {
+    display: block;
+    content: ""
+}
+.embed-responsive .embed-responsive-item,.embed-responsive video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0
+}
+.embed-responsive-16by9::before {
+    padding-top: 56.25%
+}
+
+/* Skip link stílus */
+.skip-link {
+    position: absolute;
+    top: -40px; 
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 1px;
+    z-index: 100;
+    margin-top: 1px; 
+    transition: top 0.3s;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: underline;
+    color: #1e90ff; 
+}
+
+
+.insurance-item ul li b,
+.insurance-item ul li strong {
+    font-weight: bold;
+    color: #ffbf71; 
+    background: rgba(255,255,0,0.08);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+.insurance-item ul li em,
+.insurance-item ul li i {
+    font-style: italic;
+    color: #24baff; 
+    background: rgba(36,186,255,0.08);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* látogatott link kritérium*/
+.altmenu a,
+.dropdown a {
+    color: var(--menu-text-color);
+}
+a:visited:not(.altmenu a):not(.dropdown a) {
+    color: var(--visited-link); 
+}
+
+/* Survey section styling */
+.survey-section {
+    padding: 1.5em ;
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    border-radius: 15px;
+    margin: 3em auto;
+    max-width: 600px;
+    margin-top: 0;
+}
+
+.survey-section h2 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.survey-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.survey-section label {
+    margin: 0.5em 0 0.2em;
+}
+
+.survey-section input[type="text"],
+.survey-section input[type="email"],
+.survey-section input[type="tel"] {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 95%;         
+    max-width: 400px;   
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.survey-section input[type="radio"] {
+    margin-right: 0.5em;
+}
+
+.survey-section input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 0.5em;
+
+}
+
+.survey-section button {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--hover-color);
+    color: var(--background-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.survey-section button:hover {
+    background-color: var(--background-color);
+    color: var(--hover-color);
+}
+
+.survey-section button[type="submit"],
+.survey-section button[type="reset"] {
+    color: var(--header-footer-bg);
+}
+
+.gender-options {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.survey-section textarea {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 95%;         
+    max-width: 400px;   
+    min-height: 80px;   
+    font-size: 1em;
+    resize: vertical;
+}
+
+.faq-section {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    border-radius: 15px;
+    padding: 1.5em;
+    margin: 5% auto;  
+    max-width: 600px;
+}
+
+.faq-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq-text {
+    flex: 1;
+    margin-right: 1em;
+}
+
+.faq-image {
+    flex: 1;
+    max-width: 300px;
+}
+
+.faq-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.insurance-item {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+.insurance-item .insurance-img {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+}
+
+.insurance-section {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    border-radius: 15px;
+    padding: 1.5em;
+    margin: 3em auto;
+    max-width: 600px;
+}
+.info-table{
+    align-items: center;
+    text-align: center;
+}
+
+/*---------------------*/
+/*ez a biztositas oldal*/
+/*---------------------*/
+
+
+.prlx {
+    background-image: url("source/images/life_insurance.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.prlx2 {
+    background-image: url("source/images/health_insurance.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.prlx3 {
+    background-image: url("source/images/home_insurance.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.prlx4 {
+    background-image: url("source/images/car_insurance.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.insurance-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+.insurance-img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+.info-table table {
+    margin: 0 auto;
+}
+
+.prlx10 {
+    background-image: url("source/images/prlx2.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    text-align: justify;
+}
+.prlx12 {
+    background-image: url("source/images/prlx1.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    text-align: justify;
+}
+
+.about-us-content img{
+    width: 60%;
+}
+
+.about-us-section{
+    margin: 5%;
+    color: var(--menu-text-color);
+}
+
+.about-us-bg {
+    background-color: var(--header-footer-bg);
+    border-radius: 15px;
+    margin: 3em auto;
+    max-width: 900px;
+    padding: 2em 1em;
+}
+
+.ppt h2#pptsect {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    pointer-events: none !important;
+}
+
+.portfolio h2#portsect {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    pointer-events: none !important;
+}
+
+.video-section h2#vidsect {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    pointer-events: none !important;
+}
+
+.info-table h2#infosect {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    pointer-events: none !important;
+}

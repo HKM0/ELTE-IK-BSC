@@ -1,0 +1,286 @@
+/*méret beállítások*/
+@media (max-width: 1400px) {  
+    .altmenu {
+        padding: 10px;
+    }
+    .altmenu a {
+        padding: 10px 20px; 
+    }
+    
+    .ppt-text {
+        font-size: 1.2vw;
+    }
+    .elozo, .kovetkezo {
+      font-size: 18px;
+    }
+    
+    .portfolio-text,
+    .video-text {
+        font-size: 1.2vw;
+    }
+
+    .footer-kontener {
+        font-size: 1vw;
+    }
+}
+
+@media (max-width: 1200px) { 
+    header h1 {
+       font-size: 3vw;
+       align-items: center;
+    }
+    .theme-toggle {
+        top: 1vw;
+        right: 5vw;
+    }
+    .tdnn {
+        font-size: 0.3vw; 
+        margin-top: 2em;
+    }
+    .altmenu {
+        display: none;
+    }
+    .menu {
+        top: 0.5vw;
+        left: 0.5vw;
+        padding: 1vw;
+        display: inline-block;
+    }
+    .menu span {
+        display: block;
+        width: 5vw; 
+        height: 0.3vw; 
+        margin: 1vw 0;
+        background-color: var(--menu-text-color);
+        transition: 0.3s;
+    }
+    .menu:hover span {
+        width: 5vw; 
+        height: 0.3vw; 
+        margin: 1vw 0;
+        border-radius: 0%;
+    }
+    .menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(0.5vw, 1vw);
+    }
+    .menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(0.5vw, -1vw); 
+    }
+    .ppt-text {
+        max-width: 90%; 
+        text-align: justify; 
+        font-size: 2vw; 
+        
+    }
+    .ppt-kontener {
+        display: block;
+        padding-top: 3vh;  
+        margin: 1vh; 
+    }
+    .ppt-kontener{
+        margin-top: 40px;
+    }
+    .portfolio-kontener, .video-kontener{
+        margin-top: 30px;
+    }
+    .ppt-kepnezegeto {
+        max-width: 90%;
+    }
+    .elozo, .kovetkezo{
+        padding: 2%;
+        font-size: 2vw;
+    }
+    .dropdown {
+        padding: 1vw 0;
+        gap: 2vw; 
+    }
+    .dropdown a {
+        padding: 1vw 2vw; 
+        font-size: 2.2vw;
+    }
+
+    .portfolio-kontener,
+    .video-kontener {
+        display: block;
+        margin-top: 2vw;
+    }
+    
+    .portfolio-text,
+    .video-text {
+        max-width: 90%; 
+        font-size: 2vw; 
+        text-align: justify; 
+    } 
+
+    .footer-kontener {
+        font-size: 2vw;
+    }  
+
+    .video {
+        margin: 0 auto;
+    } 
+    #felGomb {
+        margin-bottom: 45px;
+    }
+
+
+}
+@media (max-width: 550px) { 
+    header h1 {
+        font-size: 6vw;
+    }
+    .tdnn {
+        font-size: 0.5vw; 
+        margin-top: 3.5em;
+    }
+    .menu {
+        top: 0.5vw;
+        left: 0.5vw;
+        padding: 1vw;
+        display: inline-block;
+    }
+    .menu span {
+        display: block;
+        width: 7vw; 
+        height: 0.7vw; 
+        margin: 1.5vw 0;
+        background-color: var(--menu-text-color);
+        transition: 0.3s;
+    }
+    .menu:hover span {
+        /* ez egy kicsinyítés volt a lenyíló menühöz */
+        width: 7vw; 
+        height: 0.7vw; 
+        margin: 1.5vw 0;
+        border-radius: 0%;
+    }
+    .menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(1.5vw, 1.5vw);
+    }
+    .menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(1.5vw, -1.5vw); 
+    }
+    .dropdown {
+        padding: 3vw 0;
+        gap: 2vw; 
+    }
+    .dropdown a {
+        padding: 3vw 3vw; 
+        font-size: 3.5vw;
+    }
+
+    .elozo, .kovetkezo {
+        width: auto;
+        margin-top: 0;
+        padding: 5%;
+        font-weight: bold;
+        font-size: 30px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        color: var(--header-footer-text);
+        user-select: none;
+    }
+    #felGomb {
+        margin-bottom: 30px;
+    }
+    .ppt-text, .portfolio-text, .video-text {
+    font-size: 3vw;
+    }
+    .ppt-kontener{
+        margin-top: 40px;
+    }
+    .portfolio-kontener, .video-kontener{
+        margin-top: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
+
+@media (max-width: 450px) { 
+    .altmenu {
+        display: none;
+    }
+    main {
+        padding-top: 10vh;
+    }
+    header h1 {
+       font-size: 7vw;
+    }
+    .tdnn {
+        font-size: 0.7vw; /*a betű méret változtatja a méretet*/
+        margin-top: 3.5em;
+    }
+
+    .menu {
+        top: 0vw;
+        left: 2vw;
+        padding: 4vw;
+        padding-top: 1.5vw;
+        display: inline-block;
+    }
+    .menu span {
+        width: 9vw;  
+        height: 1vw; 
+        margin: 2vw 0;
+        display: block;
+    }
+    .menu:hover span {
+        /* ez egy kicsinyítés volt a lenyíló menühöz */
+        width: 9vw;  
+        height: 1vw; 
+        margin: 2vw 0;
+    }
+    .menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(1vw, 3vw);
+    }
+    .menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(1vw, -3vw); 
+    }
+    .ppt-text {
+        font-size: 4vw;    
+    }
+    .ppt-kontener{
+        margin-top: 40px;
+    }
+    .dropdown {
+        padding: 4vw 0vw;
+    }
+    .dropdown a {
+        padding: 4vw 4vw; 
+        font-size: 4vw;
+    }
+    .video-kontener{
+        align-items: center;
+    }
+
+    .portfolio-text,
+    .video-text {
+        font-size: 4vw; 
+    } 
+
+    .footer-kontener {
+        font-size: 2.5vw;
+        display: block;
+    }  
+    #felGomb {
+        margin-bottom: auto;
+    }
+
+}
+@media (max-width: 360px){
+    .video {
+        align-items: center;
+        margin-left: 0px;
+        padding-left: 0px;
+        transform: scale(0.6);
+    }
+}

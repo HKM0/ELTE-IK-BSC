@@ -1,0 +1,122 @@
+/* Carousel konténer */
+.carousel {
+    position: relative;
+    /* Az elem elhelyezési módjának meghatározása */
+    width: 90%;
+    /* Elem szélességének meghatározása */
+    max-width: 600px;
+    /* Maximális szélesség meghatározása */
+    margin: auto;
+    /* Külső margó beállítása */
+    overflow: hidden;
+    /* Az elem túlcsordulásának kezelése */
+    border-radius: 10px;
+    /* Az elem sarkait 10px-re lekerekíti */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Az elem alá 4px lefelé eltolva, 10px elmosással halvány fekete árnyékot ad */
+}
+
+/* Képek konténere */
+.carousel-images {
+    display: flex;
+    /* Az elem megjelenítési módjának beállítása */
+    width: 400%;
+    /* Négy kép szélessége */
+    transition: transform 0.5s ease-in-out;
+    /* Animációs hatások beállítása */
+}
+
+/* Egyes képek */
+.carousel-item {
+    flex: 0 0 25%;
+    /* 4 kép van, mindegyik 25%-ot foglal */
+    /* Flexbox rugalmas elrendezési beállításai */
+}
+
+.carousel-item img {
+    width: 100%;
+    /* Elem szélességének meghatározása */
+    height: 300px;
+    /* Elem magasságának meghatározása */
+    object-fit: cover;
+    /* A kép kitölti a rendelkezésre álló helyet, levágva a túlcsorduló részeket */
+    display: block;
+    /* Az elem megjelenítési módjának beállítása */
+}
+
+/* Rádiógombok rejtése */
+div.carousel input[type="radio"] {
+    display: none;
+    /* Az elem elrejtése */
+}
+
+/* Navigációs pöttyök */
+.carousel-navigation {
+    position: absolute;
+    /* Az elem elhelyezési módjának meghatározása */
+    bottom: 10px;
+    /* Az elem távolsága a szülőelem aljától */
+    left: 50%;
+    /* Az elem távolsága a szülőelem bal szélétől */
+    transform: translateX(-50%);
+    /* Az elemet vízszintesen balra tolja a saját szélességének 50%-ával */
+    display: flex;
+    /* Az elem megjelenítési módjának beállítása */
+    gap: 10px;
+    /* A flexbox elemek közötti távolságot 10px-re állítja */
+
+}
+
+.carousel-navigation label {
+    width: 2em;
+    /* Elem szélességének meghatározása */
+    height: 2em;
+    /* Elem magasságának meghatározása */
+    line-height: 2em;
+    /* Sor magasságának beállítása. Függőleges középre igazítás miatt fontos */
+    background: var(--bg-color);
+    /* Háttér beállítása */
+    color:var(--text-color);
+    /* Szövegszín beállítása */ 
+    border-radius: 50%;
+    /** Szegély lekerekítés */
+    cursor: pointer;
+    /* Egérkurzor megjelenésének beállítása */
+    transition: background 0.3s;
+    /* A háttérszín változása 0.3 másodperc alatt fokozatosan történik */
+    text-align: center;
+    /* Szöveg igazítása */
+    
+}
+
+/* Aktív pötty */
+input#slide1:checked~.carousel-navigation label[for="slide1"],
+input#slide2:checked~.carousel-navigation label[for="slide2"],
+input#slide3:checked~.carousel-navigation label[for="slide3"],
+input#slide4:checked~.carousel-navigation label[for="slide4"] {
+    background: var(--secondary-color);
+    /* Háttér beállítása */
+    font-weight: bold;
+    /* Félkövér betű beállítása*/
+}
+
+/* Képcsúsztatás (rádiógomb alapján) */
+input#slide1:checked~.carousel-images {
+    transform: translateX(0);
+    /* Az elem átalakításainak (pl. forgatás, nyújtás) beállítása */
+}
+
+input#slide2:checked~.carousel-images {
+    transform: translateX(-25%);
+    /* Az elem átalakításainak (pl. forgatás, nyújtás) beállítása */
+}
+
+input#slide3:checked~.carousel-images {
+    transform: translateX(-50%);
+    /* Az elem átalakításainak (pl. forgatás, nyújtás) beállítása */
+}
+
+input#slide4:checked~.carousel-images {
+    transform: translateX(-75%);
+    /* Az elem átalakításainak (pl. forgatás, nyújtás) beállítása */
+}

@@ -1,0 +1,61 @@
+details,
+nav,
+audio,
+iframe,
+video,
+div.carousel,
+meter,
+hr,
+canvas {
+  display: none !important;
+  /* Az elem eltüntetése */
+}
+
+p {
+  text-align: justify;
+  /* Sorkizárt igazítás */
+}
+
+figure,
+footer p {
+  text-align: center !important;
+  /* Szöveg középre igazítása */
+
+}
+
+pre{
+  text-align: left;
+}
+/* KITÖLTENI - pre elem balra igazítása*/
+abbr{
+  text-decoration: none;
+}
+/* KITÖLTENI - abbr elem szövegdekoráció */
+
+figure img{
+  max-width: 10cm !important;
+  max-height: 6cm !important;
+}
+/* KITÖLTENI - képek maximális mérete */
+
+
+
+.nyomtatas {
+  display: block !important;
+  /* KITÖLTENI - Az elem blokkszintű megjelenítése */
+  border: 1px dashed gray;
+  /* Szegély beállítása */
+  padding: 10px;
+  /* Belső margó beállítása */
+}
+
+table{
+  float: left;
+  margin-right: 1cm;
+}
+/* KITÖLTENI - táblázat lebegtetése, jobb oldali margó beállítása */
+
+a::after{
+  content: " (" attr(href) ")";
+}
+/* KITÖLTENI - a linkek mögé kell generálni a webcímet kerek zárójelek között */

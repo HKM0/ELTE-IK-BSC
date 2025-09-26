@@ -1,0 +1,14 @@
+/* Megfelelő stíluslapok importálása a hozzá tartozó médiatípusokra */
+
+@import url("racs.css") screen;
+/* Rács beállítása*/
+@import url("arculat.css") screen;
+/* Arculat leírása */
+@import url("carousel.css") screen;
+/* Carousel megvalósítása*/
+@import url("navigacio.css") screen;
+/*  Reszponzív menü */
+@import url("nagybetus.css") screen;
+/* Nagy betűméret beállítása */
+@import url("nyomtatas.css") print;
+/* Nyomtatási nézet */

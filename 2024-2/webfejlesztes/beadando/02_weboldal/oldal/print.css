@@ -1,0 +1,66 @@
+@media print {
+    header, .menu, .altmenu, .theme-toggle, footer, .skip-link, nav.dropdown {
+        display: none !important;
+    }
+
+    .video-section,
+    .video,
+    .sizuram,
+    .embed-responsive,
+    video {
+        display: none !important;
+    }
+
+    body, main, section {
+        background: none !important;
+        box-shadow: none !important;
+        color: #000 !important;
+    }
+
+    main {
+        margin: 0;
+        padding: 0;
+    }
+
+    img, video {
+        max-width: 80% !important; 
+        height: auto !important;
+        filter: grayscale(100%) !important;  
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    .portfolio-photo {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    figure {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, a, span {
+        color: #000 !important;
+    }
+
+    .ppt-dia {
+        display: block !important;
+    }
+
+    .elozo, .kovetkezo {
+        display: none !important;
+    }
+
+    .ppt-kontener {
+        margin-top: 0 !important;
+    }
+}

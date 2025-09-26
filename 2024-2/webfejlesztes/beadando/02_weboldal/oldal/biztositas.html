@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biztosítások - Zakariás Biztosító honlapja</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="meretezesek.css">
+    <link rel="stylesheet" media="print" href="print.css">
+</head>
+<body class="dark">
+    <a href="#contentStart" class="skip-link">Ugrás a tartalomhoz</a>
+    <header>
+        <div class="altmenu">
+            <a href="index.html">Főoldal</a>
+            <a href="biztositas.html" class="active">Biztosítások</a>
+            <a href="jelentkezes.html">Kapcsolat felvétel</a>
+        </div>
+        <div class="menu" id="menu" onclick="document.getElementById('dropdown').classList.toggle('show')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="dropdown" id="dropdown">
+            <a href="index.html">Főoldal</a>
+            <a href="biztositas.html" class="active">Biztosítások</a>
+            <a href="jelentkezes.html">Kapcsolat felvétel</a>
+        </nav>
+        <h1>Biztosítások</h1>
+        <div class="theme-toggle">
+            <div onclick="tdnn()" class="tdnn">
+                <div class="hold"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="prlx">
+            <div class="transparent-margin"></div>
+            <section class="insurance-section">
+                <h2>Életbiztosítás</h2>
+                <div class="insurance-item">
+                    <img src="source/images/tree.jpg" alt="Életbiztosítás fa és szív alakú gyökere." class="insurance-img">
+                    <ul>
+                        <li><b>Haláleset</b> esetén anyagi védelmet nyújt a <b>családnak</b> vagy <b>kedvezményezettnek</b>.</li>
+                        <li>Lehet <b>kockázati</b> vagy <b>megtakarításos</b> életbiztosítás is.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="prlx2">
+            <div class="transparent-margin"></div>
+            <section class="insurance-section">
+                <h2>Egészségbiztosítás</h2>
+                <div class="insurance-item">
+                    <img src="source/images/hearth.jpg" alt="Egészségbiztosítás egy aggódó szív." class="insurance-img">
+                    <ul>
+                        <li>Segít a <b>váratlan orvosi költségek</b> fedezésében.</li>
+                        <li><b>Magánorvosi ellátás</b>, <b>műtétek</b>, <b>kórházi kezelések</b> finanszírozása.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="prlx3">
+            <div class="transparent-margin"></div>
+            <section class="insurance-section">
+                <h2>Lakásbiztosítás</h2>
+                <div class="insurance-item">
+                    <img src="source/images/house.jpg" alt="Lakásbiztosítás egy ház." class="insurance-img">
+                    <ul>
+                        <li>Védelmet nyújt a <b>lakóingatlanra</b> és a benne lévő <b>értéktárgyakra</b>.</li>
+                        <li><b>Tűz</b>, <b>betörés</b>, <b>árvíz</b> vagy más károk esetén is.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="prlx4">
+            <div class="transparent-margin"></div>
+            <section class="insurance-section">
+                <h2>Gépjármű-biztosítás</h2>
+                <div class="insurance-item">
+                    <img src="source/images/car.jpg" alt="Gépjármű-biztosítás egy kis piros autóval." class="insurance-img">
+                    <ul>
+                        <li>Ide tartozik a <b>kötelező felelősségbiztosítás</b> (<b>KGFB</b>).</li>
+                        <li>A <b>casco</b> a <b>saját jármű</b> kárait is téríti (<b>lopás</b>, <b>törés</b>, <b>elemi károk</b> stb.).</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Új szakasz táblázattal -->
+        <section class="info-table">
+            <h2 id="infosect">infotablaszekcio</h2>
+            <details>
+                <summary>Kattints a táblázat megtekintéséhez</summary>
+                <table>
+                    <caption>Kiegészítő információk</caption>
+                    <tr>
+                        <th>Biztosítás típus</th>
+                        <th>Előnyök</th>
+                    </tr>
+                    <tr>
+                        <td>Életbiztosítás</td>
+                        <td>Anyagi védelem a családnak</td>
+                    </tr>
+                    <tr>
+                        <td>Egészségbiztosítás</td>
+                        <td>Váratlan orvosi költségekhez segítség</td>
+                    </tr>
+                </table>
+            </details>
+        </section>
+        <div class="transparent-margin-big"></div>
+
+    </main>
+    <footer>
+        <div class="footer-kontener">
+            <div class="info-cucc">
+                <p><a href="https://g.co/kgs/Q56xo3R" target="_blank">Zakariás Biztosító kft.</a></p>
+            </div>
+            <div class="info-cucc2">
+                <p><a href="https://g.co/kgs/Q56xo3R" target="_blank">Budapest, Pázmány Péter stny. 1/C, 1117</a></p>
+            </div>
+            <div class="info-cucc3">
+                <p><a href="https://telefonkonyv.hu/" target="_blank">tel.: +69 69 696 9696</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

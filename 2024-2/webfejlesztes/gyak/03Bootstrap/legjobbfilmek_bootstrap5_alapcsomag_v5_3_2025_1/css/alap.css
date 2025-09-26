@@ -1,0 +1,52 @@
+/* Ezzel a stíluslappal felülbíráljuk a Bootstrap megjelenését, illetve egyéb beállításokat is elvégzünk*/
+.carousel-item img {
+    object-fit     : cover;
+    object-position: center;
+    height         : 40vh;
+    overflow       : hidden;
+  }
+
+body{
+  background-image: url("../media/hatter.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+.table-dark td{
+  background-color: #6d5435;
+}
+.text-primary, h2{
+  color: rgb(94 73 56) !important;
+}
+.bg-primary{
+    background-color: #2c3034 !important;
+}
+
+.bg-primary h2{
+    color: white !important;
+}
+
+#styleswitch{
+    text-align: right;
+    margin: 20px;
+}
+
+body.large{
+    font-size: 2rem !important;
+}
+
+body.large .container-lg{
+    max-width: 95% !important;  
+}
+
+body.large .col-lg-6,
+body.large .col-lg-4,
+body.large .col-md-8,
+body.large .col-md-6,
+body.large .col-md-4{
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.nyomtatas{
+  display: none;
+}

@@ -1,0 +1,56 @@
+body div.container-lg * {color: black !important;}
+
+div.container-lg {
+  max-width : 100% !important;
+  margin    : 0;
+  border    : none !important;
+}
+
+details,
+nav, audio {
+  display: none !important;
+}
+
+a::after {
+  content: " ("attr(href) ")";
+}
+
+.ratio {
+  display: none
+}
+
+div.row {
+  margin: 0 !important
+}
+
+pre,
+table>* {
+  color           : black;
+  background-color: white;
+
+}
+
+table tr>* {
+  border : none !important;
+  padding: 5px !important;
+}
+
+div.carousel {
+  display: none
+}
+
+
+
+figure img {
+  max-width: 50% !important;
+}
+
+pre {
+  font-size: 75% !important;
+}
+
+.nyomtatas {
+  display: block !important;
+  border : 1px dashed gray;
+  padding: 10px;
+}

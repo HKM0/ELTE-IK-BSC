@@ -1,0 +1,87 @@
+/* A TÁBLÁZAT ÁTALAKÍTÁSA, AMENNYIBEN NEM NAGYBETŰS MÓDBAN VAGYUNK ÉS A MINIMÁLIS VIEWPORT SZÉLESSÉG 768 PX*/
+@media screen and (min-width:768px) {
+    
+
+/* A táblázat kijelölése, amennyiben a body elem nincs a large osztályba sorolva */
+    body:not(.large)  table {
+        width: 100%;
+        /* Elem szélességének beállítása */
+        border-collapse: collapse;
+        /* A táblázat celláinak szegélyei összeolvadnak, elkerülve a dupla vonalakat */
+        position: relative;
+        /* Az elem elhelyezési módjának beállítása */
+    }
+  
+  /* A táblázatsorok flex konténer elemekké alakítása */
+    body:not(.large) tr {
+        display: flex;
+        /* Az elem megjelenítési módjának beállítása */
+        flex-wrap: wrap;
+        /* A flexbox elemei szükség esetén új sorba törnek */
+  
+    }
+  
+    /* Fejléc cellák és adatcellák átalakítása*/
+    body:not(.large) th,
+    body:not(.large) td {
+        display: block;
+        /* Az elemek megjelenítési módjának beállítása */
+        width: 100%;
+        /* Elem szélességének beállítása */
+        text-align: left;
+        /* Szöveg igazítása */
+        padding: 6px;
+        /* Belső margó beállítása */
+        border: 0 !important;
+        /* szegély letiltása */
+  
+    }
+  
+    /* Most egymás alatt lesznek a cellák, ezért a jobbra mutató nyilat lecseréljül lefele mutatóra*/
+    body:not(.large) th[scope="row"]:before {
+        content: "⬇️";
+        /* tartalom beállítása */
+    }
+  
+    /* Eltüntetjük a korábban beállított jobbra mutató nyilat*/
+    body:not(.large) th[scope="row"]:after {
+        content: ""
+            /* tartalom kitörlése */
+    }
+  
+    /* Táblázatcím és a táblázat leírás blokkszintű elemmé alakítása */
+    body:not(.large) caption,
+    body:not(.large) details {
+        display: block;
+        /* Az elem megjelenítési módjának beállítása */
+    }
+  
+    /*A táblázat feliratát alulra rendezzük. */
+    body:not(.large) caption {
+        position: absolute;
+        /* Az elem elhelyezési módjának beállítása */
+        /* Mivel a táblázat relatív pozícionálású, ezért azon elem koordinátáihoz képest tudjuk megadni a caption elem helyzetét*/
+        top: 100%;
+        /* Az elem távolsága a szülőelem tetejétől. Az elemet letoljuk legalulra */
+        width: 100%;
+        /* Elem szélességének beállítása */
+        background-color: var(--bg-color);
+        /* Háttérszín beállítása */
+        color:var(--text-color);
+        /*szövegszín beállítása*/
+    }
+  
+    /*Amennyibe a details elem ki van nyitva*/
+    body:not(.large) details[open] {
+        background:var(--secondary-color);
+        /* Háttér beállítása */
+        border: 1px solid black;
+        /* szegély beállítása */
+        padding: 0 10px;
+        /* Belső margó beállítása */
+  
+    }
+  
+  }
+  
+  /* min-width:768 */

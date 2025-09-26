@@ -1,0 +1,45 @@
+details,
+nav,
+audio,
+iframe,
+video,
+div.carousel,
+meter,
+hr,
+canvas {
+  display: none !important;
+  /* Az elem eltüntetése */
+}
+
+p {
+  text-align: justify;
+  /* Sorkizárt igazítás */
+}
+
+figure,
+footer p {
+  text-align: center !important;
+  /* Szöveg középre igazítása */
+
+}
+
+/* KITÖLTENI - pre elem balra igazítása*/
+
+/* KITÖLTENI - abbr elem szövegdekoráció */
+
+/* KITÖLTENI - képek maximális mérete */
+
+
+
+.nyomtatas {
+  
+  /* KITÖLTENI - Az elem blokkszintű megjelenítése */
+  border: 1px dashed gray;
+  /* Szegély beállítása */
+  padding: 10px;
+  /* Belső margó beállítása */
+}
+
+/* KITÖLTENI - táblázat lebegtetése, jobb oldali margó beállítása */
+
+/* KITÖLTENI - a linkek mögé kell generálni a webcímet kerek zárójelek között */

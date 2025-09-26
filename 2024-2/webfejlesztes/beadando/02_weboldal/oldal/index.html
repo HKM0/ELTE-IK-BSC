@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Főoldal - Zakariás Biztosító honlapja</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="meretezesek.css">
+    <link rel="stylesheet" media="print" href="print.css">
+</head>
+<body class="dark">
+    <a href="#contentStart" class="skip-link">Ugrás a tartalomhoz</a>
+    <header>
+        <div class="altmenu">
+            <a href="index.html" class="active">Főoldal</a>
+            <a href="biztositas.html">Biztosítások</a>
+            <a href="jelentkezes.html">Kapcsolat felvétel</a>
+        </div>
+        <div class="menu" id="menu" onclick="document.getElementById('dropdown').classList.toggle('show')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="dropdown" id="dropdown">
+            <a href="index.html" class="active">Főoldal</a>
+            <a href="biztositas.html">Biztosítások</a>
+            <a href="jelentkezes.html">Kapcsolat felvétel</a>
+        </nav>
+        <h1>Főoldal</h1>
+        <div class="theme-toggle">
+            <div onclick="tdnn()" class="tdnn">
+                <div class="hold"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="ppt">
+            <h2 id="pptsect">pptszekció</h2>
+            <div class="ppt-kontener">
+                <div class="ppt-kepnezegeto">
+                    <div class="ppt-dia fade">
+                        <figure>
+                            <a href="source/images/boldogemberke.jpg" target="_blank">
+                                <img src="source/images/boldogemberke.jpg" alt="Középkorú flrfi egy étteremben mosolyogva fánkot tart a kezében." style="width:100%">
+                            </a>
+                        </figure>
+                    </div>
+                
+                    <div class="ppt-dia fade">
+                        <figure>
+                            <a href="source/images/hide_the_pain_bro.jpg" target="_blank">
+                                <img src="source/images/hide_the_pain_bro.jpg" alt="Egy idős doktor és egy fiatal ápolónő mosolyogva kezet fognak." style="width:100%">
+                            </a>
+                        </figure>
+                    </div>
+                
+                    <div class="ppt-dia fade">
+                        <figure>
+                            <a href="source/images/boldog_emberek2.jpg" target="_blank">
+                                <img src="source/images/boldog_emberek2.jpg" alt="8 ázsiai fiatal akik csillagot mutatnak az újjaikkal." style="width:100%">
+                            </a>
+                        </figure>
+                    </div>
+    
+                    <div class="ppt-dia fade">
+                        <figure>
+                            <a href="source/images/lorinc_a_dino.jpg" target="_blank">
+                                <img src="source/images/lorinc_a_dino.jpg" alt="Egy Lőrinc nevű T-rex a szavannán, aki tejet iszogat." style="width:100%">
+                            </a>
+                        </figure>
+                    </div>
+                    <a class="elozo" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="kovetkezo" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <article class="ppt-text">
+                    <h2 id="contentStart">Ügyfeleink</h2>
+                    <ul>
+                        <li><b><i>Ügyfeleink</i></b> - Akik már tudják, hogy az <b><i>esernyőt</i></b> akkor kell venni, amikor <b><i>süt a nap</i></b>!</li>
+                        <li>Ők azok, akik <b><i>nyugodtan alszanak</i></b>, mert tudják, hogy ha a <b><i>nagyi</i></b> véletlenül <b><i>drónt süt</i></b> a rántott hús helyett, vagy a <b><i>macska tőzsdei karriert kezd</i></b> és eladja a hűtőt, mi itt vagyunk!</li>
+                        <li><b><i>Csatlakozz</i></b> te is a <b><i>boldog</i></b> és <b><i>biztosított életet élők</i></b> népes táborához!</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        <section class="portfolio">
+            <h2 id="portsect">portfolioszekcio</h2>
+            <div class="portfolio-kontener">
+                <article class="portfolio-text">
+                    <h2><b><i>Erzsi néni</i></b> - A biztosítás élő legendája!</h2>
+                    <ul>
+                        <li>Már akkor <b><i>biztosításokat kötött</i></b>, amikor a <b><i>modem</i></b> még csipogott, és a <b><i>kávéfőzők</i></b> gőzmozdonyként működtek!</li>
+                        <li>Erzsi néni mindent látott: <b><i>zátonyra futott házasságokat</i></b>, szó szerint <b><i>zátonyra futott csónakokat</i></b>, és embereket, akik azt hitték, hogy "<b><i>ez velem úgysem történhet meg</i></b>"... aztán megtörtént.</li>
+                        <li>Ha van valaki, aki tudja, hogy az <b><i>élet váratlanabb</i></b>, mint egy <b><i>nagymama Facebook-posztja</i></b>, akkor az ő!</li>
+                        <li>Ne hagyd, hogy a <b><i>balszerencse</i></b> meglepjen - <b><i>Erzsi néni</i></b> már a gondolataidban köti a biztosítást!</li>
+                    </ul>
+                </article>
+                <div class="portfolio-photo">
+                    <img src="source/images/profile_pic.jpg" alt="egy kedves öreg hölgy piros szemüvegben, világos kék hajjal, mosolyog a kamerába." style="width:100%">
+                </div>
+            </div>
+        </section>
+        <section class="video-section">
+            <h2 id="vidsect">videoszekcio</h2>
+            <div class="video-kontener">
+                <div class="video">
+                    <div class="sizuram">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <video class="embed-responsive-item" src="source/videos/motivaciosvideo.mp4" poster="source/images/motivacios.png" controls>
+                                A böngésződ nem tudja megjeleníteni, pedig nagyon menő lenne.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <article class="video-text">
+                    <h2>Mi motivál minket?</h2>
+                    <ul>
+                        <li>Nos, természetesen a ti <b><i>biztonságotok</i></b> és <b><i>nyugalmatok</i></b>... és egy kis <b><i>kávé</i></b>, mert anélkül még a legjobb biztosítási ajánlat sem köthető meg!</li>
+                        <li>De komolyan: minket az hajt előre, hogy <b><i>kevesebb ember kapjon szívrohamot</i></b> egy <b><i>váratlan számla</i></b> miatt, és hogy senkinek ne kelljen a <b><i>sógorától kölcsönkérnie</i></b>, ha a <b><i>mosógép</i></b> úgy dönt, hogy inkább szökőkút lesz.</li>
+                        <li>Hiszünk abban, hogy a <b><i>biztosítás</i></b> nem csak egy <b><i>papír</i></b>, hanem egy <b><i>láthatatlan pajzs</i></b>, ami megvéd a <b><i>Murphy-törvényektől</i></b>. Szóval nyugodtan dőlj hátra - mi már előre aggódtunk helyetted!</li>
+                    </ul>
+                    <details>
+                        <summary>Deskriptív leírás</summary>
+                        <ul>
+                            <li>Lehet, hogy vissza kéne mennem, leveset készíteni.</li>
+                            <li>Nézd kölyök, ha megtörtént a rossz azon már nem lehet segíteni, ugye? Így van. </li>
+                            <li>Nem baj! </li>
+                            <li>Ha a világ hátat fordít neked, fordíts te is hátat a világnak!</li>
+                            <li>Tudod mit csinálj ha rossz napod van?</li>
+                            <li>Nem tudom mit csináljak!</li>
+                            <li>Ússz és evezz, Ússz és evezz, Ússz és ússz és Ússz és ússz és úszkálj!</li>
+                            <li>Nem tehetsz mást csak ússz ússz. ami egyszer már megtörtént az mögötted van. A múlt is fájhat.</li>
+                            <li>De a filozófiám szerint vagy elugrasz előle, vagy tanulsz belőle.</li>
+                            <li>Van egy mondás: A tegnap már történelem, a holnap még rejtelem, de a ma ADOMÁNY.</li>
+                            <li>Becsüld a jelent, mert jót jelent.</li>
+                            <li>A te történeneted talán nem kezdődik túl vidáman.</li>
+                            <li>De nem ettől vagy az aki vagy!</li>
+                            <li>Hanem a történet folytatásától!</li>
+                            <li>Tehát... </li>
+                            <li>Ki vagy te?</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Transcript leírás</summary>
+                        <ul>
+                            <li>Kungfu Panda - egy panda és egy teknős beszélgetnek.</li>
+                            <li>Wall-E - egy kicsi robot a kamerába néz.</li>
+                            <li>Oroszlánkirály - egy oroszlán és egy másik állat beszélgetnek.</li>
+                            <li>Jégvarázs - egy szőke hajú lány borzadtan néz.</li>
+                            <li>Egy vörös hajú lány az ajtóhoz fut és kinyitja.</li>
+                            <li>Kék és narancssárga halak beszélgetnek.</li>
+                            <li>Egy robot a sivatagban játszik, mint a Halálos iramban.</li>
+                            <li>A kép visszavált az oroszlánra és az állatkára.</li>
+                            <li>A kép egy öreg bácsit mutat.</li>
+                            <li>Egy panda és egy teknős megint beszélgetnek.</li>
+                            <li>Egy kislány mögött elrepül a szomszéd öreg bácsi háza.</li>
+                            <li>Egy öreg kos néni motivációs beszédet mond, miközben emlékképek jelennek meg.</li>
+                            <li>Nagy "Ki vagy?" felirat.</li>
+                        </ul>
+                    </details>
+                </article>
+            </div>
+        </section>
+        <a href="#top" id="felGomb" title="Menj legfelülre">Fel</a>
+    </main>
+    <footer>
+        <div class="footer-kontener">
+            <div class="info-cucc">
+                <p><a href="https://g.co/kgs/Q56xo3R" target="_blank">Zakariás Biztosító kft.</a></p>
+            </div>
+            <div class="info-cucc2">
+                <p><a href="https://g.co/kgs/Q56xo3R" target="_blank">Budapest, Pázmány Péter stny. 1/C, 1117</a></p>
+            </div>
+            <div class="info-cucc3">
+                <p><a href="https://telefonkonyv.hu/" target="_blank">tel.: +69 69 696 9696</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
