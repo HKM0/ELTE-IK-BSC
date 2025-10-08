@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Akasztófa</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    
+    <h1>Akasztófa</h1>
+    
+    <p style="color: #666; margin-bottom: 20px;">
+        Kattintj a betűkre vagy használd a billentyűzetet!<br>
+        <small>Játék vége után nyomj Entert az új játékhoz.</small>
+    </p>
+
+    <div id="vege"></div>
+
+    <div id="szo">
+    </div>
+    <div id="betuk">
+    </div>
+    <div id="eredmeny">
+    </div>
+    
+    <div id="ujjatek" style="margin: 20px 0;">
+        <button id="ujrakezd" style="display: none; padding: 10px 20px; font-size: 16px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Új játék</button>
+    </div>
+    
+    <svg width="200px" height="200px" stroke="black">
+      <!-- alapvonal alul (talaj) -->
+      <line x1="0" y1="99%" x2="100%" y2="99%" />
+      <!-- oszlop (felfelé a talajból) -->
+      <line x1="20%" y1="99%" x2="20%" y2="5%" />
+      <!-- vízszintes gerenda fent -->
+      <line x1="20%" y1="5%" x2="60%" y2="5%" />
+      <!-- rövid függőleges vonal (akasztó) -->
+      <line x1="60%" y1="5%" x2="60%" y2="20%" />
+      <!-- kör (a fej) -->
+      <circle cx="60%" cy="30%" r="10%" />
+      <!-- törzs (függőleges vonal) -->
+      <line x1="60%" y1="30%" x2="60%" y2="70%" />
+      <!-- karok (vízszintes vonal) -->
+      <line x1="40%" y1="50%" x2="80%" y2="50%" />
+      <!-- bal láb -->
+      <line x1="60%" y1="70%" x2="50%" y2="90%" />
+      <!-- jobb láb -->
+      <line x1="60%" y1="70%" x2="70%" y2="90%" />
+    </svg>
+    
+
+    <script src="words.js"></script>
+    <script src="index.js"></script>
+    
+  </body>
+</html>
