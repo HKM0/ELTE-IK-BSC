@@ -1,0 +1,95 @@
+table.preview,
+table.edit {
+  border-collapse: collapse;
+}
+table.preview td {
+  border: none;
+  width: 3px;
+  height: 3px;
+  padding: 0;
+}
+table.edit td {
+  border: 1px solid lightgray;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  padding: 0;
+}
+
+form:invalid button {
+  pointer-events: none;
+  opacity: 0.5;
+}
+#color-shower {
+  padding: 10px;
+  color: white;
+  text-shadow: 0 0 10px black;
+  text-align: center;
+  border: 1px dashed lightgray;
+}
+#colors * {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+#colors *.selected {
+  border: 2px solid orange;
+}
+#pixel-art-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+#pixel-art-list ul > li {
+  margin: 20px;
+}
+#pixel-art-list ul .selected {
+  border: 2px solid orange;
+}
+
+/* Additional styles for better UX */
+button {
+  padding: 8px 16px;
+  margin: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#btnClear {
+  background-color: #f44336;
+}
+
+#btnClear:hover {
+  background-color: #da190b;
+}
+
+input[type="number"] {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="color"] {
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+table.edit td:hover {
+  border: 2px solid #4CAF50;
+}

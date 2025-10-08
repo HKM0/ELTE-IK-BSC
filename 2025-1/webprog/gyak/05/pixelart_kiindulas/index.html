@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pixel-art</title>
+  </head>
+  <body>
+    <h1>Pixel-art</h1>
+
+    <div id="editor-container" >
+      <h2>Editor</h2>
+      <form>
+        Width: <input type="number" id="width" value="5" min="1" max="100" /> <br />
+        Height: <input type="number" id="height" value="5" min="1" max="100" /> <br />
+        <button type="button" id="btnGenerate">Generate</button>
+        <button type="button" id="btnClear">Clear</button>
+        <button type="button" id="btnExport">Export as JSON</button>
+        <button type="button" id="btnExportImage">Export as Image</button>
+      </form>
+      <div>
+        <input type="color" id="color" />
+        <div id="color-shower">Actual color</div>
+        <div>Selected colors:</div>
+        <div id="colors"></div>
+      </div>
+      <div id="editor"></div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
