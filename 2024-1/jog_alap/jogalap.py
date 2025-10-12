@@ -3,13 +3,24 @@ import json
 import os
 import customtkinter as ctk
 from tkinter import messagebox
+import sys
 
 # Ezen gyönyörű spagetti Heki műve 
 
 # A kédéssor fulep dani úr oldaláról van: https://fulepdani.web.elte.hu/2felev/jog.html
 
-KERDES_FAJL = "text.txt"
-HALADAS_FAJL = "progress.json"
+def resource_path(relative_path, persistent=False):
+    if hasattr(sys, '_MEIPASS'):
+        base_path = sys._MEIPASS
+        if persistent:
+            base_path = os.path.dirname(sys.executable)
+    else:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+KERDES_FAJL = resource_path("text.txt")
+HALADAS_FAJL = resource_path("progress.json", persistent=True)
 ablaknevek_lista = ["Itt repül a repülő!", "Meg fogok bukni funkc progból xD", "Szia uram! Bojler eladó!", 
                     "Milfs in your area looking to have fun...", "Nem tudom mit írjak ide.", "bruh", "Help, meg fogok őrülni", 
                     "What if i can just *yoink*, i got your nose Voldemort!", "I hate League Of Legends", "Wanna play 5D Chess?",
@@ -23,7 +34,7 @@ class QuizApp(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title(random.choice(ablaknevek_lista))        
+        self.title(random.choice(ablaknevek_lista))
         self.geometry("1000x510")
         self.tema_eppen = "dark"
         ctk.set_appearance_mode(self.tema_eppen)
@@ -90,7 +101,7 @@ class QuizApp(ctk.CTk):
 
     def betolt_kerdesek(self):
         with open(KERDES_FAJL, "r", encoding="utf-8") as f:
-            sorok = f.read().strip().split("\n")
+            sorok = [s for s in f.read().strip().split("\n") if s.strip()]
         kerdesek = []
         i = 0
         while i < len(sorok):
@@ -140,17 +151,26 @@ class QuizApp(ctk.CTk):
             self.eredmeny_megjelenites()
             return
 
-        megmaradt_kerdesek = [
-            q for q in self.kerdesek if str(self.kerdesek.index(q)) not in self.haladas or self.haladas[str(self.kerdesek.index(q))] < 3
+        megmaradt_kerdesek_indexek = [
+            i for i, q in enumerate(self.kerdesek) if self.haladas.get(str(i), 0) < 3
         ]
-        if not megmaradt_kerdesek:
+
+        if not megmaradt_kerdesek_indexek:
             messagebox.showinfo("Kész", "Már minden kérdést megtanultál!")
+            self.kovetkezo_gomb.configure(state="disabled")
             return
 
-        self.aktualis_kerdes = random.choice([
-            q for q in megmaradt_kerdesek if str(self.kerdesek.index(q)) not in self.felvetelt_kerdesek
-        ])
-        self.felvetelt_kerdesek.add(str(self.kerdesek.index(self.aktualis_kerdes)))
+        elerheto_kerdesek_indexek = [
+            idx for idx in megmaradt_kerdesek_indexek if idx not in self.felvetelt_kerdesek
+        ]
+
+        if not elerheto_kerdesek_indexek:
+            self.eredmeny_megjelenites()
+            return
+
+        kivalasztott_kerdes_index = random.choice(elerheto_kerdesek_indexek)
+        self.aktualis_kerdes = self.kerdesek[kivalasztott_kerdes_index]
+        self.felvetelt_kerdesek.add(kivalasztott_kerdes_index)
 
         self.ui_frissites_kerdeshez()
 
@@ -208,15 +228,14 @@ class QuizApp(ctk.CTk):
 
     def vissza_ui(self):
         for widget in self.fo_frame.winfo_children():
-            widget.pack_forget()
+            if widget not in [self.fejezet_frame, self.kerdes_frame, self.lablec_frame]:
+                widget.destroy()
 
         self.fejezet_frame.pack(fill="x", pady=10)
-        self.szamlalo_label.grid(row=0, column=0, padx=10, sticky="w")
-        self.tema_gomb.grid(row=0, column=2, padx=10, sticky="e")
-        self.progress_bar.grid(row=0, column=1, padx=20)
-
         self.kerdes_frame.pack(pady=10, padx=10, fill="both", expand=True)
         self.lablec_frame.pack(fill="x", pady=10)
+        if self.aktualis_kerdes:
+            self.ui_frissites_kerdeshez()
 
     def mentes_es_kilepes(self):
         self.mentes_haladas()
