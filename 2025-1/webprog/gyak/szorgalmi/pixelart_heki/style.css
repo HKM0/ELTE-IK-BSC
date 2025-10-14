@@ -1,0 +1,48 @@
+table.preview,
+table.edit {
+  border-collapse: collapse;
+}
+table.preview td {
+  border: none;
+  width: 3px;
+  height: 3px;
+  padding: 0;
+}
+table.edit td {
+  border: 1px solid lightgray;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  padding: 0;
+}
+
+form:invalid button {
+  pointer-events: none;
+  opacity: 0.5;
+}
+#color-shower {
+  padding: 10px;
+  color: white;
+  text-shadow: 0 0 10px black;
+  text-align: center;
+  border: 1px dashed lightgray;
+}
+#colors * {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+#colors *.selected {
+  border: 2px solid orange;
+}
+#pixel-art-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+#pixel-art-list ul > li {
+  margin: 20px;
+}
+#pixel-art-list ul .selected {
+  border: 2px solid orange;
+}
