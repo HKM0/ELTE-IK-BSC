@@ -101,7 +101,7 @@ lst_copy = lst[:]
 lst[0][1] = 0
 
 # Mi fog történni az lst_copy-ban? Miért történik ez?
-
+# lst = [[1,0], [3,4]] ls mivel az lst_copy csak referencia másolat, nem teljes, így az is felül íródik ezzel., egy adatra mutatnak.
 
 # 13. Próbáljuk ki az alábbi dolgokat!
 # Mi történik, ha tuple-t szeletelünk?
@@ -113,17 +113,19 @@ lst[0][1] = 0
 
 
 # 14. Adottak a változóink:
-lst = [1,2,3,4,5]
-a, b, *c = lst
-lst2 = [1,2]
+lst = [1,2,3,4,5] 
+a, b, *c = lst 
+lst2 = [1,2] 
 d, e, *f = lst2
 # Mi fog történni?
+# a = 1, b = 2, c = [3,4,5]
+# d= 1, e = 2, f = []
 
 
 # 15. Adott egy változónk:
 t = (1, 2, [10, 20])
 # Mi fog történni a t[2] += [30, 40] utasítás után?
-
+# hiba
 
 # 16. Helyesek-e az alábbi műveletek?
 '''
@@ -138,9 +140,22 @@ t = (1, 2, [10, 20])
 lst = [1, 2, 3, 4]
 # Forgassuk el a benne lévő elemeket n-nel szeletelést használva!
 # (pl. n = -2 esetén: [3, 4, 1, 2] – azaz ekkor jobbra forgattuk!)
-
+def rotate(n,list):
+    a = [0 for _ in range(len(list))]
+    for i in range(len(list)): 
+        a[(i+n)%len(list)] = list[i]
+    return a
+print(rotate(-2,lst))
 
 # 18. Adott az alábbi lista:
 lst = [100, 200, 300, 400, 500, 600, 700, 800, 900]
 
 # Szedjük ki a listából a 3 középső elemet! Használjunk szeletelést!
+def szeletelo(lista):
+    if (len(lista)==3):
+        return lista
+    elif (len(lista)%2==0):
+        return szeletelo(lista[:-1])
+    else:
+        return szeletelo(lista[1:-1])
+print(szeletelo(lst))
