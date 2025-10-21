@@ -1,11 +1,9 @@
-
-# Élkontúr kamera OpenCV-vel
 import cv2
-
+# csak pelda volt de megirtam kb
 def main():
 	cap = cv2.VideoCapture(0)
 	if not cap.isOpened():
-		print("Nem sikerült megnyitni a kamerát.")
+		print("nem sikerult megnyitni a kamerat.")
 		return
 	while True:
 		ret, frame = cap.read()
@@ -16,10 +14,10 @@ def main():
 
 		black = frame.copy()
 		black[:] = 0
-		# Kék körvonal fekete háttéren
+		# kek korvonal fekete hatteren
 		contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 		cv2.drawContours(black, contours, -1, (255, 0, 0), 2)
-		cv2.imshow('Kamera - Körvonalak', black)
+		cv2.imshow('kamera korvonalak', black)
 		if cv2.waitKey(1) & 0xFF == ord('q'):
 			break
 	cap.release()
