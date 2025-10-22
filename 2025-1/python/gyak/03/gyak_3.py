@@ -112,9 +112,9 @@ print(fib_to(100))
 # 10. Adott egy mátrix:
 mx = [ [1,2,3], [4,5,6], [7,8,9] ]
 # Listagenerátorral írd ki a mátrix elemeit egymás után sorba!
-
-[[print(i,end=", ") for i in a] for a in mx]
-
+tmp=[]
+[[tmp.append(i) for i in a] for a in mx]
+print(tmp)
 # 11. *Implementáld a Quicksortot listagenerátorokkal, 
 # lambda függvényként egy sorban! Használj rekurziót!
 
