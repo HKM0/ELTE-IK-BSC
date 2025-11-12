@@ -1,0 +1,26 @@
+<h1>Névjegyek</h1>
+  <h2>Új névjegy</h2>
+  <form action="" method="post" novalidate>
+    Név: <input type="text" name="name" value="<?=$_POST['name']?? '' ?>" required> <br>
+    <?php if(isset($errors["name"])) : ?>
+      <span><?= $errors["name"] ?></span>
+    <?php endif ?>
+    <br>
+    Email címek: <br>
+    <input type="email" name="emails[]" value="<?=$_POST['emails'][0]?? '' ?>" required> <br>
+    <input type="email" name="emails[]" value="<?=$_POST['emails'][1]?? '' ?>" > <br>
+    <input type="email" name="emails[]" value="<?=$_POST['emails'][2]?? '' ?>"> <br>
+    <?php if(isset($errors["emails"])) : ?>
+      <span><?= $errors["emails"] ?></span>
+    <?php endif ?>
+    <br>
+    <button>Új névjegy</button>
+  </form>
+
+
+  style>
+    input ~ span {
+      color: red;
+      font-size: smaller;
+    }
+  </style>
