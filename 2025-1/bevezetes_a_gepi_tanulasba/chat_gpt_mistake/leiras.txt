@@ -1,0 +1,17 @@
+Problems with LLMs:
+Due to the fact that OpenAI's LLMs process text in tokens they are susceptible to errors in the output. For example in char counting tasks, just like in this case.
+
+The mistake:
+GPT-5 failed to accurately count vowels and consonants in the given text, producing very different results from a otherwise kind of straightforward algorithmic approach.
+
+My guess / possible causes:
+Token based processing LLMs don't recognize individual characters but rather word like units (aka. tokens), making exact character counting harder.
+There models aren't trained for such tasks, this is a chat model and it's focus isn't primarily an "exact character counting task" leading to answers that are close enogh but not exact solutions.
+In this case the model tried to normalize the text making it lowercase and removing numbers, the more steps there are, the more likely an error would occur.
+Context could have had a huge impact on the models soulution, longer texts with mixed details (numbers, punctuation, words, etc...) could cause it to misallocate attention across different details
+
+Notes:
+This illustrates a fundamental limitation of token-based architectures for precise character operations
+The difference was substantial (31 vs 61 vowels) which means this is not a small rounding error but a rather large miscalculation
+Simple python scripts should easily outperform big LLMs for these kinds of tasks
+The model's explanatory confidence ("Let's compute:") masks its computational inaccuracy
