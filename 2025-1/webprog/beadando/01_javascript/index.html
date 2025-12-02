@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEKI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- menu oldal-->
+    <div id="menu-screen" class="screen active">
+        <div class="menu-container">
+            <h1>HEKI Vonatai xD</h1>
+            <div class="menu-form">
+                <label for="player-name">Játékos neve:</label>
+                <input type="text" id="player-name" placeholder="Add meg a neved">
+                
+                <button id="start-button" class="btn btn-primary">Start</button>
+                <button id="results-button" class="btn btn-secondary">Eredmények</button>
+                <button id="rules-button" class="btn btn-info">Játékszabály</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jatek oldal -->
+    <div id="game-screen" class="screen">
+        <div class="game-container">
+            <div class="game-header">
+                <div class="game-info">
+                    <span id="player-name-display"></span>
+                </div>
+                <button id="back-to-menu" class="btn btn-small">Vissza a menübe</button>
+            </div>
+            
+            <div class="game-content">
+                <div class="grid-container">
+                    <div id="game-grid"></div>
+                    <img id="duna-overlay" src="source/vonalak/duna_vonala.svg" alt="Duna">
+                    <svg id="lines-svg"></svg>
+                </div>
+                
+                <div class="game-sidebar">
+                    <!-- felso sor, kartya es ido -->
+                    <div class="info-row">
+                        <div class="info-box current-card-box">
+                            <h3>Felhúzott kártya</h3>
+                            <div id="card-display" class="card-large">
+                                <span id="card-type">?</span>
+                            </div>
+                            <button id="draw-card-btn" class="btn btn-primary">Kártya húzása</button>
+                            <button id="skip-build-btn" class="btn btn-secondary" disabled>Kihagyás</button>
+                        </div>
+                        
+                        <div class="info-box timer-box">
+                            <h3>Idő</h3>
+                            <div id="timer-display" class="timer-large">00:00</div>
+                            <div class="line-info-compact">
+                                <div id="line-color" class="line-indicator-small"></div>
+                                <span id="line-name"></span>
+                                <span id="round-number">1</span>/4
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- also sor, pontozas -->
+                    <div class="scoring-box">
+                        <h3>Pontozás</h3>
+                        <div id="scoring-display"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- szabaly modal -->
+    <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">x</span>
+            <h2>Játékszabály</h2>
+            <div class="rules-text">
+                <h3>Cél</h3>
+                <p>Építsd ki Budapest metróvonalait a lehető legtöbb pontért! A játék 4 fordulóból áll, mindegyikben egy metróvonalat építesz véletlenszerű sorrendben (M1, M2, M3, M4).</p>
+                
+                <h3>Kártyák</h3>
+                <p>11 megállókártya van: A, B, C, D és Joker típusok, mindegyikből külső és középső peronos változat, plusz egy Váltó kártya (középső peron).</p>
+                
+                <h3>Játékmenet</h3>
+                <ul>
+                    <li>Húzz egy kártyát - ez meghatározza, milyen típusú állomásba építhetsz</li>
+                    <li>Építs szakaszt a vonal végpontjából a megfelelő állomásba</li>
+                    <li>Vagy hagyd ki a körét és húzz új kártyát</li>
+                    <li>A forduló véget ér, ha az egyik peron típusból 5-öt húztál</li>
+                </ul>
+                
+                <h3>Építési szabályok</h3>
+                <ul>
+                    <li>Vízszintes, függőleges vagy 45 fokos átlós szakaszok</li>
+                    <li>Csak a vonal végpontjaiból építhetsz (kivéve váltó)</li>
+                    <li>Nem mehetünk át harmadik állomáson</li>
+                    <li>Nem keresztezhetjük másik vonalat nyílt pályán</li>
+                    <li>Nem térhetünk vissza már érintett állomásba (hurok tilalma)</li>
+                    <li>A Deák tér (?) Joker - minden típus mehet bele</li>
+                    <li>Joker kártya - bármilyen állomásba megy</li>
+                </ul>
+                
+                <h3>Speciális kártyák</h3>
+                <ul>
+                    <li><strong>Joker (🃏):</strong> Bármilyen típusú állomásba építhetsz</li>
+                    <li><strong>Váltó     :</strong> Azonnal húzol még egy kártyát, és építhetsz a vonal bármely állomásából (nem csak a végpontokból). A vonal ezután 3 végponttal rendelkezhet!</li>
+                </ul>
+                
+                <h3>Pontozás</h3>
+                <p><strong>Forduló pontok (FP):</strong> (PK * PM) + PD</p>
+                <ul>
+                    <li>PK: Hány kerületet érint a vonal</li>
+                    <li>PM: Max. hány megálló van egy kerületben</li>
+                    <li>PD: Hányszor kel át a Dunán</li>
+                </ul>
+                
+                <p><strong>Pályaudvar pontok (PP):</strong> Minden pályaudvar érintésekor a csúszka lép egyet: 0→1→2→4→6→8→11→14→17→21→25</p>
+                
+                <p><strong>Csomópont pontok:</strong></p>
+                <ul>
+                    <li>2 vonal találkozása: 2 pont</li>
+                    <li>3 vonal találkozása: 5 pont</li>
+                    <li>4 vonal találkozása: 9 pont</li>
+                </ul>
+                
+                <p><strong>Végső pont:</strong> Sum(FP) + PP + csomópont pontok</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- eredmenyek modal -->
+    <div id="results-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">x</span>
+            <h2>Eredmények</h2>
+            <div id="results-list"></div>
+        </div>
+    </div>
+
+    <!-- jatek vege modal -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2>Játék vége!</h2>
+            <div id="final-score-details"></div>
+            <button id="back-to-menu-final" class="btn btn-primary">Vissza a menübe</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

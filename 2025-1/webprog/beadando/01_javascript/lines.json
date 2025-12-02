@@ -1,0 +1,6 @@
+[
+    {"id": 0, "name": "M1", "color": "#FFD800", "start": 19},
+    {"id": 1, "name": "M2", "color": "#E41F18", "start": 28},
+    {"id": 2, "name": "M3", "color": "#005CA5", "start":  3},
+    {"id": 3, "name": "M4", "color": "#4CA22F", "start": 39}
+]
