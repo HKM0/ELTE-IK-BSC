@@ -1,0 +1,20 @@
+{
+    "6752b5fcbed19": {
+        "username": "q",
+        "password": "$2y$10$PloVKummdGTCoRQBeW5DeuNZMRYfUVQJXVqr8wQB3T3Xh4w84sVkC",
+        "fullname": "Q Q",
+        "roles": [
+            "user"
+        ],
+        "id": "6752b5fcbed19"
+    },
+    "6925d5808800c": {
+        "username": "egy",
+        "password": "$2y$12$NaefiV8RhacY6o5jUIiFnOxmGFheGprASajT16OerXKcvCWIZkzH2",
+        "fullname": "harom",
+        "roles": [
+            "user"
+        ],
+        "id": "6925d5808800c"
+    }
+}
