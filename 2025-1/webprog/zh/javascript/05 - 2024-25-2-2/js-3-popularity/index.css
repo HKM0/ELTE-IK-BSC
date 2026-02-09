@@ -1,0 +1,67 @@
+:root {
+    --font-body: Arial, sans-serif;
+    --color-bg: #f9f9f9;
+    --color-text: #333;
+    --color-heading: #444;
+    --color-border: #ccc;
+    --color-panel: #fff;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+
+    --color-main: #27838a;
+    --color-red: #dd1e58;
+    --color-green: #47c46d67;
+
+    --cyan-1: #16cedb;
+    --cyan-2: #50ebf7;
+    --cyan-3: #9ef9ff;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--color-heading);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#main {
+    background-color: var(--color-panel);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+#main ul {
+    max-width: 100px;
+}
+
+#video-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#video-checkboxes label {
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+canvas {
+    border: 1px solid var(--color-heading);
+    border-radius: 5px;
+}

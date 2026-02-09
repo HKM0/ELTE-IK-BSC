@@ -1,0 +1,53 @@
+@import "https://fonts.googleapis.com/css?family=Lato";
+
+body {
+    width: 70%;
+    font-family: Lato, sans-serif;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+select, button {
+    font-family: Lato, sans-serif;
+    font-size: 20px;
+}
+
+#controls, table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+select[disabled]{
+    color: blue;
+}
+
+table, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+td {
+    width: 50px;
+    height: 50px;
+}
+
+.played {
+    background-color: blue;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+span {
+    color: blue;
+}
+
+#tasks {
+    display: none;
+}

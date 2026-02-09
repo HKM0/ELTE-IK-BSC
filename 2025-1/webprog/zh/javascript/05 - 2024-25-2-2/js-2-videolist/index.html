@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. feladat</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <h1>2. Videólista</h1>
+    <div id="main">
+        <span id="controls">
+            <input id="amount" placeholder="1.5"> millió <button id="btn-add">➕</button> <button id="btn-sub">➖</button>
+        </span>
+        <span id="info">
+            Nézettség összesen: <span id="sum">85</span> millió
+        </span>
+        <table id="video-table">
+            <thead>
+                <th data-sort="year">Év</th>
+                <th data-sort="title">Videó címe</th>
+                <th data-sort="views">Nézettség</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2023</td>
+                    <td>Käärijä - Cha Cha Cha</td>
+                    <td>44 millió</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>Baby Lasagna - Rim Tim Tagi Dim</td>
+                    <td>41 millió</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script src="data_array.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

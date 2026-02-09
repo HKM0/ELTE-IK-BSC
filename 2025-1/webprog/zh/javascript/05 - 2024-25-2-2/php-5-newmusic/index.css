@@ -1,0 +1,115 @@
+:root {
+    --font-body: Arial, sans-serif;
+    --color-bg: #f9f9f9;
+    --color-text: #333;
+    --color-heading: #444;
+    --color-border: #ccc;
+    --color-panel: #fff;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+
+    --color-ik: #27838a;
+    --color-success: #a9ddb9;
+    --color-error: #ffebee;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--color-heading);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#main {
+    background-color: var(--color-panel);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px var(--color-shadow);
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: var(--color-heading);
+    gap: 4px;
+}
+
+input,
+select {
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+}
+
+input[type="submit"] {
+    background-color: var(--color-ik);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    filter: brightness(120%)
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: bold;
+    color: var(--color-heading);
+}
+
+form div label {
+    font-weight: normal;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+#success,
+#errors {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+#success {
+    background-color: var(--color-success);
+    color: black;
+    border: 1px solid black;
+}
+
+#errors {
+    background-color: var(--color-error);
+    color: black;
+    border: 1px solid black;
+}
+
+#errors ul {
+    margin: 8px 0 0 20px;
+    padding: 0;
+}
