@@ -1,0 +1,26 @@
+php telepítő környezet: https://github.com/totadavid95/PhpComposerInstaller/releases
+
+diasorok:
+
+Javascript:
+bevezetés: https://webprogramozas.inf.elte.hu/webprog/lectures/01/#/
+a DOM: https://webprogramozas.inf.elte.hu/webprog/lectures/02/#/
+eseménykezelés: https://webprogramozas.inf.elte.hu/webprog/lectures/03/#/
+elvek: https://webprogramozas.inf.elte.hu/webprog/lectures/04/#/
+sok hasznos: https://webprogramozas.inf.elte.hu/webprog/lectures/05/#/
+canvas: https://webprogramozas.inf.elte.hu/webprog/lectures/06/#/
+AJAX: https://webprogramozas.inf.elte.hu/webprog/lectures/07/#/
+
+PHP:
+bevezetés: https://webprogramozas.inf.elte.hu/webprog/lectures/08/#/
+űrlapfeldolgozás: https://webprogramozas.inf.elte.hu/webprog/lectures/09/#/
+adattárolás: https://webprogramozas.inf.elte.hu/webprog/lectures/10/#/
+hitelesítés: https://webprogramozas.inf.elte.hu/webprog/lectures/11/#/
+AJAX: https://webprogramozas.inf.elte.hu/webprog/lectures/12/#/
+kódszervezés: https://webprogramozas.inf.elte.hu/webprog/lectures/13/#/
+
+storage dokumentáció:
+https://valentinusz.github.io/notes/webprog/storage/storage
+
+Javascript doksi: https://developer.mozilla.org/en-US/
+PHP doksi: https://www.php.net/
