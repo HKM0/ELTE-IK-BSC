@@ -1,0 +1,16 @@
+{
+    "695aa8e2096ab": {
+        "username": "admin",
+        "email": "admin@budapest.hu",
+        "password": "$2y$12$Hh2vTDuWxa88ZBHOlCR8.eRLMTxERBcUc\/dXdy8xKv8zH95FqneI6",
+        "is_admin": true,
+        "id": "695aa8e2096ab"
+    },
+    "695aa8e232d3c": {
+        "username": "user",
+        "email": "user@pelda.com",
+        "password": "$2y$12$bfsS8lVUlqIxLB5lyv.5j.yBSZgjAFqChA87vP.sesfuUG3vR6hla",
+        "is_admin": false,
+        "id": "695aa8e232d3c"
+    }
+}
