@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. feladat</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <h1>2. Jegyvásárlás</h1>
+    <div id="main">
+        <div id="visual">
+            <h3>Aréna</h3>
+            <div id="stage">Színpad</div>
+            <div id="standing" class="sector-0">
+                <button id="sub-standing">➖</button>
+                <button id="add-standing">➕</button>
+            </div>
+            <table id="seating"></table>
+        </div>
+        <div id="info">
+            <h3>Jegyinformáció</h3>
+            <table id="cost-info">
+                <tr>
+                    <td>Állóhelyek:</td>
+                    <td><span id="sector-0-amount">0</span> jegy</td>
+                    <td>x <span id="sector-0-cost">0</span> EUR =</td>
+                    <td><span id="sector-0-total">0</span> EUR</td>
+                </tr>
+                <tr>
+                    <td>1. szektor:</td>
+                    <td><span id="sector-1-amount">0</span> jegy</td>
+                    <td>x <span id="sector-1-cost">0</span> EUR =</td>
+                    <td><span id="sector-1-total">0</span> EUR</td>
+                </tr>
+                <tr>
+                    <td>2. szektor:</td>
+                    <td><span id="sector-2-amount">0</span> jegy</td>
+                    <td>x <span id="sector-2-cost">0</span> EUR =</td>
+                    <td><span id="sector-2-total">0</span> EUR</td>
+                </tr>
+                <tr>
+                    <td>3. szektor:</td>
+                    <td><span id="sector-3-amount">0</span> jegy</td>
+                    <td>x <span id="sector-3-cost">0</span> EUR =</td>
+                    <td><span id="sector-3-total">0</span> EUR</td>
+                </tr>
+            </table>
+            <div id="sum">
+                <span id="total">0</span> EUR
+            </div>
+            <div>
+                <button id="purchase">Megvásárol</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<?php
+require_once 'nations.php';
+session_start();
+$data = $_SESSION['data'] ?? (object)[];
+$errors = $_SESSION['errors'] ?? [];
+$success = $_SESSION['success'] ?? false;
+
+$_SESSION['errors'] = [];
+$_SESSION['success'] = false;
+$_SESSION['data'] = (object)[];
+?>
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. feladat</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <h1>5. Média</h1>
+    <div id="main">
+        <form action="check.php">
+            <label>
+                Cég neve
+                <input name="company" value="<?= $data->company ?? '' ?>">
+            </label>
+            <label>
+                Ország
+                <select name="nation">
+                    <?php foreach ($nations as $nation): ?>
+                        <!-- Országkódot fog továbbküldeni, pl. HUN -->
+                        <option
+                            value="<?= $nation['id'] ?>"
+                            <?= (($data->nation ?? '') == $nation['id']) ? 'selected' : ''?>
+                        >
+                            <?= $nation['flag'] ?> <?= $nation['name'] ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+            </label>
+            <label>
+                Újságírók száma
+                <input name="reporters" value="<?=$data->reporters ?? ''?>">
+            </label>
+            <div>
+                Szerződés
+                <label><input type="radio" name="contract" value="subsidiary" <?=(($data->contract ?? '') == 'subsidiary') ? 'checked' : ''?>> EBU Alvállalkozó</label>
+                <label><input type="radio" name="contract" value="independent" <?=(($data->contract ?? '') == 'independent') ? 'checked' : ''?>> Független</label>
+            </div>
+            <input type="submit">
+        </form>
+        <?php if ($success): ?>
+            <div id="success">Sikeres regisztráció!</div>
+        <?php endif ?>
+        <?php if (count($errors) > 0): ?>
+            <div id="errors">
+                Hiba!
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li><?= $error ?></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endif ?>
+    </div>
+    <hr>
+    <div>
+        Ha GET kérést használtál egy checks.php oldalon keresztül, akkor ezekkel a linkekkel tudod tesztelni az űrlapon keresztül körülményesen előidézhető hibákat:
+        <ul><a href="check.php?nation=XXX">Nem létező ország (check.php?nation=XXX)</a></ul>
+        <ul><a href="check.php?nation=DEU&reporters=25">Big5 túl sok újságíró (check.php?nation=DEU&reporters=25)</a></ul>
+        <ul><a href="check.php?nation=DEU&contract=independent">Big5 rossz szerződés (check.php?nation=DEU&contract=independent)</a></ul>
+    </div>
+    <div>
+        Ha GET kérést használtál helyben, akkor ezekkel a linkekkel tudod tesztelni az űrlapon keresztül körülményesen előidézhető hibákat:
+        <ul><a href="index.php?nation=XXX">Nem létező ország (index.php?nation=XXX)</a></ul>
+        <ul><a href="index.php?nation=DEU&reporters=25">Nem létező ország (index.php?nation=DEU&reporters=25)</a></ul>
+        <ul><a href="index.php?nation=DEU&contract=independent">Nem létező ország (index.php?nation=DEU&contract=independent)</a></ul>
+    </div>
+</body>
+
+</html>
