@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "name": "Apple",
+      "ingredients": [
+        "Apple"
+      ],
+      "kcal": 95,
+      "description": "A crisp and refreshing fruit, commonly red or green. Good source of fiber."
+    },
+    {
+      "id": 2,
+      "name": "Grilled Chicken Salad",
+      "ingredients": [
+        "Grilled Chicken Breast",
+        "Romaine Lettuce",
+        "Cherry Tomatoes",
+        "Cucumber",
+        "Red Onion",
+        "Olive Oil Dressing"
+      ],
+      "kcal": 350,
+      "description": "A healthy salad featuring grilled chicken strips over fresh greens and vegetables."
+    },
+    {
+      "id": 3,
+      "name": "Spaghetti Carbonara",
+      "ingredients": [
+        "Spaghetti",
+        "Eggs",
+        "Pancetta (or Guanciale)",
+        "Pecorino Romano Cheese",
+        "Black Pepper"
+      ],
+      "kcal": 600,
+      "description": "A classic Roman pasta dish made with eggs, hard cheese, cured pork, and black pepper."
+    },
+    {
+      "id": 4,
+      "name": "Lentil Soup (Lencseleves)",
+      "ingredients": [
+        "Lentils",
+        "Carrots",
+        "Onions",
+        "Garlic",
+        "Vegetable Broth",
+        "Smoked Sausage (optional)",
+        "Paprika",
+        "Sour Cream (for serving)"
+      ],
+      "kcal": 400,
+      "description": "A hearty and nutritious lentil soup, often enjoyed in Hungary, especially around New Year."
+    },
+    {
+      "id": 5,
+      "name": "Oatmeal with Berries",
+      "ingredients": [
+        "Rolled Oats",
+        "Water (or Milk)",
+        "Mixed Berries (e.g., blueberries, raspberries)",
+        "Honey (optional)",
+        "Nuts (optional)"
+      ],
+      "kcal": 300,
+      "description": "A warm and comforting breakfast bowl made from cooked oats, topped with fresh berries."
+    }
+  ]

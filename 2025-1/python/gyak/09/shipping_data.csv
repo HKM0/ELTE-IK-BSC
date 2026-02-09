@@ -1,0 +1,31 @@
+ID,Category,ProductName,Quantity,UnitPrice,OrderDate,Shipped
+1,Electronics,Laptop,5,1200.50,2025-03-15,Yes
+2,Clothing,T-Shirt,50,25.00,2025-03-16,Yes
+3,Home Goods,Coffee Maker,10,75.99,2025-03-16,No
+4,Electronics,Mouse,25,22.75,2025-03-17,Yes
+5,Books,Python Programming,30,45.50,2025-03-18,Yes
+6,Clothing,Jeans,20,60.00,2025-03-19,No
+7,Home Goods,Toaster,,30.25,2025-03-20,Yes
+8,Electronics,Keyboard,15,85.00,2025-03-21,Yes
+9,Books,Data Science Intro,40,55.80,2025-03-22,No
+10,Clothing,Jacket,12,110.00,2025-03-23,Yes
+11,Office Supplies,Binder,50,3.50,2025-03-25,Yes
+12,Toys,Action Figure,20,15.99,2025-03-25,No
+13,Electronics,USB Drive,100,12.00,2025-03-26,Yes
+14,Clothing,Socks (5-pack),40,18.50,2025-03-27,Yes
+15,Home Goods,Frying Pan,8,42.00,2025-03-27,No
+16,Books,Sci-Fi Novel,25,19.95,2025-03-28,Yes
+17,Electronics,Webcam,15,55.00,2025-03-29,Yes
+18,Office Supplies,Stapler,30,14.50,2025-03-29,No
+19,Toys,Board Game,10,35.75,2025-03-30,Yes
+20,Clothing,Hoodie,18,50.00,2025-03-31,Yes
+21,Home Goods,Blender,,99.99,2025-04-01,Yes
+22,Electronics,Monitor,7,250.00,2025-04-01,No
+23,Books,Cookbook,22,32.50,2025-04-02,Yes
+24,Office Supplies,Sticky Notes,150,2.99,2025-04-03,Yes
+25,Toys,Doll,12,28.00,2025-04-03,No
+26,Clothing,Scarf,35,20.00,2025-04-04,Yes
+27,Home Goods,Kettle,9,48.50,2025-04-05,Yes
+28,Electronics,Tablet,6,350.00,2025-04-06,No
+29,Books,History Book,17,40.00,2025-04-06,Yes
+30,Office Supplies,Pens (Box),80,,2025-04-07,Yes
