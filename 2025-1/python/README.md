@@ -1,4 +1,4 @@
-# 🐍 Python kurzus – 2024/25 2. félév
+# 🐍 Python kurzus – 2025/26 1. félév
 
 ## 📌 Tematika
 
