@@ -1,0 +1,49 @@
+{
+  "Baskets": [
+    {
+      "id": 101,
+      "user_id": 1,
+      "items": [
+        {
+          "item_id": 201,
+          "name": "Alma",
+          "brand": "Jonatán",
+          "price": 9.99,
+          "quantity": 2
+        },
+        {
+          "item_id": 202,
+          "name": "Körte",
+          "brand": "Vilmos",
+          "price": 12.49,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "user_id": 2,
+      "items": [
+        {
+          "item_id": 203,
+          "name": "Banán",
+          "brand": "Chiquita",
+          "price": 5.99,
+          "quantity": 6
+        },
+        {
+          "item_id": 204,
+          "name": "Narancs",
+          "brand": "Valencia",
+          "price": 8.49,
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "user_id": 3,
+      "items": []
+    }
+  ]
+}

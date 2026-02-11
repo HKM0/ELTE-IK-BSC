@@ -1,0 +1,19 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "name": "Banános Joe",
+      "email": "bjoe@redneckcity.com"
+    },
+    {
+      "id": 2,
+      "name": "Almás Anna",
+      "email": "anna@fruitworld.com"
+    },
+    {
+      "id": 3,
+      "name": "Körtés Károly",
+      "email": "karoly@pearparadise.com"
+    }
+  ]
+}
