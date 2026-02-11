@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX példa: programozási nyelvek</title>
+</head>
+<body>
+  <h1>AJAX példa: programozási nyelvek</h1>
+
+  <p>Válassz egy programozási nyelvet, majd kattints a "Részletek lekérése" gombra!</p>
+
+  <!-- Legördülő lista a nyelvek kódjával -->
+  <label>
+    Programozási nyelv:
+    <select name="language">
+      <option value="js">JavaScript</option>
+      <option value="php">PHP</option>
+      <option value="py">Python</option>
+    </select>
+  </label>
+
+  <button class="load-details">Részletek lekérése</button>
+
+  <h2>Eredmény</h2>
+  <!-- Ide kerül majd a szervertől kapott válasz -->
+  <div class="result">
+    Még nem kértél le adatot.
+  </div>
+
+  <!-- Külső JavaScript fájl -->
+  <script src="script.js"></script>
+</body>
+</html>

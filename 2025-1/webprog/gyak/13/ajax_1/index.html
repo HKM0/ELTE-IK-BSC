@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX példa</title>
+  <style>
+    body {
+      transition: background-color 0.3s;
+    }
+
+    body.reloaded {
+      background-color: #ffdddd;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>AJAX példa</h1>
+
+  <button id="btn">Kérj időt a szervertől</button>
+  <div id="result">Itt lesz az idő...</div>
+  <!-- Ez a fájl egy egyszerű példán keresztül mutatja be az AJAX működését: a gombra kattintva a böngésző külön kérésben elküldi a kérést a szerver felé, majd a szervertől kapott választ az oldal újratöltése nélkül jeleníti meg. Az AJAX lényege, hogy aszinkron módon kommunikálhatunk a szerverrel, így az oldal folyamatosan frissíthet tartalmakat anélkül, hogy az egész lapot újra kellene tölteni.
+Ez teszi lehetővé a modern, interaktív weboldalakat – például élő adatbetöltést, dinamikus listákat, keresési találatokat vagy chat üzeneteket. -->
+  <script>
+    document.querySelector("#btn").addEventListener("click", () => {
+      // AJAX kérés küldése fetch() segítségével: AJAX: aszinkron kommunikáció a böngésző és a szerver között. Az oldal újratöltése nélkül kérünk adatot.index.php-hez küldjük a kérést. Ez egy szerveroldali PHP fájl, ami majd valamilyen választ ad: itt az aktuális szerveridőt. A fetch aszinkron, vagyis nem blokkolja az egész program futását, amíg a szerver válaszára vár.
+      fetch("index.php")
+        .then(response => response.text())   // a PHP választ szövegként kezeljük. H aJSON-t várnánk, response.json-t írnánk.
+        .then(data => {
+          document.querySelector("#result").innerText = "Szerveridő: " + data
+        });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+Készíts egy egyszerű weboldalt, ahol a felhasználó kiválaszthat egy programozási nyelvet egy legördülő listából, majd egy gomb megnyomásával lekérheti a nyelv rövid jellemzését a szervertől AJAX segítségével.
+A kliens (HTML + JavaScript) fetch()-et használ, a szerveroldalon egy PHP fájl (language.php) a kapott kód alapján JSON formátumban visszaküldi a nyelv adatait (név, első megjelenés éve, típusrendszer, leírás). A kliens ezeket  formázva megjeleníti az oldalon az oldal újratöltése nélkül.
+
+Magyarázat:
+A feladat lényege  az, hogy megmutassa, hogyan lehet a szervertől adatot kérni úgy, hogy a weboldal nem töltődik újra, és azonnal megjelenik a friss információ.Az AJAX azt teszi lehetővé, hogy a felhasználó egyetlen kattintással plusz információhoz jusson anélkül, hogy a teljes oldal frissülne vagy bármit elhagyna.
