@@ -1,0 +1,14 @@
+{
+    "name": "herce/test",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "heki"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "alrik11es/cowsayphp": "^1.2"
+    }
+}
