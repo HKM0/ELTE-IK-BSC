@@ -9,6 +9,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "alrik11es/cowsayphp": "^1.2"
+        "alrik11es/cowsayphp": "^1.2",
+        "povils/figlet": "^1.0@dev"
     }
 }
