@@ -1,0 +1,53 @@
+1.  Adjuk meg a dolgozók között előforduló foglalkozások neveit! (select lista)
+SELECT foglalkozas FROM dolgozo;
+
+2.  Adjuk meg a dolgozók között előforduló foglalkozások neveit (DISTINCT is),
+     az eredmény halmaz legyen, vagyis minden foglalkozást csak egyszer írjuk ki!
+SELECT DISTINCT foglalkozas FROM dolgozo;
+
+3. Adjuk meg a dolgozók kódját, nevét és az éves fizetését, amikor kifejezést
+     használunk az oszlopnevek helyén, ott adjunk új oszlopnevet ("éves fizetés")
+SELECT dkod, dnev, fizetes * 12 AS "éves fizetés" FROM dolgozo;
+
+4. Kik azok a dolgozók, akiknek a fizetése > 2800? (kiválasztás: elemi feltételek)
+SELECT * FROM dolgozo WHERE fizetes > 2800;
+
+5. Adjuk meg azokat a dolgozókat, akiknek a foglalkozása 'MANAGER' (kar.tip.érték)
+SELECT * FROM dolgozo WHERE foglalkozas = 'MANAGER';
+
+6. Kik azok a dolgozók, akiknek a fizetése 2000 és 4500 között van? (dkod, dnev)
+SELECT dkod, dnev FROM dolgozo WHERE fizetes BETWEEN 2000 AND 4500;
+
+hf: SELECT dkod, dnev FROM dolgozo WHERE fizetes >= 2000 AND fizetes <= 4500;
+
+7. Kik azok a dolgozók, akik a 10-es vagy a 20-as osztályon dolgoznak?
+SELECT * FROM dolgozo WHERE oazon IN (10, 20);
+
+hf: SELECT * FROM dolgozo WHERE oazon = 10 OR oazon = 20;
+
+8. Adjuk meg azon dolgozókat, akik nevének második betűje 'A' (where: like)
+SELECT * FROM dolgozo WHERE dnev LIKE '_A%';
+
+9. Kik azok a dolgozók, akiknek a jutaléka nagyobb, mint 600?
+SELECT * FROM dolgozo WHERE jutalek > 600;
+
+10. Kik azok a dolgozók, akiknek a jutaléka kisebb-vagy-egyenlő, mint 600?
+SELECT * FROM dolgozo WHERE jutalek <= 600;
+
+11. Kik azok a dolgozók, akiknek a jutaléka ismeretlen/hiányzó adat. (NULL felt)
+SELECT * FROM dolgozo WHERE jutalek IS NULL;
+
+12. Kik azok a dolgozók, akiknek a jutaléka ismert (vagyis nem NULL)
+SELECT * FROM dolgozo WHERE jutalek IS NOT NULL;
+
+13. Listázzuk ki a dolgozókat foglalkozásonként, azon belül nevenként rendezve.
+SELECT * FROM dolgozo ORDER BY foglalkozas, dnev;
+
+14. Listázzuk ki a dolgozókat fizetés szerint csökkenőleg rendezve.
+SELECT * FROM dolgozo ORDER BY fizetes DESC;
+
+15. Rendezés segítségével az első N sor elérése Oracle 12.2 adatbázisban,
+SELECT * FROM dolgozo 
+ORDER BY fizetes DESC 
+FETCH FIRST 5 ROWS ONLY;
+   
