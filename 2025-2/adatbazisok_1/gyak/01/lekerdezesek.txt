@@ -1,0 +1,51 @@
+
+
+ 1. Kik szeretik az almát? (HF: Milyen gyümölcsöket szeret 'Micimackó'?)
+SELECT nev FROM szeret WHERE gyumolcs = 'alma';
+
+ 2. Kik nem szeretik az almát? (de valami mást igen)
+SELECT DISTINCT nev FROM szeret WHERE nev NOT IN (SELECT nev FROM szeret WHERE gyumolcs = 'alma');
+
+ 3. Kik azok, akik szeretik az almát, de nem szeretik a körtét?
+SELECT nev FROM szeret WHERE gyumolcs = 'alma'
+EXCEPT
+SELECT nev FROM szeret WHERE gyumolcs = 'korte';
+
+ 4. Kik szeretik az almát vagy a körtét? (vagy mind a kettőt, "megengedő")
+     (többféleképpen is megadhatjuk, hasonlítsuk össze a megoldásokat)
+SELECT DISTINCT nev FROM szeret WHERE gyumolcs = 'alma' OR gyumolcs = 'korte';
+
+5. Kik szeretik az almát is és a körtét is? (itt is nézzünk alternatív megoldást)
+     (Hogyan tudunk sorpárokat összehasonlítani?) 
+SELECT nev FROM szeret WHERE gyumolcs = 'alma'
+INTERSECT
+SELECT nev FROM szeret WHERE gyumolcs = 'korte';
+
+vagy így
+
+SELECT S1.nev FROM szeret S1, szeret S2 
+WHERE S1.nev = S2.nev AND S1.gyumolcs = 'alma' AND S2.gyumolcs = 'korte';
+
+6. Kik szeretik az almát vagy a körtét, de csak az egyiket? ("kizáró vagy")
+(SELECT nev FROM szeret WHERE gyumolcs = 'alma' OR gyumolcs = 'korte')
+EXCEPT
+(SELECT nev FROM szeret WHERE gyumolcs = 'alma' INTERSECT SELECT nev FROM szeret WHERE gyumolcs = 'korte');
+
+7. Kik szeretnek legalább kétféle gyümölcsöt? (direkt szorzattal)
+SELECT * FROM szeret S1, szeret S2 
+WHERE S1.gyumolcs<>S2.gyumolcs AND S1.nev = S2.nev  
+
+8. Kik szeretnek legalább háromféle gyümölcsöt?
+SELECT DISTINCT S1.nev FROM szeret S1, szeret S2, szeret S3
+WHERE S1.nev = S2.nev AND S2.nev = S3.nev 
+AND S1.gyumolcs <> S2.gyumolcs AND S1.gyumolcs <> S3.gyumolcs AND S2.gyumolcs <> S3.gyumolcs;
+ 
+9. Kik szeretnek legfeljebb kétféle gyümölcsöt?
+SELECT nev FROM szeret 
+GROUP BY nev 
+HAVING COUNT(gyumolcs) <= 2;
+
+10. Kik szeretnek pontosan kétféle gyümölcsöt?  
+SELECT nev FROM szeret 
+GROUP BY nev 
+HAVING COUNT(gyumolcs) = 2;
