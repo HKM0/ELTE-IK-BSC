@@ -1,0 +1,1 @@
+modositsd az exec-et és ha azt latja hogy "bye bye valaki" akkor megáll, de ha helyette parancs van akkor meghívja a parancsot.

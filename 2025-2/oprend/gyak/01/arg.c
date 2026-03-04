@@ -6,10 +6,9 @@ int main(int argc,char ** argv)
 //char** means an array of character arrays = array of strings
 {
  int i;
-
- for (i=0;i<atoi(argv[2]);i++){
-
-  printf("%s\n",argv[1]);
+ printf("Number of command line arguments are: %i\n",argc);
+ for (i=0;i<argc;i++){
+  printf("%i. argument is %s\n",i,argv[i]);
  }
  return 0;
 }
