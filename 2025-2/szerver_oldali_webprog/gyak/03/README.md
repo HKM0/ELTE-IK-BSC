@@ -41,9 +41,30 @@ for ($i = 0; $i < 5; $i++) {
         'name' => fake()->word(),
         'color' => fake()->hexColor()
     ]);
-    $c->posts()->sync($posts->random(rand(1, 5))->pluck('id')); 
+    $c->posts()->sync($posts->random(rand(1, 5))->pluck('id')); // N:N kapcsolat
 }
 ```
+
+
+### DatabaseSeeder.php - Factory alapú adatfeltöltés
+
+```php
+// 10 rendes felhasználó létrehozása
+User::factory(10)->create();
+
+// Admin felhasználó létrehozása specifikus email és is_admin flag-gel
+User::factory()->create(['email'=>'admin@admin.admin', 'is_admin'=> true]);
+
+// 20 bejegyzés létrehozása
+$posts = Post::factory(20)->create();
+
+// 5 kategória létrehozása és mindegyikhez N:N kapcsolat szinkronizálása
+Category::factory(5)->create()->each(function ($c) use ($posts){
+    // Véletlenszerűen 1-5 bejegyzést rendelünk hozzá az aktuális kategóriához
+    $c->posts()->sync($posts->random(rand(1, 5))->pluck('id'));
+});
+```
+
 
 ### Megjegyzések
 
