@@ -1,0 +1,4 @@
+a kérdés válasza: 
+```
+php -r "echo base64_decode('YTozOntzOjY6Il90b2tlbiI7czo0MDoiRENERUx4SGF6cFl2WTNoOExQVXhPdUh6elFkdzZGVkNvSkt5WHB4YSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9wb3N0cy9jcmVhdGUiO3M6NToicm91dGUiO3M6MTI6InBvc3RzLmNyZWF0ZSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=');"
+```

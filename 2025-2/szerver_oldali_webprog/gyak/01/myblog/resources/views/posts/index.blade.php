@@ -6,7 +6,9 @@
     <ul>
         @foreach($posts as $post)
             <li>
-                <a href="{{ route('posts.show', ['post' => $post ]) }}">{{ $post->title }}</a> 
+                <a href="{{ route('posts.show', ['post' => $post ]) }}">
+                {{ $post->title }}</a> {{ $post->author->name }} </li> 
+
             </li>
         @endforeach
     </ul>
