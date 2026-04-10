@@ -1,15 +1,14 @@
 @extends('bloglayout')
 
-@section('title', 'Bejegyzés szerkesztése')
+@section('title', $post->title . ' szerkesztése')
 
 @section('content')
 
-    <h2 class="text-2xl">
-        Bejegyzés szerkesztése</h2>
+    <h2 class="text-2xl">{{ $post->title }} szerkesztése</h2>
 
-    <form action="{{ route('posts.update', $post) }}" method="POST">
+    <form action="{{ route('posts.update', ['post' => $post]) }}" method="POST">
         @csrf
-        @method('PUT')
+        @method('PATCH')
         Cím: @error('title')
             {{ $message }}
         @enderror
@@ -23,19 +22,23 @@
         Szerző:
         <select name="author_id">
             @foreach ($users as $user)
-                <option value="{{ $user->id }}" {{ old('author_id', $post->author_id) == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
+                <option value="{{ $user->id }}"
+                    {{ old('author_id', $post->author_id) == $user->id ? 'selected' : '' }}>
+                    {{ $user->name }}
+                </option>
             @endforeach
         </select><br>
         Publikus? <input type="checkbox" name="is_public" {{ old('is_public', $post->is_public) ? 'checked' : '' }}><br>
 
         <h3 class="text-xl">Kategóriák</h3>
         @foreach ($categories as $category)
-            <input type="checkbox" class="mr-2" name="categories[]" value="{{ $category->id }}" 
+            <input type="checkbox" class="mr-2" name="categories[]" value="{{ $category->id }}"
                 {{ in_array($category->id, old('categories', $post->categories->pluck('id')->toArray())) ? 'checked' : '' }}>
+            
             <span style="color: {{ $category->color }}">{{ $category->name }}</span><br>
         @endforeach
 
-        <button class="mt-2 p-2 bg-sky-500 hover:bg-sky-400 rounded rounded-lg" type="submit">Frissítés</button>
+        <button class="mt-2 p-2 bg-sky-500 hover:bg-sky-400 rounded-lg" type="submit">Mentés</button>
     </form>
 
 @endsection
