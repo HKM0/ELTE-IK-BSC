@@ -1,66 +1,66 @@
 # Kiberbiztonság Alapjai - Összefoglaló
 
-## 1. Basic Concepts of Cybersecurity
+## 1. Basic Concepts of Cybersecurity (Kiberbiztonság alapfogalmai)
 
-*   **Cybersecurity**: The protection of information assets (devices, applications, networks, data, users) from harm resulting from unauthorized disclosure, corruption of data, or service disruption.
-*   **The CIA Triad**: The classic core security goals:
-    *   **Confidentiality**: Preventing unauthorized disclosure of information.
-    *   **Integrity**: Preventing unauthorized modification or destruction of information, ensuring correctness and trustworthiness.
-    *   **Availability**: Ensuring systems and data are accessible and usable upon demand by authorized entities.
-*   **AAA Framework**:
-    *   **Authentication**: Verifying a user's identity ("Who are you?").
-    *   **Authorization**: Determining what resources a user can access and what operations they can perform.
-    *   **Accounting**: Keeping track of what users do, including resources accessed and changes made.
-*   **Non-Repudiation**: Ensuring that a party in a transaction or communication cannot deny the authenticity of their signature or the sending of a message.
-*   **The Cybersecurity Cube (McCumber Cube)**: A three-dimensional framework addressing Security Principles (CIA Triad), Information States (Transmission, Storage, Processing), and Countermeasures (Technology, Policies/Practice, People).
-*   **Information States**:
-    *   **Data at Rest**: Stored data not actively in use (e.g., local hard drives, NAS).
-    *   **Data in Transit**: Data actively moving across a network or between devices.
-    *   **Data in Process**: Data actively being created, updated, or computed by applications.
-*   **Threat Actor**: An active entity (adversary or force of nature) that triggers or executes a threat scenario.
-*   **Threat Scenario**: A realistic sequence of actions controlled by a threat actor that can exploit vulnerabilities and cause an incident.
-*   **Vulnerability**: A technical, process, or human weakness that allows a step in a threat scenario to succeed.
-*   **Security Incident**: A breach of security goals (CIA) that results in negative impact.
-*   **Hacker Classifications**:
-    *   **Black Hat**: Malicious criminal.
-    *   **White Hat**: Ethical professional.
-    *   **Gray Hat**: Violates laws but not necessarily malicious.
+*   **Cybersecurity (Kiberbiztonság)**: Az információs javak (eszközök, alkalmazások, hálózatok, adatok, felhasználók) védelme az illetéktelen közzétételből, adatsérülésből vagy szolgáltatáskiesésből eredő károk ellen.
+*   **The CIA Triad (A CIA triád)**: A klasszikus alapvető biztonsági célok:
+    *   **Confidentiality (Bizalmasság)**: Az információ illetéktelen felek előtti közzétételének megakadályozása.
+    *   **Integrity (Integritás)**: Az információ illetéktelen módosításának vagy megsemmisítésének megakadályozása, biztosítva annak helyességét és hitelességét.
+    *   **Availability (Rendelkezésre állás)**: Annak biztosítása, hogy a rendszerek és adatok az arra jogosultak számára szükség esetén elérhetőek és használhatóak legyenek.
+*   **AAA Framework (AAA keretrendszer)**:
+    *   **Authentication (Hitelesítés)**: A felhasználó azonosságának ellenőrzése ("Ki vagy te?").
+    *   **Authorization (Engedélyezés)**: Annak meghatározása, hogy a felhasználó mely erőforrásokhoz férhet hozzá, és milyen műveleteket végezhet el.
+    *   **Accounting (Elszámoltathatóság)**: A felhasználói tevékenységek nyomon követése, beleértve a hozzáféréseket és a végrehajtott módosításokat.
+*   **Non-Repudiation (Letagadhatatlanság)**: Annak biztosítása, hogy egy tranzakció vagy kommunikáció résztvevője ne tagadhassa le saját aláírásának hitelességét vagy az üzenet elküldését.
+*   **The Cybersecurity Cube (McCumber Cube) (Kiberbiztonsági kocka)**: Háromdimenziós keretrendszer, amely a biztonsági alapelveket (CIA triád), az adatok állapotait (továbbítás, tárolás, feldolgozás) és a védelmi intézkedéseket (technológia, szabályzatok/gyakorlat, emberek) kezeli.
+*   **Information States (Adatállapotok)**:
+    *   **Data at Rest (Tárolt adat)**: Nem aktív használatban lévő, tárolt adatok (pl. merevlemezeken, NAS-on).
+    *   **Data in Transit (Továbbított adat)**: Hálózaton vagy eszközök között aktívan mozgó adatok.
+    *   **Data in Process (Feldolgozás alatti adat)**: Alkalmazások által éppen létrehozott, frissített vagy feldolgozott adatok.
+*   **Threat Actor (Fenyegető fél / Támadó)**: Olyan aktív egység (ellenfél vagy természeti erő), amely elindít vagy végrehajt egy fenyegetési forgatókönyvet.
+*   **Threat Scenario (Fenyegetési forgatókönyv)**: Egy támadó által irányított reális cselekvéssorozat, amely kihasználja a sérülékenységeket és incidenst okozhat.
+*   **Vulnerability (Sérülékenység)**: Olyan technikai, folyamatbeli vagy emberi gyengeség, amely lehetővé teszi egy fenyegetési forgatókönyv sikerességét.
+*   **Security Incident (Biztonsági incidens)**: A biztonsági célok (CIA) megsértése, amely negatív hatással jár.
+*   **Hacker Classifications (Hacker kategóriák)**:
+    *   **Black Hat (Fekete kalapos)**: Rosszindulatú bűnöző.
+    *   **White Hat (Fehér kalapos)**: Etikus szakember.
+    *   **Gray Hat (Szürke kalapos)**: Törvényt sért, de nem feltétlenül rosszindulatú.
 
-## 2. Information Gathering
+## 2. Information Gathering (Információgyűjtés)
 
-*   **Passive Information Gathering (Passive Reconnaissance)**: Collecting information about a target without directly interacting with it, relying on publicly available sources (low risk of detection).
-*   **Active Information Gathering (Active Reconnaissance)**: Collecting information by directly interacting with the target system or network (higher risk of detection).
-*   **OSINT (Open-Source Intelligence)**: The process of collecting, analyzing, and leveraging publicly available information from open sources.
-*   **Google Dorking**: A technique using advanced search operators in Google (e.g., `site:`, `filetype:`, `intitle:`) to uncover sensitive information not intended for public access.
-*   **EXIF Data**: Metadata embedded within digital media files providing details about the file, including technical device specs and GPS coordinates.
-*   **DNS Zone Transfer Vulnerability**: A misconfiguration where a DNS server allows unauthorized users to request the entire zone file, exposing subdomains and network structure.
-*   **Service Enumeration (Network Scanning)**: An active method to find open ports, determine available services, and gather software versions or operating system clues.
-*   **CVE (Common Vulnerabilities and Exposures)**: A publicly available, standardized dictionary of known information security threats and vulnerabilities in specific software products.
-*   **CVSS (Common Vulnerability Scoring System)**: A standardized scoring system (0.0 to 10.0) used to rate the severity of vulnerabilities.
+*   **Passive Information Gathering (Passive Reconnaissance) (Passzív információgyűjtés)**: Információgyűjtés a célpontról közvetlen interakció nélkül, nyilvánosan elérhető forrásokra támaszkodva (alacsony lelepleződési kockázat).
+*   **Active Information Gathering (Active Reconnaissance) (Aktív információgyűjtés)**: Információgyűjtés a célrendszerrel vagy hálózattal való közvetlen interakció útján (magasabb lelepleződési kockázat).
+*   **OSINT (Open-Source Intelligence) (Nyílt forrású hírszerzés)**: Nyilvánosan elérhető információk gyűjtésének, elemzésének és felhasználásának folyamata.
+*   **Google Dorking**: Speciális keresési operátorok (pl. `site:`, `filetype:`, `intitle:`) használata a Google-ben olyan érzékeny információk feltárására, amelyeket nem a nyilvánosságnak szántak.
+*   **EXIF Data (EXIF adatok)**: Digitális médiafájlokba ágyazott metaadatok, amelyek részleteket közölnek a fájlról, beleértve az eszköz technikai adatait és GPS koordinátákat.
+*   **DNS Zone Transfer Vulnerability (DNS zónaátviteli sérülékenység)**: Olyan konfigurációs hiba, ahol a DNS szerver lehetővé teszi illetéktelenek számára a teljes zónafájl lekérését, felfedve az aldomaineket és a hálózati struktúrát.
+*   **Service Enumeration (Network Scanning) (Szolgáltatás-enumeráció)**: Aktív módszer a nyitott portok felderítésére, az elérhető szolgáltatások meghatározására, valamint szoftververziók vagy operációs rendszerre utaló jelek gyűjtésére.
+*   **CVE (Common Vulnerabilities and Exposures)**: Nyilvánosan elérhető, szabványosított jegyzék konkrét szoftvertermékek ismert biztonsági fenyegetéseiről és sérülékenységeiről.
+*   **CVSS (Common Vulnerability Scoring System)**: Szabványosított pontozási rendszer (0.0-tól 10.0-ig) a sérülékenységek súlyosságának értékelésére.
 
-## 3. Social Engineering
+## 3. Social Engineering (Pszichológiai manipuláció)
 
-*   **Social Engineering**: Manipulating individuals into performing actions or divulging sensitive information by exploiting human psychology rather than technical flaws.
-*   **Phishing**: Deceptive communication (primarily mass emails) mimicking legitimate entities to steal credentials, personal data, or deploy malware.
-*   **Whaling**: A highly targeted form of phishing specifically aimed at high-profile individuals, executives, or senior managers within an organization.
-*   **Pretexting**: Creating a fabricated scenario (pretext) based on background research to build trust and credibility, manipulating targets into disclosing secrets.
-*   **Baiting**: An attack that lures victims into compromising security by promising a reward or exploiting curiosity, using physical media (e.g., infected USB drives left in public) or digital downloads.
-*   **Tailgating**: A physical security breach where an unauthorized person follows closely behind an authorized person into a restricted area without their knowledge.
-*   **Piggybacking**: A physical security breach where an authorized person knowingly allows an unauthorized individual to enter a secure area without proper authentication (e.g., holding the door out of politeness).
-*   **ClickFix Attack**: A technique where a website displays a fake technical error pop-up and guides the user into executing system shortcuts that copy and run a malicious command via their clipboard.
-*   **Psychological Triggers**: Core human emotions leveraged by attackers, such as **Curiosity**, **Sense of Urgency**, **Fear/Anxiety**, and **Trust/Authority**.
+*   **Social Engineering (Szociális manipuláció)**: Emberek manipulálása bizonyos műveletek elvégzésére vagy bizalmas információk kiadására, technikai hibák helyett az emberi pszichológia kihasználásával.
+*   **Phishing (Adathalászat)**: Megtévesztő kommunikáció (elsősorban tömeges e-mailek), amely legitim entitásokat utánoz hitelesítő adatok, személyes adatok ellopása vagy kártevők terjesztése céljából.
+*   **Whaling (Bálnavadászat)**: Az adathalászat egy erősen célzott formája, amely kifejezetten magas beosztású személyeket, vezetőket vagy felsővezetőket vesz célba egy szervezeten belül.
+*   **Pretexting**: Egy előzetes kutatáson alapuló kitalált forgatókönyv (ürügy) létrehozása a bizalom és hitelesség kiépítése érdekében, rávéve a célpontot titkok felfedésére.
+*   **Baiting (Csalizás)**: Olyan támadás, amely jutalom ígéretével vagy a kíváncsiság kihasználásával próbálja meg kompromittálni a biztonságot, fizikai adathordozók (pl. fertőzött USB kulcsok elhagyása) vagy digitális letöltések útján.
+*   **Tailgating**: Olyan fizikai biztonsági incidens, amikor egy illetéktelen személy szorosan követ egy jogosult személyt egy védett területre annak tudta nélkül.
+*   **Piggybacking**: Olyan fizikai biztonsági incidens, amikor egy jogosult személy tudatosan enged be egy illetéktelen egyént egy biztonságos területre megfelelő hitelesítés nélkül (pl. udvariasságból tartja az ajtót).
+*   **ClickFix Attack (ClickFix támadás)**: Olyan technika, ahol egy weboldal hamis technikai hibaüzenetet jelenít meg, és ráveszi a felhasználót olyan billentyűkombinációk használatára, amelyek egy kártékony parancsot másolnak a vágólapra és futtatnak le.
+*   **Psychological Triggers (Pszichológiai kiváltó okok)**: A támadók által kihasznált alapvető emberi érzelmek, mint a **kíváncsiság**, a **sürgetés érzése**, a **félelem/szorongás** és a **bizalom/tekintély**.
 
-## 4. Physical Security
+## 4. Physical Security (Fizikai biztonság)
 
-*   **Physical Security (Physsec)**: In an IT context, the practice of getting or preventing physical access to a target's IT infrastructure.
-*   **Physical Penetration Testing**: Methodically testing physical barriers with express written permission, which must be kept on person during the operation to distinguish it from trespassing or burglary.
-*   **Laser Microphones**: A surveillance tool that bounces a laser beam off a window pane to measure tiny vibrations caused by speech inside the room.
-*   **Hotplug Attack**: An attack where a specialized USB device (e.g., Rubber Ducky) is plugged into an unattended machine to inject automated keystroke commands at high speed.
-*   **Network Implants**: Malicious hardware covertly connected directly to an internal network to grant an attacker remote access, bypassing external firewalls.
-*   **Under-Door Tool**: A long wire or hook tool inserted underneath a door to pull the internal door handle, bypassing the lock completely from the outside.
-*   **Latch Tool (Latch Hook)**: A tool used to pull a door latch open directly through gaps caused by bad door fitment or poor alignment.
-*   **REX (Request to Exit) Sensor**: A motion sensor (usually passive infrared) installed on the secure side of a door that automatically unlocks it when someone approaches to leave.
-*   **Hybrid REX Sensor**: A security control combining PIR and microwave sensors to prevent attackers from tripping the exit mechanism from the outside using vapor clouds or heat tricks.
+*   **Physical Security (Physsec) (Fizikai biztonság)**: IT környezetben a célpont IT infrastruktúrájához való fizikai hozzáférés megszerzése vagy megakadályozása.
+*   **Physical Penetration Testing (Fizikai behatolásvizsgálat)**: Fizikai korlátok módszeres tesztelése kifejezett írásos engedéllyel ("get out of jail free card"), amelyet a vizsgálat alatt magánál kell tartania a szakembernek a birtokháborítástól való megkülönböztetés érdekében.
+*   **Laser Microphones (Lézeres mikrofonok)**: Olyan megfigyelőeszköz, amely lézersugarat ver vissza egy ablaküvegről, hogy mérje a szobában zajló beszéd okozta apró rezgéseket.
+*   **Hotplug Attack (Hotplug támadás)**: Olyan támadás, amelynél egy speciális USB eszközt (pl. Rubber Ducky) csatlakoztatnak egy felügyelet nélküli géphez, hogy nagy sebességgel automatizált billentyűleütési parancsokat injektáljanak.
+*   **Network Implants (Hálózati implantátumok)**: Titokban közvetlenül a belső hálózatra csatlakoztatott kártékony hardverek, amelyek távoli hozzáférést biztosítanak a támadónak, megkerülve a külső tűzfalakat.
+*   **Under-Door Tool (Ajtó alatti eszköz)**: Az ajtó alatt betolt hosszú drót vagy kampós eszköz a belső ajtókilincs lehúzására, kívülről teljesen megkerülve a zárat.
+*   **Latch Tool (Latch Hook) (Zárnyelv-nyitó)**: Olyan eszköz, amellyel az ajtó zárnyelvét közvetlenül húzzák el az ajtó és a keret közötti réseken keresztül (rossz illeszkedés vagy beállítás esetén).
+*   **REX (Request to Exit) Sensor (REX szenzor)**: A biztonságos oldalon elhelyezett (általában passzív infravörös) mozgásérzékelő, amely automatikusan kinyitja az ajtót, ha valaki távozni készül.
+*   **Hybrid REX Sensor (Hibrid REX szenzor)**: PIR és mikrohullámú érzékelőket kombináló védelmi eszköz, amely megakadályozza, hogy a támadók kívülről (pl. gőzbefúvással vagy hőtükrözéssel) aktiválják a nyitómechanizmust.
 
 
 ## 5. Network Security (Hálózati biztonság)
