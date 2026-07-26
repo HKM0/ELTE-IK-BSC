@@ -6,7 +6,7 @@ package rpg_jatek;
 
 /**
  *
- * @author herce
+ * @author heki
  */
 public class Defender extends Orc{
     public Defender(String name, int HP, int attack){

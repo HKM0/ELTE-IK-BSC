@@ -6,7 +6,7 @@ package rpg_jatek;
 
 /**
  *
- * @author herce
+ * @author heki
  */
 public class BlackDragon extends Dragon {
     public BlackDragon (String name, int HP, int attack){

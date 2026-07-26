@@ -6,7 +6,7 @@ package rpg_jatek;
 
 /**
  *
- * @author herce
+ * @author heki
  */
 public abstract class Dragon extends Character{
     protected final int ATTACK_THRESHOLD;

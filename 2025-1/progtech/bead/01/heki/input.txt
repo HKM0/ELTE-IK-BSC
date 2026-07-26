@@ -1,0 +1,16 @@
+10
+property
+service 4000
+property
+luck 500
+property
+service 3000
+property
+luck 1000
+property
+property
+3
+Anna greedy
+Kristof careful
+Andris tactical
+3 2 4 1 5 6 2 3 1 4 1 3 1 1 6 3 6 3 2 4 1 5 2 1 3 2 1 2 1 2

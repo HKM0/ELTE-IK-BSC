@@ -20,8 +20,8 @@ A dokumentáció pedig itt:
 '''
 
 app = FastAPI(
-    title="HGSWOU",
-    description="REST API beadando: Herceg Kristóf",
+    title="neptun_code",
+    description="REST API beadando: heki",
     #version="1.0.0"
 )
 app.include_router(routes_router)

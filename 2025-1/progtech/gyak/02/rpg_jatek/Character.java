@@ -6,7 +6,7 @@ package rpg_jatek;
 
 /**
  *
- * @author herce
+ * @author heki
  */
 public class Character {
     protected String name;

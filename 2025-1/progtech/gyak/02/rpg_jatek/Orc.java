@@ -6,7 +6,7 @@ package rpg_jatek;
 
 /**
  *
- * @author herce
+ * @author heki
  */
 public abstract class Orc extends Character{
     public Orc(String name, int HP, int attack){

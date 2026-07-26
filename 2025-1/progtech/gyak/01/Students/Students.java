@@ -6,7 +6,7 @@ package students;
 
 /**
  *
- * @author herce
+ * @author heki
  */
 import java.util.*;
 class Hallgato {

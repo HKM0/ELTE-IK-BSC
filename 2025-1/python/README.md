@@ -1,5 +1,9 @@
 # 🐍 Python kurzus – 2025/26 1. félév
 
+Gyakvez.: **Strohmayer Ádám**
+> Vélemény: <span style="color: lightgreen;">Teljes mértékben ajánlom!</span>
+Nagyon kedves és segítőkész. Az órája jól felépített.
+
 ## 📌 Tematika
 
 - Python bevezetés, telepítés, AI etikus használata
