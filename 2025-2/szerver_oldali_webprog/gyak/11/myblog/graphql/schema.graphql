@@ -1,0 +1,109 @@
+# A "" egy API dokumentációs eszköz, amely lehetővé teszi a GraphQL API-k leírását és dokumentálását.
+# A # jelölés komment, amelyet a GraphQL figyelmen kívül hagy, míg a "..." leírás, amely a séma része és megjelenik az API dokumentációban. Kliensnek szól, míg a # a fejlesztőnek.
+# A következő kód egy GraphQL sémát definiál, amely egy egyszerű felhasználói rendszert modellez.
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+
+# A @scalar direktíva  egyéni skalár típus definiálására szolgál, amely ebben az esetben egy DateTime formátumot jelöl.
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"Indicates what fields are available at the top level of a query operation."
+# A Query típus a GraphQL séma gyökerét jelenti, ahol a lekérdezések kezdődnek. Itt definiáljuk, hogy milyen lekérdezéseket lehet végrehajtani az API-n keresztül.
+type Query {
+    "Find a single user by an identifying attribute."
+    # A user mező lehetővé teszi egyetlen felhasználó keresését azonosító attribútum alapján, például ID vagy email cím.
+    # A @eq direktíva azt jelenti, hogy a keresés egyenlőség alapján történik, míg a @rules direktíva szabályokat alkalmaz a bemeneti értékekre, például kötelező mezők vagy kizáró feltételek.
+    user(
+      "Search by primary key."
+      # @eq direktíva azt jelenti, hogy a keresés egyenlőség alapján történik, míg a @rules direktíva szabályokat alkalmaz a bemeneti értékekre, például kötelező mezők vagy kizáró feltételek.
+      # A prohibits:email szabály azt jelenti, hogy ha az id mező meg van adva, akkor az email mező nem lehet megadva, és fordítva. A required_without szabály pedig azt jelenti, hogy legalább az egyik mezőnek kötelezően meg kell lennie. A user lekérdezésnél vagy id alapján keresel, vagy email alapján, de egyszerre a kettőt nem.
+      id: ID @eq @rules(apply: ["prohibits:email", "required_without:email","integer"])
+
+      "Search by email address."
+      email: String @eq @rules(apply: ["prohibits:id", "required_without:id", "email"])
+      # a lekérdezés eredménye egy User, a @find direktíva azt mondja a Lighthouse-nak, hogy a megadott feltétel alapján egyetlen rekordot keressen, a Lighthouse automatikusan csinál egy adatbázis-lekérdezést itt.
+    ): User @find
+
+    "List multiple users."
+    # több user lekérdezésére szolgáló lekérdezés, ahol a name mező alapján lehet szűrni, és SQL LIKE wildcards használhatók a keresésben. A @paginate direktíva pedig azt jelenti, hogy az eredményeket lapozható formában kapjuk vissza, alapértelmezettként 10 rekorddal oldalanként.
+    users(
+      "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
+      name: String @where(operator: "like")
+    ): [User!]! @paginate(defaultCount: 10)
+# A @paginate direktíva azt jelenti, hogy az eredményeket lapozható formában kapjuk vissza, alapértelmezettként 10 rekorddal oldalanként.
+# square mező egy egyszerű példa egy szám négyzetének kiszámítására, ahol a bemeneti érték egy kötelező Float típusú argumentum, és a visszatérési érték is egy Float lesz.
+    square(x:Float!):Float!
+# stats mező egy egyszerű példa egy statisztikai összegzésre, ahol a visszatérési érték egy Stats típusú objektum, amely tartalmazza a posztok számát, a nyilvános posztok számát és a posztok átlagos számát kategóriánként.
+    stats: Stats!
+# A posts mező egy egyszerű példa egy posztok listájának lekérdezésére, ahol a visszatérési érték egy Post típusú objektumok listája lesz, és a @all direktíva azt jelenti, hogy az összes posztot visszaadja.
+    posts: [Post!]! @all
+    # A post mező egy egyszerű példa egy poszt lekérdezésére ID alapján, ahol a visszatérési érték egy Post típusú objektum lesz, és a @find direktíva azt jelenti, hogy a megadott feltétel alapján egyetlen rekordot keressen.
+    post(id: ID! @eq): Post @find
+
+}
+
+"Account of a person who uses this application."
+type User {
+    "Unique primary key."
+    id: ID!
+
+    "Non-unique name."
+    name: String!
+
+    "Unique email address."
+    email: String!
+
+    "When the email was verified."
+    email_verified_at: DateTime
+
+    "When the account was created."
+    created_at: DateTime!
+
+    "When the account was last updated."
+    updated_at: DateTime!
+# A posts mező egy egyszerű példa egy posztok listájának lekérdezésére, ahol a visszatérési érték egy Post típusú objektumok listája lesz, és a @hasMany direktíva azt jelenti, hogy egy felhasználó több poszttal is rendelkezhet.
+    posts: [Post!]!
+}
+type Post{
+    id: ID!
+    title: String!
+    content: String!
+    is_public: Boolean!
+    author_id: ID!
+    created_at: DateTime!
+    updated_at: DateTime!
+    # A author mező egy egyszerű példa egy poszt szerzőjének lekérdezésére, ahol a visszatérési érték egy User típusú objektum lesz, és a @belongsTo direktíva azt jelenti, hogy egy poszt egy szerzőhöz tartozik.
+    author:User!
+    # A  categories mező egy egyszerű példa egy poszt kategóriáinak lekérdezésére, ahol a visszatérési érték egy Category típusú objektumok listája lesz, és a @belongsToMany direktíva azt jelenti, hogy egy poszt több kategóriához is tartozhat, és egy kategória több poszthoz is tartozhat.
+    categories: [Category!]!
+    # A length mező egy egyszerű példa egy poszt hosszának lekérdezésére, ahol a visszatérési érték egy Int típus lesz, és a @field direktíva azt jelenti, hogy ez egy számított mező, amely a poszt tartalmának hosszát adja vissza.
+    length: Int!
+}
+type Category{
+    id: ID!
+    name: String!
+    color: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    # A posts mező egy egyszerű példa egy kategória posztjainak lekérdezésére, ahol a visszatérési érték egy Post típusú objektumok listája lesz, és a @belongsToMany direktíva azt jelenti, hogy egy kategória több poszthoz is tartozhat, és egy poszt több kategóriához is tartozhat.
+    posts: [Post!]!
+}
+# a square egyetlen egyszerű értéket ad vissza, a stats pedig összetett objektumot. A squre esetében nem kellett külön type Float-ot írni, mert a Float alapból létezik, GraphQL beépített típus.
+# A Stats típus egy egyszerű objektum, amely három mezőt tartalmaz: postCount, publicPostCount és postPerCategory. Ezek a mezők a posztok számát, a nyilvános posztok számát és a posztok átlagos számát kategóriánként jelölik.
+type Stats{
+    postCount:Int!
+    publicPostCount: Int!
+    postPerCategory: Float!
+}
+# A CreateUserInput egy bemeneti típus, amely a createPost1 mutáció bemeneti adatainak struktúráját definiálja. Ez a típus tartalmazza a title, content, author_id és is_public mezőket, amelyek mind kötelezőek, és különböző szabályokkal vannak ellátva a validációhoz.
+
+input CreateUserInput{
+    title: String! @rules(apply: ["required", "string"])
+    content: String! @rules(apply: ["required", "string"])
+    author_id: ID! @rules(apply: ["integer", "exists:users,id"])
+    is_public: Boolean! @rules(apply: ["boolean"])
+}
+# A Mutation típus a GraphQL séma gyökerét jelenti, ahol a módosító műveletek kezdődnek. Itt definiáljuk, hogy milyen módosító műveleteket lehet végrehajtani az API-n keresztül.
+type Mutation{
+    #createPost1(title: String!, content: String!, author_id: ID!, is_public: Boolean!): Post
+    createPost1(input: CreateUserInput! @spread): Post @create
+}

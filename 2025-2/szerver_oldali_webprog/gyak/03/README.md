@@ -1,4 +1,4 @@
-# Laravel Tinker és Seeding Parancsok
+# Laravel Tinker és Seeding Parancsok - 2026. február 25.
 
 ## User létrehozása és lekérdezése
 

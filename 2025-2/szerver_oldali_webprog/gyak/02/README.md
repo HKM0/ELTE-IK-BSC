@@ -1,4 +1,4 @@
-# Laravel Projekt Telepítési Útmutató
+# Laravel Projekt Telepítési Útmutató - 2026. február 18.
 
 ## 1. Laravel Telepítése és Projekt Létrehozása
 

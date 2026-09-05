@@ -1,4 +1,4 @@
-# Szerver oldali webprogramozás - 01. gyakorlat
+# Szerver oldali webprogramozás - 01. gyakorlat - 2026. február 11.
 
 ## Composer használata
 

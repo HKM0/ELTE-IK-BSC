@@ -1,4 +1,4 @@
-# Laravel Factory és Seeder használat
+# Laravel Factory és Seeder használat - 2026. március 4.
 
 ## Áttekintés
 
@@ -127,11 +127,11 @@ php artisan tinker
 
 ### Előtte (hibás)
 
-![Elotte](elotte.png)
+![Elotte](markdown_src/elotte.png)
 
 ### Hiba
 
-![Hiba](hiba.png)
+![Hiba](markdown_src/hiba.png)
 
 ```php
 > Post::factory()->count(1)->create()
@@ -172,4 +172,4 @@ Ezek után a `Post::factory()->count(1)->create()` parancs sikeresen működik.
 
 ### Utána (javított)
 
-![Utana](utana.png)
+![Utana](markdown_src/utana.png)
