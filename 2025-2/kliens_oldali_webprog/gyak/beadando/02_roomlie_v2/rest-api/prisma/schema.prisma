@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         String    @default("USER")
+  tokens       Token[]
+  bookings     Booking[]
+}
+
+model Token {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Table {
+  id       Int       @id @default(autoincrement())
+  name     String
+  type     String
+  category String
+  color    String
+  status   Int
+  x        Float     @default(0)
+  y        Float     @default(0)
+  isLocked Boolean   @default(false)
+  bookings Booking[]
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  tableId   Int
+  table     Table    @relation(fields: [tableId], references: [id], onDelete: Cascade)
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      String
+  startTime String
+  endTime   String
+  name      String
+  email     String
+  phone     String
+  headcount Int
+  notes     String   @default("")
+  status    String   @default("PENDING")
+}

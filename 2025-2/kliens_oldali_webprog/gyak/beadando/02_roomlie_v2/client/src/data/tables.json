@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Biliárd 1",
+    "type": "foosball",
+    "category": "normal",
+    "color": "red",
+    "status": 3,
+    "position": { "x": 50, "y": 50 },
+    "is-locked": false
+  },
+  {
+    "id": 2,
+    "name": "Biliárd 2",
+    "type": "snooker",
+    "category": "competition",
+    "color": "blue",
+    "status": 5,
+    "position": { "x": 300, "y": 90 },
+    "is-locked": false
+  },
+  {
+    "id": 3,
+    "name": "Léghoki 1",
+    "type": "air-hockey",
+    "category": "normal",
+    "color": "green",
+    "status": 7,
+    "position": { "x": 100, "y": 250 },
+    "is-locked": true
+  },
+  {
+    "id": 4,
+    "name": "Csocsó 1",
+    "type": "foosball",
+    "category": "kids",
+    "color": "green",
+    "status": 9,
+    "position": { "x": 450, "y": 300 },
+    "is-locked": false
+  }
+]
