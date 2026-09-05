@@ -4,6 +4,10 @@ Minta 1.ZH / 2.rész Gépes feladatok Oracle SQL-ben
 Fejezzük ki a következő lekérdezéseket Oracle SQL-ben
 
 Előkészítés - Hozzuk létre a táblákat az alábbi scripttel:  
+<details>
+<summary>script</summary>
+
+```sql
 drop table got_hazak;
 drop table got_karakterek;
 drop table got_csatak;
@@ -71,7 +75,12 @@ select * from got_karakterek;
 select * from got_hazak;
 select * from got_csatak;
 
-Feladatok:
+```
+</details>
+
+---
+
+## Feladatok:
 
 1.feladat (5 pont)
 Melyik háznak van legalább két olyan karaktere, akik képesek a vagyonukból fenntartani a seregüket (egy katona élelmezése 15 arany)?
@@ -126,4 +135,3 @@ where c.gyozott='nem' and c.csata_nev in
     )
 );
 ```
-
