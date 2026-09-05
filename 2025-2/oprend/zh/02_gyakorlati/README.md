@@ -1,0 +1,13 @@
+*Ez a feladat zárolva lett ekkor: máj 14, 13:31 .*
+
+Oldja meg az alábbi feladatot C nyelven, ami egy Linux rendszeren tud futni. (Ez lehet a tárgy  kiszolgálója (opsys.suli.hu) vagy egy saját lokális Linux rendszer!) Az eredményt (csak a C forrásfájlt, pl: alma.c) töltse fel maximum 1.5 óra után a kezdést követően ezen a Canvas oldalon. A feladatokat a gyakorlatvezetők fogják értékelni és az eredményt bejegyzik. A feladatban kért jelzés, cső vagy üzenetsor típusa, ha a feladat konkrétan nem nevesíti,  bármelyik tanult lehet.A dolgozat eredménye elégséges ha az első feladat kész, közepes ha az első kettő stb.
+
+Itt a nyár, Tutajos(Gyula) és Bütyök(Béla) a két jóbarát (gyerekek) a Berekbe készül Matula bácsihoz (szülő). Egy reggel Matula bácsi elküldi Tutajost halat fogni ebédre, Bütyökre pedig az a feladat vár, hogy a bográcsoláshoz, halsütéshez száraz fát kell gyűjteni.
+
+1. Matula bácsi mikor elküldte a fiúkat a megfelelő helyre, azt kérte Tőlük, hogy jelezzenek vissza(signal) ha készen állnak a feladat kezdésére. Matula bácsi mikor szintén az ebéd előkészületeket végzi, megkapja a fiúk jelzését, hogy várják a feladat pontosítását.  Üzenetsoron Matula bácsi elküldi Bütyöknek, hogy 2 köteg fát kell gyűjteni, míg Tutajosnak, hogy 3 halat kell fogni! Bütyök és Tutajos is kiolvassa az üzenetsorból, hogy hány köteg fát illetve hány halat kell fogni és ezeket az adatokat képernyőre írják.  Ezzel Bütyök és Tutajos is befejezi a tevékenységét, majd ezután Matula bácsi is befejezi az előkészületeket.
+
+2. Miután Bütyök és Tutajos is megkapták a feladatok, elkezdték azok végrehajtását. Bütyök próbál fát gyűjtögetni, de vizes minden(sok eső volt a napokban), ezért csővezetéken visszaüzen Matula bácsinak, hogy "Vizes a fa!". Tutajos horgászik lelkesen, fogott már 1 vagy 2 halat (véletlen szám), mikor is nagy csukát akaszt horogra, ami bekapja az ujját. Erre Tutajos Matula bácsinak üzen csővezetéken, hogy " A csuka megfogott stop, segítség stop!". Matula bácsi képernyőre írja az üzeneteket majd befejezik a ténykedésüket.
+
+3. Miután Matula bácsi vette az üzeneteket a fiúktól, visszaír Bütyöknek csővezetéken, hogy "Hagyja Béla a vizes fát másnak, segítsen a horgásznak!", amit Bütyök a képernyőre ír, majd elindul Tutajosnak segíteni. Kifeszíti Tutajos ujját a csuka szájából, fogják a halakat(összesen 2 vagy 3) és hazaindulnak.
+
+4. Matula bácsi azzal vigasztalja Gyulát, "Miután a csukának nem sikerült Magát megenni, örülök, hogy épségben előkerült." Matula bácsinak nyilván kell tartani a fogott halak számát, így védje szemaforral, mikor fájlba írja az aznap kifogott halak számát (2 vagy 3)!
