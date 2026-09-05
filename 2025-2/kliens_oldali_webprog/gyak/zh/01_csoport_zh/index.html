@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regisztráció | Gyakorló Feladat</title>
+    <!-- Helyi Bootstrap CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Saját kiegészítő stílus -->
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <!-- Bootstrap linket felülírjuk: -->
+    <style>
+        a {
+            cursor: pointer;
+            text-decoration: underline !important;
+            color: blue !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main class="main-content container d-flex align-items-center justify-content-center">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+
+                <div class="assignment-card">
+                    <h2>Fiók létrehozása</h2>
+                    <p class="subtitle">Kérjük, add meg az adataidat a folytatáshoz.</p>
+
+                    <form id="registrationForm" novalidate>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">Vezetéknév</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Példa" required>
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0">
+                                <label for="lastName" class="form-label">Keresztnév</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="János" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email cím</label>
+                            <input type="email" class="form-control" id="email" placeholder="janos@pelda.hu" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Jelszó</label>
+
+                            <!-- Password Input Custom Element -->
+                            <password-input>
+                                <input type="password" class="form-control" id="password" required>
+
+                                <!-- Jelszó validációs lista -->
+                                <div class="password-requirements mt-3 p-3 bg-light rounded" id="passwordRequirements">
+                                    <p class="mb-2 fw-semibold text-muted" style="font-size: 0.85rem">A
+                                        jelszókövetelmények:
+                                    </p>
+                                    <ul class="list-unstyled mb-0" style="font-size: 0.85rem">
+                                        <li id="req-length" class="text-danger">Legalább 8
+                                            karakter hosszú</li>
+                                        <li id="req-upper" class="text-danger">Tartalmaz
+                                            nagybetűt</li>
+                                        <li id="req-number" class="text-danger">Tartalmaz
+                                            számot
+                                        </li>
+                                        <li id="req-special" class="text-danger">Tartalmaz
+                                            speciális karaktert (!@#$%^&*)</li>
+                                    </ul>
+                                </div>
+                            </password-input>
+                        </div>
+
+                        <!-- EZ A RÉSZ AZ Intersection Observer FELADAT HELYE -->
+                        <div class="mb-4">
+                            <label class="form-label d-flex justify-content-between align-items-center">
+                                Felhasználási Feltételek (ÁSZF)
+                                <small class="text-primary">Görgess a végére az elfogadáshoz!</small>
+                            </label>
+                            <div class="terms-box border rounded p-3" id="termsBox"
+                                style="height: 150px; overflow-y: scroll; font-size: 0.85rem; color: var(--text-muted); background: #f8fafc;">
+                                <h6>1. Általános rendelkezések</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                                <h6>2. Adatvédelem</h6>
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                    qui officia deserunt mollit anim id est laborum.</p>
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                    laudantium, totam rem aperiam.</p>
+
+                                <h6>3. Felelősségvállalás</h6>
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
+                                    quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+
+                                <h6>4. Záradék</h6>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                                    voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                                    occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+                                    mollitia animi.</p>
+
+                                <!-- TODO: Ezt a span-t figyeld az Intersection Observerrel! -->
+                                <span id="termsEndAnchor" class="d-block mt-3 text-center text-success fw-bold">Értem és
+                                    elfogadom az ÁSZF-et.</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-custom w-100" id="submitBtn">
+                            Regisztráció
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Kliensoldali Webprogramozás</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

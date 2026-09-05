@@ -1,0 +1,123 @@
+:root {
+    --primary-color: #4f46e5;
+    /* Indigo 600 */
+    --primary-hover: #4338ca;
+    /* Indigo 700 */
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --bg-color: #f8fafc;
+    /* Slate 50 */
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    /* Slate 800 */
+    --text-muted: #64748b;
+    /* Slate 500 */
+    --border-color: #e2e8f0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Custom Navbar Styling */
+.navbar-custom {
+    background-color: var(--card-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    letter-spacing: -0.5px;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 3rem 0;
+}
+
+/* Polished Card */
+.assignment-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    padding: 2.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.assignment-card h2 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.assignment-card p.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Form Controls overriding Bootstrap slightly for a more premium feel */
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border-color: var(--border-color);
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: var(--text-main);
+}
+
+/* Button Styling */
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    color: white;
+}
+
+.btn-primary-custom:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+    color: white;
+}
+
+.btn-primary-custom:disabled {
+    background-color: var(--text-muted);
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--border-color);
+}
