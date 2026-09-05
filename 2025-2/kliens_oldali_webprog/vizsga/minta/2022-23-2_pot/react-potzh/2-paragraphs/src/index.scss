@@ -1,0 +1,14 @@
+@import "bootstrap/scss/bootstrap-utilities";
+
+// https://5balloons.info/cursor-pointer-and-other-classes-for-bootstrap-5
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      values: auto default pointer wait text move help not-allowed,
+    ),
+  )
+);
+
+@import "bootstrap/scss/bootstrap";

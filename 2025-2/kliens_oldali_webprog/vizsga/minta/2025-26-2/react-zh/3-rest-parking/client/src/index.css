@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #f0f4f8 0%, #e8eef5 45%, #f7f9fc 100%);
+}
+
+.parking-lane {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 11px,
+    #cbd5e1 11px,
+    #cbd5e1 12px
+  );
+}

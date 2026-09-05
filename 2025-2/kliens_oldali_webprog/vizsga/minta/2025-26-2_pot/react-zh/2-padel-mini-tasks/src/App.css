@@ -1,0 +1,450 @@
+/* src/App.css – padel klub 3D kinézet */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  color: #eef2f7;
+  background:
+    linear-gradient(180deg, #1a2230 0%, #243044 55%, #2a3444 100%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(255, 255, 255, 0.02) 48px,
+      rgba(255, 255, 255, 0.02) 49px
+    );
+}
+
+.app-shell {
+  width: 90%;
+  min-height: 100vh;
+  margin: auto auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0.5rem 1.5rem;
+}
+
+.page {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding: 1rem 0.5rem 1.5rem;
+  }
+
+  .page {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* ── Kiosk keret (mint az automata) ── */
+
+.padel-kiosk {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem 1rem 0.75rem 0.75rem;
+  padding: 0.75rem;
+  background: linear-gradient(145deg, #8b95a5 0%, #5c6675 40%, #4a5361 100%);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    inset 0 2px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+  border: 3px solid #3d4654;
+}
+
+.padel-kiosk-top {
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  border: 2px solid #b45309;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.padel-kiosk-top h1 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.padel-kiosk-screen {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.35rem;
+  background: #0c2340;
+  border: 3px inset #061528;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: #7dd3fc;
+  text-align: center;
+  min-height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 8px rgba(125, 211, 252, 0.45);
+}
+
+.padel-kiosk-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(180deg, #6b7585 0%, #4e5868 100%);
+  border: 2px solid #3d4654;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.padel-kiosk-body--booking {
+  gap: 0.75rem;
+}
+
+.padel-kiosk-feet {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.padel-kiosk-foot {
+  width: 2.5rem;
+  height: 0.5rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background: #2a313c;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Task 1 – pálya + pontszám ── */
+
+.padel-games-list {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0.35rem;
+  border-radius: 0.35rem;
+  background: #0d1218;
+  border: 3px inset #05080c;
+  height: 5.5rem;
+  overflow-y: auto;
+}
+
+.padel-games-item {
+  padding: 0.35rem 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.72rem;
+  color: #a8b8cc;
+  font-family: "Courier New", monospace;
+}
+
+.padel-games-item:last-child {
+  margin-bottom: 0;
+}
+
+.padel-court {
+  flex: 1;
+  min-height: 14rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 0.75rem;
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(180deg, #1e6fd9 0%, #1557b0 45%, #0f4a96 100%);
+  border: 4px solid #c8d4e0;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.85),
+    inset 0 8px 24px rgba(0, 0, 0, 0.25),
+    0 4px 0 #2a3444;
+  overflow: hidden;
+}
+
+.padel-court::before,
+.padel-court::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.padel-court::before {
+  inset: 0.65rem;
+  border-radius: 0.15rem;
+}
+
+.padel-court::after {
+  top: 50%;
+  left: 0.65rem;
+  right: 0.65rem;
+  height: 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.9);
+  transform: translateY(-50%);
+}
+
+.scoreboard {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.25rem;
+  padding: 1rem 0.75rem;
+  width: 100%;
+}
+
+.score-team {
+  flex: 1;
+  min-width: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.score-value {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.score-divider {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.add-game-btn {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+}
+
+/* ── Task 2 – pályafoglaló ── */
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  background: linear-gradient(180deg, #3a4555 0%, #252f3d 100%);
+  border: 2px inset #1a222c;
+}
+
+.booking-form label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #dce4ef;
+}
+
+.booking-form input {
+  width: 100%;
+  border: 2px inset #0a0f14;
+  border-radius: 0.3rem;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.85rem;
+  background: #141c28;
+  color: #eef2f7;
+}
+
+.booking-form input::placeholder {
+  color: #6b7a8f;
+}
+
+.booking-form input:focus {
+  outline: 2px solid #7dd3fc;
+  outline-offset: -2px;
+}
+
+.court-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  align-items: stretch;
+  min-height: 14rem;
+}
+
+.court-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem;
+  height: 100%;
+  border-radius: 0.45rem;
+  background: linear-gradient(180deg, #3a4555 0%, #252f3d 100%);
+  border: 2px solid #3d4654;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.06),
+    0 3px 0 #1a222c;
+}
+
+.court-card--booked {
+  opacity: 0.65;
+  filter: grayscale(0.35);
+}
+
+.court-card-frame {
+  width: 100%;
+  flex: 1;
+  min-height: 7rem;
+  display: flex;
+  padding: 0.25rem;
+  border-radius: 0.3rem;
+  background: linear-gradient(145deg, #b8c4d0 0%, #8a96a6 50%, #6b7585 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.court-card-surface {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 6rem;
+  border-radius: 0.15rem;
+  background:
+    linear-gradient(180deg, #2384eb 0%, #1565c0 50%, #0d47a1 100%);
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.court-card-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0.35rem;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 0.1rem;
+}
+
+.court-card-net {
+  position: absolute;
+  top: 50%;
+  left: 0.35rem;
+  right: 0.35rem;
+  height: 3px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.court-card h2 {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #eef2f7;
+}
+
+.court-badge {
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  background: linear-gradient(180deg, #27ae60 0%, #1e8449 100%);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 2px 0 #145a32;
+}
+
+.court-badge--busy {
+  background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%);
+  box-shadow: 0 2px 0 #922b21;
+}
+
+/* ── Gombok (3D, mint az automatánál) ── */
+
+.padel-btn {
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(180deg, #27ae60 0%, #1e8449 100%);
+  box-shadow: 0 2px 0 #145a32;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.padel-btn--small {
+  width: 100%;
+  padding: 0.55rem;
+  font-size: 0.85rem;
+}
+
+.padel-btn--accent {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 2px 0 #b45309;
+  color: #fff;
+}
+
+.padel-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.padel-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 #145a32;
+}
+
+.padel-btn--accent:active:not(:disabled) {
+  box-shadow: 0 0 0 #b45309;
+}
+
+.padel-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  filter: grayscale(0.5);
+}
+
+.court-card .padel-btn {
+  width: 100%;
+  padding: 0.4rem 0.45rem;
+  font-size: 0.68rem;
+}

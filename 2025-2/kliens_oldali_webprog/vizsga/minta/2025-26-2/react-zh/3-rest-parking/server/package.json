@@ -1,0 +1,20 @@
+{
+  "name": "parking-server-fastify",
+  "version": "1.0.0",
+  "description": "Parking spot management server using Fastify",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.4.1",
+    "@fastify/swagger": "^8.15.0",
+    "@fastify/swagger-ui": "^4.2.0",
+    "chalk": "^4.1.2",
+    "fastify": "^4.24.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

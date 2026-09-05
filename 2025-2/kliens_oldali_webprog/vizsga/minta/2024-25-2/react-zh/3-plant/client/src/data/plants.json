@@ -1,0 +1,55 @@
+{
+    "total": 8,
+    "limit": 10,
+    "skip": 0,
+    "data": [
+        {
+            "id": 1,
+            "name": "Peace Lily",
+            "species": "Spathiphyllum",
+            "waterFrequency": "Daily",
+            "sunlight": "Low to medium indirect",
+            "description": "Produces elegant white flowers and requires consistent moisture. Droops dramatically when thirsty.",
+            "imageUrl": "/peace-lily.png",
+            "lastWateredAt": "2025-05-15T20:27:35.377Z",
+            "nextWateringOn": "2025-05-16T20:27:35.377Z",
+            "isWatered": false
+        },
+        {
+            "id": 2,
+            "name": "Boston Fern",
+            "species": "Nephrolepis exaltata",
+            "waterFrequency": "Every 2-3 days",
+            "sunlight": "Medium indirect",
+            "description": "Loves humidity and needs frequent watering to maintain lush fronds.",
+            "imageUrl": "/boston-fern.png",
+            "lastWateredAt": "2025-05-16T20:27:35.434Z",
+            "nextWateringOn": "2025-05-19T20:27:35.434Z",
+            "isWatered": true
+        },
+        {
+            "id": 3,
+            "name": "Pothos",
+            "species": "Epipremnum aureum",
+            "waterFrequency": "Weekly",
+            "sunlight": "Low to bright indirect",
+            "description": "A trailing vine plant that's very easy to propagate and grow. Can tolerate some drought.",
+            "imageUrl": "/pothos.png",
+            "lastWateredAt": "2025-05-16T20:27:35.471Z",
+            "nextWateringOn": "2025-05-23T20:27:35.471Z",
+            "isWatered": true
+        },
+        {
+            "id": 4,
+            "name": "Monstera Deliciosa",
+            "species": "Monstera deliciosa",
+            "waterFrequency": "Every 7-10 days",
+            "sunlight": "Medium to bright indirect",
+            "description": "Famous for its unique leaf holes and splits, also called Swiss Cheese Plant.",
+            "imageUrl": "/monstera.png",
+            "lastWateredAt": "2025-05-07T11:19:49.030Z",
+            "nextWateringOn": "2025-05-13T11:19:49.030Z",
+            "isWatered": true
+        }
+    ]
+}

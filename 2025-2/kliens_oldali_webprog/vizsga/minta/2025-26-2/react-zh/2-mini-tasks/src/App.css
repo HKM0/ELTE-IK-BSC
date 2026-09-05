@@ -1,0 +1,172 @@
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  color: #1e293b;
+}
+
+.app-shell {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.separator {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid #cbd5e1;
+}
+
+.hero {
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 28px;
+  padding: 32px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 18px;
+  color: #64748b;
+}
+
+.card,
+.panel {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
+
+.page > .card {
+  margin-top: 0;
+  margin: 0;
+}
+
+.product-list {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.product-list > .card {
+  flex: 0 1 420px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.card {
+  border: 3px solid transparent;
+  transition: 0.2s ease;
+}
+
+.card.favorite {
+  border-color: #f59e0b;
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.card-content,
+.panel {
+  padding: 24px;
+}
+
+.card-content h2 {
+  margin: 0 0 8px;
+}
+
+.card-content p {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: #4f46e5;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.task-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+input {
+  flex: 1;
+  border: 2px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-size: 15px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}

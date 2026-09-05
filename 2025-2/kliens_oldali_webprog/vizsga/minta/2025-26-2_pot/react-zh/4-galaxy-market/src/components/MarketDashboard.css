@@ -1,0 +1,113 @@
+.market-dashboard {
+  padding: 20px;
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #0d0e15;
+  color: #fff;
+}
+
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 15px;
+}
+
+.market-header__actions {
+  text-align: right;
+}
+
+.market-header strong {
+  color: #4dff4d;
+}
+
+.market-button {
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.market-button--primary {
+  background: #ffa500;
+  margin-right: 10px;
+}
+
+.market-button--danger {
+  background: #cc3333;
+  color: #fff;
+}
+
+.market-button--small {
+  margin-right: 5px;
+  padding: 6px 12px;
+}
+
+.market-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cargo-status {
+  padding: 10px;
+  background: #161925;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.cargo-status--full {
+  background: #4a1111;
+}
+
+.cargo-status__alert {
+  color: #ff4d4d;
+  margin-left: 10px;
+}
+
+.market-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.market-table__header-row {
+  border-bottom: 2px solid #333;
+  color: #aaa;
+}
+
+.market-table__th {
+  padding: 10px;
+}
+
+.market-table__row {
+  border-bottom: 1px solid #222;
+}
+
+.market-table__row--monopolized {
+  background-color: #221a02;
+}
+
+.market-table__cell {
+  padding: 15px;
+}
+
+.market-table__cell--name {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.market-table__value--price {
+  color: #4dff4d;
+}
+
+.market-table__actions {
+  text-align: right;
+}
+
+.market-asset-row__badge {
+  color: #ffa500;
+  font-size: 12px;
+  margin-left: 5px;
+}

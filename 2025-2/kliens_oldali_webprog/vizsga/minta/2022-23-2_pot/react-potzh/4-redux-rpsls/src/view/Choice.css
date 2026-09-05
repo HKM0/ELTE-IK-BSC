@@ -1,0 +1,14 @@
+img:not(.main-logo) {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.selected {
+    border: 5px solid green;
+    padding: 8px;
+}
+
+figure {
+    display: inline-block;
+    cursor: pointer;
+}

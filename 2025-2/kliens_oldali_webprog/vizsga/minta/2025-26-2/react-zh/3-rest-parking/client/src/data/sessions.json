@@ -1,0 +1,27 @@
+{
+  "total": 2,
+  "limit": 2,
+  "skip": 0,
+  "data": [
+    {
+      "id": 1,
+      "spotId": 1,
+      "spotCode": "-1-01",
+      "floor": -1,
+      "plate": "ABC-101",
+      "parkedAt": "2025-05-18T08:00:00.000Z",
+      "leftAt": null,
+      "notes": "Aktív"
+    },
+    {
+      "id": 2,
+      "spotId": 2,
+      "spotCode": "-1-02",
+      "floor": -1,
+      "plate": "ABC-102",
+      "parkedAt": "2025-05-17T10:00:00.000Z",
+      "leftAt": "2025-05-17T14:00:00.000Z",
+      "notes": "Lezárt"
+    }
+  ]
+}

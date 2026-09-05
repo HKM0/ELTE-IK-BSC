@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "React tanulás",
+    "description": "Komponensek és props megértése React keretrendszerben",
+    "category": "Fókusz idő",
+    "time": "hétfő/10:00"
+  },
+  {
+    "id": 2,
+    "title": "Futás a parkban",
+    "description": "5 km futás a városi parkban",
+    "category": "Sport",
+    "time": "kedd/7:30"
+  },
+  {
+    "id": 3,
+    "title": "Filmezés",
+    "description": "Az új sci-fi film megtekintése a moziban",
+    "category": "Szabadidő",
+    "time": "szerda/19:00"
+  },
+  {
+    "id": 4,
+    "title": "Gitár gyakorlás",
+    "description": "Új dal megtanulása és gyakorlása",
+    "category": "Hobbi",
+    "time": "hétfő/17:00"
+  },
+  {
+    "id": 5,
+    "title": "Baráti találkozó",
+    "description": "Kávézás és beszélgetés régi barátokkal",
+    "category": "Szabadidő",
+    "time": "csütörtök/15:30"
+  },
+  {
+    "id": 6,
+    "title": "Úszás",
+    "description": "Úszóedzés a helyi uszodában",
+    "category": "Sport",
+    "time": "péntek/18:00"
+  },
+  {
+    "id": 7,
+    "title": "Projektmunka",
+    "description": "Weboldal fejlesztés határidős projekthez",
+    "category": "Fókusz idő",
+    "time": "szerda/9:00"
+  },
+  {
+    "id": 8,
+    "title": "Festés",
+    "description": "Vászon festés akril festékkel",
+    "category": "Hobbi",
+    "time": "szombat/14:00"
+  },
+  {
+    "id": 9,
+    "title": "JavaScript tanfolyam",
+    "description": "Online kurzus a modern JavaScript technikákról",
+    "category": "Fókusz idő",
+    "time": "csütörtök/11:00"
+  },
+  {
+    "id": 10,
+    "title": "Nyelvtanulás",
+    "description": "Angol nyelvi gyakorlatok és szókincs bővítés",
+    "category": "Hobbi",
+    "time": "kedd/16:00"
+  },
+  {
+    "id": 11,
+    "title": "Biciklizés",
+    "description": "Kerékpározás a tó körül",
+    "category": "Sport",
+    "time": "vasárnap/10:30"
+  },
+  {
+    "id": 12,
+    "title": "Családi vacsora",
+    "description": "Heti családi összejövetel és közös vacsora",
+    "category": "Szabadidő",
+    "time": "péntek/20:00"
+  }
+]

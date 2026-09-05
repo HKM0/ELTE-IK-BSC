@@ -1,0 +1,38 @@
+# fuggosegek
+node_modules/
+.pnp
+.pnp.js
+
+# build mappa
+dist/
+build/
+.next/
+out/
+
+# Logok
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# kornyezeti valtozok
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+#szerkeszto es OS fajlok
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# vizsga mappa takaritas
+# minta mappa nagy fajlok
+
+#vizsga/minta/**/*.gif
+#vizsga/minta/**/*.png
+
+vizsga/minta/**/package-lock.json

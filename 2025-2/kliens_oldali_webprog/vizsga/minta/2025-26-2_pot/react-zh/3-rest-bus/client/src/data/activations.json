@@ -1,0 +1,11 @@
+{
+  "total": 4,
+  "limit": 4,
+  "skip": 0,
+  "data": [
+    { "id": 1, "ticketId": 3, "buyerName": "Varga Erzsébet", "type": "single", "activatedAt": "2026-05-31T11:30:00.000Z" },
+    { "id": 2, "ticketId": 5, "buyerName": "Pap István",     "type": "single", "activatedAt": "2026-05-31T10:00:00.000Z" },
+    { "id": 3, "ticketId": 4, "buyerName": "Tóth László",    "type": "24h",    "activatedAt": "2026-05-31T06:00:00.000Z" },
+    { "id": 4, "ticketId": 6, "buyerName": "Balogh Júlia",   "type": "24h",    "activatedAt": "2026-05-29T12:00:00.000Z" }
+  ]
+}

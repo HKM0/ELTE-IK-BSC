@@ -1,0 +1,195 @@
+.app-shell {
+  padding: 20px;
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #1e1e24;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.headerEmoji {
+  font-size: 50px;
+}
+
+.headerSubtitle {
+  color: #aaa;
+}
+
+.panel {
+  background: #2a2a35;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.attributeRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.buttonRow {
+  display: flex;
+}
+
+.actionButton {
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  background: #444;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.actionButton + .actionButton {
+  margin-left: 5px;
+}
+
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.divider {
+  border-color: #444;
+  margin: 1rem 0;
+}
+
+.smallText {
+  color: #888;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.equippedLabel {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #4dff4d;
+}
+
+.statPositive {
+  color: #4dff4d;
+}
+
+.statNegative {
+  color: #ff4d4d;
+}
+
+.inventoryBar {
+  width: 100%;
+  background-color: #444;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.inventoryBarFilled {
+  height: 10px;
+  transition: 0.3s;
+  background-color: #4dff4d;
+}
+
+.inventoryBarFilled.encumbered {
+  background-color: #ff4d4d;
+}
+
+.inventoryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inventoryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 5px;
+  background-color: #333;
+  border-radius: 4px;
+}
+
+.inventoryItem.equipped {
+  background-color: #3a4f3a;
+}
+
+.inventoryItemButtons {
+  display: flex;
+  align-items: center;
+}
+
+.inventoryItemButton {
+  margin-right: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background: #555;
+  color: #fff;
+  border-radius: 3px;
+  padding: 4px 6px;
+}
+
+.inventoryItemButton:last-child {
+  margin-right: 0;
+}
+
+.removeButton {
+  background-color: #cc3333;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.formInput,
+.formSelect {
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 6px;
+  border-radius: 3px;
+}
+
+.formInput[type='number'] {
+  width: 50px;
+  margin-left: 5px;
+}
+
+.formButton {
+  padding: 8px;
+  background-color: #4b0082;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.formButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,247 @@
+{
+  "total": 24,
+  "limit": 24,
+  "skip": 0,
+  "data": [
+    {
+      "id": 1,
+      "code": "-1-01",
+      "floor": -1,
+      "place": 1,
+      "row": 1,
+      "col": 1,
+      "status": "occupied",
+      "currentPlate": "ABC-101"
+    },
+    {
+      "id": 2,
+      "code": "-1-02",
+      "floor": -1,
+      "place": 2,
+      "row": 1,
+      "col": 2,
+      "status": "occupied",
+      "currentPlate": "ABC-102"
+    },
+    {
+      "id": 3,
+      "code": "-1-03",
+      "floor": -1,
+      "place": 3,
+      "row": 1,
+      "col": 3,
+      "status": "occupied",
+      "currentPlate": "ABC-103"
+    },
+    {
+      "id": 4,
+      "code": "-1-04",
+      "floor": -1,
+      "place": 4,
+      "row": 1,
+      "col": 4,
+      "status": "occupied",
+      "currentPlate": "ABC-104"
+    },
+    {
+      "id": 5,
+      "code": "-1-05",
+      "floor": -1,
+      "place": 5,
+      "row": 2,
+      "col": 1,
+      "status": "occupied",
+      "currentPlate": "ABC-105"
+    },
+    {
+      "id": 6,
+      "code": "-1-06",
+      "floor": -1,
+      "place": 6,
+      "row": 2,
+      "col": 2,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 7,
+      "code": "-1-07",
+      "floor": -1,
+      "place": 7,
+      "row": 2,
+      "col": 3,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 8,
+      "code": "-1-08",
+      "floor": -1,
+      "place": 8,
+      "row": 2,
+      "col": 4,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 9,
+      "code": "-2-01",
+      "floor": -2,
+      "place": 1,
+      "row": 1,
+      "col": 1,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 10,
+      "code": "-2-02",
+      "floor": -2,
+      "place": 2,
+      "row": 1,
+      "col": 2,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 11,
+      "code": "-2-03",
+      "floor": -2,
+      "place": 3,
+      "row": 1,
+      "col": 3,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 12,
+      "code": "-2-04",
+      "floor": -2,
+      "place": 4,
+      "row": 1,
+      "col": 4,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 13,
+      "code": "-2-05",
+      "floor": -2,
+      "place": 5,
+      "row": 2,
+      "col": 1,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 14,
+      "code": "-2-06",
+      "floor": -2,
+      "place": 6,
+      "row": 2,
+      "col": 2,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 15,
+      "code": "-2-07",
+      "floor": -2,
+      "place": 7,
+      "row": 2,
+      "col": 3,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 16,
+      "code": "-2-08",
+      "floor": -2,
+      "place": 8,
+      "row": 2,
+      "col": 4,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 17,
+      "code": "-3-01",
+      "floor": -3,
+      "place": 1,
+      "row": 1,
+      "col": 1,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 18,
+      "code": "-3-02",
+      "floor": -3,
+      "place": 2,
+      "row": 1,
+      "col": 2,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 19,
+      "code": "-3-03",
+      "floor": -3,
+      "place": 3,
+      "row": 1,
+      "col": 3,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 20,
+      "code": "-3-04",
+      "floor": -3,
+      "place": 4,
+      "row": 1,
+      "col": 4,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 21,
+      "code": "-3-05",
+      "floor": -3,
+      "place": 5,
+      "row": 2,
+      "col": 1,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 22,
+      "code": "-3-06",
+      "floor": -3,
+      "place": 6,
+      "row": 2,
+      "col": 2,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 23,
+      "code": "-3-07",
+      "floor": -3,
+      "place": 7,
+      "row": 2,
+      "col": 3,
+      "status": "free",
+      "currentPlate": null
+    },
+    {
+      "id": 24,
+      "code": "-3-08",
+      "floor": -3,
+      "place": 8,
+      "row": 2,
+      "col": 4,
+      "status": "free",
+      "currentPlate": null
+    }
+  ]
+}

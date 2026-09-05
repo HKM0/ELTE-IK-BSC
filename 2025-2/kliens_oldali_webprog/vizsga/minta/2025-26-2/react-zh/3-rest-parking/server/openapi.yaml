@@ -1,0 +1,263 @@
+openapi: 3.0.3
+info:
+  title: Parking API
+  description: |
+    Parkolóhely-kezelő backend (memória DB).
+
+    - 24 hely, emeletek: **−1, −2, −3** (emeletenként 8 hely, 4×2 rács)
+    - Helykód: `-1-01` … `-3-08`
+    - `status`: `free` | `occupied`
+    - Session: `leftAt === null` → aktív parkolás
+
+    Időpontokat ISO 8601-ben küldj (`new Date(...).toISOString()`).
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3031
+    description: Helyi fejlesztés
+
+tags:
+  - name: spots
+    description: Parkolóhelyek
+  - name: sessions
+    description: Parkolások (check-in / check-out)
+
+paths:
+  /spots:
+    get:
+      tags: [spots]
+      summary: Összes parkolóhely
+      operationId: listSpots
+      responses:
+        '200':
+          description: Feathers-szerű lista
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpotListResponse'
+
+  /sessions:
+    get:
+      tags: [sessions]
+      summary: Összes parkolás (aktív + lezárt)
+      operationId: listSessions
+      responses:
+        '200':
+          description: Legutóbbi először; `spotCode` és `floor` kiegészítve
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionListResponse'
+
+  /spots/{id}/sessions:
+    post:
+      tags: [sessions]
+      summary: Bejelentkezés (check-in)
+      operationId: checkIn
+      parameters:
+        - $ref: '#/components/parameters/SpotId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckInBody'
+            example:
+              plate: ABC-123
+              parkedAt: '2025-05-15T10:30:00.000Z'
+              notes: Vendég
+      responses:
+        '201':
+          description: Létrehozott session
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: A hely már foglalt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /sessions/{spotId}:
+    patch:
+      tags: [sessions]
+      summary: Kijelentkezés (check-out) – aktív session a megadott helyen
+      operationId: checkOut
+      parameters:
+        - $ref: '#/components/parameters/SpotIdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckOutBody'
+            example:
+              leftAt: '2025-05-15T14:00:00.000Z'
+              notes: Kijelentkezés
+      responses:
+        '200':
+          description: Frissített session
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  parameters:
+    SpotId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Parkolóhely azonosító
+    SpotIdPath:
+      name: spotId
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Parkolóhely azonosító (check-out)
+
+  schemas:
+    ErrorMessage:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string
+
+    Spot:
+      type: object
+      required: [id, code, floor, place, row, col, status]
+      properties:
+        id:
+          type: integer
+        code:
+          type: string
+          example: '-1-01'
+        floor:
+          type: integer
+          example: -1
+        place:
+          type: integer
+          minimum: 1
+          maximum: 8
+        row:
+          type: integer
+          minimum: 1
+          maximum: 2
+        col:
+          type: integer
+          minimum: 1
+          maximum: 4
+        status:
+          type: string
+          enum: [free, occupied]
+        currentPlate:
+          type: string
+          nullable: true
+          example: ABC-101
+
+    Session:
+      type: object
+      required: [id, spotId, plate, parkedAt, leftAt]
+      properties:
+        id:
+          type: integer
+        spotId:
+          type: integer
+        plate:
+          type: string
+        parkedAt:
+          type: string
+          format: date-time
+        leftAt:
+          type: string
+          format: date-time
+          nullable: true
+        notes:
+          type: string
+        spotCode:
+          type: string
+          example: '-1-01'
+        floor:
+          type: integer
+          nullable: true
+          example: -1
+
+    CheckInBody:
+      type: object
+      required: [plate, parkedAt]
+      properties:
+        plate:
+          type: string
+        parkedAt:
+          type: string
+          format: date-time
+        notes:
+          type: string
+
+    CheckOutBody:
+      type: object
+      required: [leftAt]
+      properties:
+        leftAt:
+          type: string
+          format: date-time
+        notes:
+          type: string
+
+    SpotListResponse:
+      type: object
+      required: [total, limit, skip, data]
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        skip:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Spot'
+
+    SessionListResponse:
+      type: object
+      required: [total, limit, skip, data]
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        skip:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Session'
+
+  responses:
+    BadRequest:
+      description: Hibás kérés
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
+    NotFound:
+      description: Nem található
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'

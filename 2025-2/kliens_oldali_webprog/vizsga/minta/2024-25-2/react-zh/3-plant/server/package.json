@@ -1,0 +1,24 @@
+{
+  "name": "plant-server-fastify",
+  "version": "1.0.0",
+  "description": "Plant management server using Fastify",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx index.ts",
+    "dev": "tsx watch index.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.4.1",
+    "@fastify/static": "^6.12.0",
+    "fastify": "^4.24.3",
+    "chalk": "^4.1.2",
+    "@faker-js/faker": "^8.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "typescript": "~5.8.3",
+    "tsx": "^4.19.4",
+    "@types/node": "^22.15.21"
+  },
+  "type": "module"
+}

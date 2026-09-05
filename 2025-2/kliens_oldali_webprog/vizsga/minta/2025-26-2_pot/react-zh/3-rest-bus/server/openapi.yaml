@@ -1,0 +1,235 @@
+openapi: 3.0.3
+info:
+  title: Bus Ticket API
+  description: |
+    Tömegközlekedési jegykezelő backend (memória DB).
+
+    - Jegytípusok: **single** (90 perc), **24h** (24 óra), **72h** (72 óra)
+    - Státuszok: `unused` | `active` | `expired` (szerver számítja dinamikusan)
+    - `status` és `expiresAt` minden GET /tickets híváskor frissen kerül kiszámításra
+    - `activatedAt === null` → a jegy még nincs érvényesítve (`unused`)
+
+    Időpontokat ISO 8601-ben küldj (`new Date(...).toISOString()`).
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3032
+    description: Helyi fejlesztés
+
+tags:
+  - name: tickets
+    description: Jegyek
+  - name: activations
+    description: Érvényesítések
+
+paths:
+  /tickets:
+    get:
+      tags: [tickets]
+      summary: Összes jegy (státusz dinamikusan számítva)
+      operationId: listTickets
+      responses:
+        '200':
+          description: Jegyek listája
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TicketListResponse'
+    post:
+      tags: [tickets]
+      summary: Jegy vásárlása
+      operationId: buyTicket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuyTicketBody'
+            example:
+              buyerName: Kiss Péter
+              type: single
+              purchasedAt: '2026-05-31T10:00:00.000Z'
+      responses:
+        '201':
+          description: Létrehozott jegy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /tickets/{id}/activate:
+    patch:
+      tags: [tickets]
+      summary: Jegy érvényesítése
+      operationId: activateTicket
+      parameters:
+        - $ref: '#/components/parameters/TicketId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivateBody'
+            example:
+              activatedAt: '2026-05-31T10:30:00.000Z'
+      responses:
+        '200':
+          description: "Frissített jegy (státusz: active)"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: A jegy már érvényesítve van
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /activations:
+    get:
+      tags: [activations]
+      summary: Összes érvényesítés (legutóbbi először)
+      operationId: listActivations
+      responses:
+        '200':
+          description: Érvényesítési napló
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivationListResponse'
+
+components:
+  parameters:
+    TicketId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Jegy azonosító
+
+  schemas:
+    ErrorMessage:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string
+
+    Ticket:
+      type: object
+      required: [id, type, status, buyerName, purchasedAt, activatedAt, expiresAt]
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+          enum: [single, 24h, 72h]
+        status:
+          type: string
+          enum: [unused, active, expired]
+          description: Dinamikusan számított státusz
+        buyerName:
+          type: string
+          example: Kiss Péter
+        purchasedAt:
+          type: string
+          format: date-time
+        activatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        expiresAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Kiszámított lejárati idő (null ha még nincs érvényesítve)
+
+    Activation:
+      type: object
+      required: [id, ticketId, buyerName, type, activatedAt]
+      properties:
+        id:
+          type: integer
+        ticketId:
+          type: integer
+        buyerName:
+          type: string
+        type:
+          type: string
+          enum: [single, 24h, 72h]
+        activatedAt:
+          type: string
+          format: date-time
+
+    BuyTicketBody:
+      type: object
+      required: [buyerName, type, purchasedAt]
+      properties:
+        buyerName:
+          type: string
+        type:
+          type: string
+          enum: [single, 24h, 72h]
+        purchasedAt:
+          type: string
+          format: date-time
+
+    ActivateBody:
+      type: object
+      required: [activatedAt]
+      properties:
+        activatedAt:
+          type: string
+          format: date-time
+
+    TicketListResponse:
+      type: object
+      required: [total, limit, skip, data]
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        skip:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ticket'
+
+    ActivationListResponse:
+      type: object
+      required: [total, limit, skip, data]
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        skip:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Activation'
+
+  responses:
+    BadRequest:
+      description: Hibás kérés
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
+    NotFound:
+      description: Nem található
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'

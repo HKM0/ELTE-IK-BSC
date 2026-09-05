@@ -1,0 +1,118 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.jatekter {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.dobozok {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Hogy kisebb képernyőn tördelődjenek a dobozok */
+}
+
+.doboz {
+    width: 50px;
+    height: 70px;
+    background-color: #4CAF50; /* Zöld alapszín */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    user-select: none; /* Ne lehessen kijelölni a számokat */
+}
+
+.doboz:hover {
+    background-color: #45a049;
+}
+
+.kockak-terulet {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.kocka {
+    width: 60px;
+    height: 60px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 10px;
+    border-radius: 8px;
+}
+
+#dobasGomb, #vegeGomb {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#dobasGomb:hover, #vegeGomb:hover  {
+    background-color: #0056b3;
+}
+
+.allas {
+    font-size: 16px;
+    color: #555;
+}
+
+#kockakOsszege {
+    font-weight: bold;
+}
+
+.doboz.kivalasztva {
+    background-color: #ffc107;
+    color: #333;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
+    transform: scale(1.05);
+}
+
+.doboz.leforditva {
+    background-color: #6c757d;
+    color: #ccc;
+    cursor: default;
+    transform: rotateX(90deg) scale(0.9);
+    opacity: 0.7;
+}
+
+.tortenet {
+  color: black;
+  text-align: left;
+}

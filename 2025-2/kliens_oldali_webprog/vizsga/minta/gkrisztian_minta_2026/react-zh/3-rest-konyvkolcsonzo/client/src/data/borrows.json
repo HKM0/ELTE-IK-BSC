@@ -1,0 +1,5 @@
+{ "total": 3, "limit": 3, "skip": 0, "data": [
+  { "id": 1, "bookId": 1, "borrowerName": "Nagy János", "borrowedAt": "2026-05-10T10:00:00.000Z", "returnedAt": null, "bookTitle": "A Gyűrűk Ura", "author": "J.R.R. Tolkien" },
+  { "id": 2, "bookId": 2, "borrowerName": "Kiss Éva", "borrowedAt": "2026-05-12T14:30:00.000Z", "returnedAt": null, "bookTitle": "Harry Potter és a bölcsek köve", "author": "J.K. Rowling" },
+  { "id": 3, "bookId": 3, "borrowerName": "Szabó Péter", "borrowedAt": "2026-05-15T09:00:00.000Z", "returnedAt": null, "bookTitle": "Száz év magány", "author": "Gabriel García Márquez" }
+]}
