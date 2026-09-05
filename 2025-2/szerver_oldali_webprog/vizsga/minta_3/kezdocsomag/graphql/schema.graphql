@@ -1,0 +1,46 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+type Query {
+    pizzas: [Pizza!]!
+    pizza(id: ID!): Pizza
+}
+
+type Mutation {
+    createTopping(input: CreateToppingInput!): Topping
+}
+
+type Customer {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Pizza {
+    id: ID!
+    name: String
+    size: Int!
+    base: String!
+    cheese_crust: Boolean!
+    customer_id: ID!
+    created_at: DateTime!
+    updated_at: DateTime!
+    pivot: PizzaToppingPivot!
+}
+
+type Topping {
+    id: ID!
+    name: String!
+    price: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+    pivot: PizzaToppingPivot!
+}
+
+type PizzaToppingPivot {
+    pizza_id: ID!
+    topping_id: ID!
+    amount: Int!
+}

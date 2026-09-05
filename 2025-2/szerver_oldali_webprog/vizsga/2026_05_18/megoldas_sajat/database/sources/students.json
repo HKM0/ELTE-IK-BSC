@@ -1,0 +1,182 @@
+[
+    {
+        "id": "70060058126",
+        "family_name": "Róka",
+        "given_name": "Luna",
+        "mother_name": "Erdős Szelina",
+        "birthdate": "2007-12-31",
+        "birthplace": "Budapest 11",
+        "school_id": "1"
+    },
+    {
+        "id": "75440845567",
+        "family_name": "Farkas",
+        "given_name": "Norbert",
+        "mother_name": "Szép Rea",
+        "birthdate": "2008-01-21",
+        "birthplace": "Cegléd",
+        "school_id": "2"
+    },
+    {
+        "id": "78263700636",
+        "family_name": "Szabó",
+        "given_name": "Míra",
+        "mother_name": "Balogh Erzsébet",
+        "birthdate": "2007-11-12",
+        "birthplace": "Budapest 07",
+        "school_id": "3"
+    },
+    {
+        "id": "74144281300",
+        "family_name": "Kovács",
+        "given_name": "Áron Balázs",
+        "mother_name": "Nguyen Anna",
+        "birthdate": "2008-03-19",
+        "birthplace": "Budapest 11",
+        "school_id": "4"
+    },
+    {
+        "id": "73464099741",
+        "family_name": "Fekete",
+        "given_name": "László Péter",
+        "mother_name": "Kovács Orsolya",
+        "birthdate": "2007-12-06",
+        "birthplace": "Budapest 11",
+        "school_id": "5"
+    },
+    {
+        "id": "73862289420",
+        "family_name": "Vörös",
+        "given_name": "Kaori Aira",
+        "mother_name": "Jamaszaki Naomi",
+        "birthdate": "2007-12-30",
+        "birthplace": "Szeged",
+        "school_id": "1"
+    },
+    {
+        "id": "70578020276",
+        "family_name": "Hunyadi-Fehér",
+        "given_name": "János Péter",
+        "mother_name": "Fehér Ágnes Mária",
+        "birthdate": "2007-01-22",
+        "birthplace": "Debrecen",
+        "school_id": "2"
+    },
+    {
+        "id": "74447794308",
+        "family_name": "Németh-Varró",
+        "given_name": "Gréta Jázmin",
+        "mother_name": "Varró Paulina",
+        "birthdate": "2007-11-13",
+        "birthplace": "Miskolc",
+        "school_id": "4"
+    },
+    {
+        "id": "74485357485",
+        "family_name": "Kertész",
+        "given_name": "Lora",
+        "mother_name": "Illés Mónika",
+        "birthdate": "2008-03-20",
+        "birthplace": "Pécs",
+        "school_id": "5"
+    },
+    {
+        "id": "78567202297",
+        "family_name": "Szűcs",
+        "given_name": "Alexandra",
+        "mother_name": "Vadász Vivien",
+        "birthdate": "2007-12-07",
+        "birthplace": "Miskolc",
+        "school_id": "1"
+    },
+    {
+        "id": "78241319401",
+        "family_name": "Kulcsár",
+        "given_name": "Emma Liliána",
+        "mother_name": "Farkas Mara Menta",
+        "birthdate": "2007-09-03",
+        "birthplace": "Miskolc",
+        "school_id": "4"
+    },
+    {
+        "id": "73038423580",
+        "family_name": "Molnár",
+        "given_name": "Péter Akhilleusz",
+        "mother_name": "Paparizopúlu Afrodité",
+        "birthdate": "2008-01-23",
+        "birthplace": "Győr",
+        "school_id": "5"
+    },
+    {
+        "id": "78534333211",
+        "family_name": "Varga",
+        "given_name": "Réka Borbála",
+        "mother_name": "Nikolić Jovana",
+        "birthdate": "2007-11-14",
+        "birthplace": "Szolnok",
+        "school_id": "1"
+    },
+    {
+        "id": "78043524880",
+        "family_name": "Balogh",
+        "given_name": "Boróka Andrea",
+        "mother_name": "Juhász Bianka Csobánka",
+        "birthdate": "2008-03-21",
+        "birthplace": "Budapest 08",
+        "school_id": "2"
+    },
+    {
+        "id": "72438806942",
+        "family_name": "Lukács",
+        "given_name": "László",
+        "mother_name": "Kovács Klementina",
+        "birthdate": "2007-12-08",
+        "birthplace": "Budapest 08",
+        "school_id": "2"
+    },
+    {
+        "id": "79752870347",
+        "family_name": "Tóth",
+        "given_name": "Anna Virág",
+        "mother_name": "Arany Fatima",
+        "birthdate": "2007-02-28",
+        "birthplace": "Debrecen",
+        "school_id": "2"
+    },
+    {
+        "id": "76577682484",
+        "family_name": "Simon",
+        "given_name": "Miléna",
+        "mother_name": "Szalay Éva Fanni",
+        "birthdate": "2008-01-24",
+        "birthplace": "Szeged",
+        "school_id": "3"
+    },
+    {
+        "id": "79232526535",
+        "family_name": "Simon",
+        "given_name": "Miléna",
+        "mother_name": "Borsos Henrietta Ignácia",
+        "birthdate": "2007-11-15",
+        "birthplace": "Budapest 02",
+        "school_id": "4"
+    },
+    {
+        "id": "72982111947",
+        "family_name": "Nagy",
+        "given_name": "Ambrózia",
+        "mother_name": "Bús Hajnalka",
+        "birthdate": "2009-04-22",
+        "birthplace": "Pécs",
+        "school_id": "5"
+    },
+    {
+        "id": "76089573376",
+        "family_name": "Kiss",
+        "given_name": "Szerafina",
+        "mother_name": "Széll Nerina Ozora",
+        "birthdate": "2007-06-09",
+        "birthplace": "Budapest 07",
+        "school_id": "1"
+    }
+]

@@ -1,0 +1,21 @@
+[
+    { "name": "mozzarella", "price": 240 },
+    { "name": "cheddar", "price": 240 },
+    { "name": "parmez\u00e1n", "price": 340 },
+    { "name": "m\u00e1rv\u00e1nysajt", "price": 440 },
+    { "name": "sonka", "price": 339 },
+    { "name": "bacon", "price": 390 },
+    { "name": "tarja", "price": 390 },
+    { "name": "kolb\u00e1sz", "price": 479 },
+    { "name": "csirke", "price": 390 },
+    { "name": "gomba", "price": 290 },
+    { "name": "kukorica", "price": 240 },
+    { "name": "paradicsom", "price": 240 },
+    { "name": "uborka", "price": 299 },
+    { "name": "lilahagyma", "price": 320 },
+    { "name": "bab", "price": 240 },
+    { "name": "jalapeno", "price": 320 },
+    { "name": "olivabogy\u00f3", "price": 440 },
+    { "name": "anan\u00e1sz", "price": 1299 },
+    { "name": "bazsalikom", "price": 190 }
+]

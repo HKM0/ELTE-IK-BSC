@@ -1,0 +1,596 @@
+[
+    {
+        "subject_id": "BIO",
+        "student_id": "72982111947",
+        "high_level": true,
+        "result_percent": "91"
+    },
+    {
+        "subject_id": "BIO",
+        "student_id": "73464099741",
+        "high_level": true,
+        "result_percent": "47"
+    },
+    {
+        "subject_id": "BIO",
+        "student_id": "75440845567",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "BIO",
+        "student_id": "78263700636",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "BIO",
+        "student_id": "79752870347",
+        "high_level": true,
+        "result_percent": "69"
+    },
+    {
+        "subject_id": "CHE",
+        "student_id": "72982111947",
+        "high_level": true,
+        "result_percent": "53"
+    },
+    {
+        "subject_id": "CHE",
+        "student_id": "79752870347",
+        "high_level": true,
+        "result_percent": "40"
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "70060058126",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "70578020276",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "72438806942",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "72982111947",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "73038423580",
+        "high_level": false,
+        "result_percent": "94"
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "73464099741",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "73862289420",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "74144281300",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "74447794308",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "75440845567",
+        "high_level": false,
+        "result_percent": "49"
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "78241319401",
+        "high_level": false,
+        "result_percent": "45"
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "78567202297",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "79232526535",
+        "high_level": false,
+        "result_percent": "79"
+    },
+    {
+        "subject_id": "ENG",
+        "student_id": "79752870347",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "GEO",
+        "student_id": "74447794308",
+        "high_level": false,
+        "result_percent": "51"
+    },
+    {
+        "subject_id": "GEO",
+        "student_id": "78534333211",
+        "high_level": false,
+        "result_percent": "63"
+    },
+    {
+        "subject_id": "GER",
+        "student_id": "74485357485",
+        "high_level": false,
+        "result_percent": "62"
+    },
+    {
+        "subject_id": "GER",
+        "student_id": "76577682484",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "GER",
+        "student_id": "78043524880",
+        "high_level": false,
+        "result_percent": "47"
+    },
+    {
+        "subject_id": "GER",
+        "student_id": "78263700636",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "GER",
+        "student_id": "78534333211",
+        "high_level": false,
+        "result_percent": "76"
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "70060058126",
+        "high_level": false,
+        "result_percent": "81"
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "70578020276",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "72438806942",
+        "high_level": false,
+        "result_percent": "61"
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "72982111947",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "73038423580",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "73464099741",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "73862289420",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "74144281300",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "74447794308",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "74485357485",
+        "high_level": false,
+        "result_percent": "42"
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "75440845567",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "76577682484",
+        "high_level": false,
+        "result_percent": "48"
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "78043524880",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "78241319401",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "78263700636",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "78534333211",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "78567202297",
+        "high_level": false,
+        "result_percent": "49"
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "79232526535",
+        "high_level": true,
+        "result_percent": "77"
+    },
+    {
+        "subject_id": "HIS",
+        "student_id": "79752870347",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "70060058126",
+        "high_level": false,
+        "result_percent": "76"
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "70578020276",
+        "high_level": false,
+        "result_percent": "66"
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "72438806942",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "72982111947",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "73038423580",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "73464099741",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "73862289420",
+        "high_level": false,
+        "result_percent": "41"
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "74144281300",
+        "high_level": true,
+        "result_percent": "73"
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "74447794308",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "74485357485",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "75440845567",
+        "high_level": true,
+        "result_percent": "94"
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "76577682484",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "78043524880",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "78241319401",
+        "high_level": false,
+        "result_percent": "82"
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "78263700636",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "78534333211",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "78567202297",
+        "high_level": true,
+        "result_percent": "63"
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "79232526535",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "HUN",
+        "student_id": "79752870347",
+        "high_level": false,
+        "result_percent": "86"
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "70060058126",
+        "high_level": true,
+        "result_percent": "70"
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "72438806942",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "73038423580",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "73464099741",
+        "high_level": false,
+        "result_percent": "90"
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "73862289420",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "74144281300",
+        "high_level": true,
+        "result_percent": "79"
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "74485357485",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "76577682484",
+        "high_level": false,
+        "result_percent": "46"
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "78043524880",
+        "high_level": true,
+        "result_percent": "40"
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "78241319401",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "78567202297",
+        "high_level": false,
+        "result_percent": "58"
+    },
+    {
+        "subject_id": "INF",
+        "student_id": "79232526535",
+        "high_level": true,
+        "result_percent": "42"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "70060058126",
+        "high_level": true,
+        "result_percent": "98"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "70578020276",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "72438806942",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "72982111947",
+        "high_level": true,
+        "result_percent": "43"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "73038423580",
+        "high_level": true,
+        "result_percent": "93"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "73464099741",
+        "high_level": true,
+        "result_percent": "45"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "73862289420",
+        "high_level": true,
+        "result_percent": "55"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "74144281300",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "74447794308",
+        "high_level": false,
+        "result_percent": "48"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "74485357485",
+        "high_level": false,
+        "result_percent": "60"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "75440845567",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "76577682484",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "78043524880",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "78241319401",
+        "high_level": true,
+        "result_percent": "93"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "78263700636",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "78534333211",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "78567202297",
+        "high_level": true,
+        "result_percent": "91"
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "79232526535",
+        "high_level": false,
+        "result_percent": null
+    },
+    {
+        "subject_id": "MAT",
+        "student_id": "79752870347",
+        "high_level": true,
+        "result_percent": null
+    },
+    {
+        "subject_id": "PHY",
+        "student_id": "70060058126",
+        "high_level": true,
+        "result_percent": "76"
+    },
+    {
+        "subject_id": "PHY",
+        "student_id": "70578020276",
+        "high_level": true,
+        "result_percent": null
+    }
+]

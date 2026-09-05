@@ -1,0 +1,49 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+type Query {
+    students: [Student!]!
+    studentsByYear(year: Int!): [Student!]!
+}
+
+type Mutation {
+    changeStudentSchool(id: ID!, school_id: ID!): Student
+}
+
+type School {
+    id: ID!
+    name: String!
+    address: String!
+    email: String!
+    password: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Student {
+    id: ID!
+    family_name: String!
+    given_name: String!
+    mother_name: String!
+    birthdate: Date!
+    birthplace: String!
+    school_id: ID!
+    created_at: DateTime!
+    updated_at: DateTime!
+    pivot: StudentSubjectPivot!
+}
+
+type Subject {
+    id: ID!
+    name: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    pivot: StudentSubjectPivot!
+}
+
+type StudentSubjectPivot {
+    student_id: ID!
+    subjects_id: ID!
+    high_level: Boolean!
+    result_percent: Int
+}

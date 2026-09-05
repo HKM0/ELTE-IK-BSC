@@ -1,0 +1,42 @@
+[
+    {
+        "id": "HUN",
+        "name": "magyar nyelv és irodalom"
+    },
+    {
+        "id": "MAT",
+        "name": "matematika"
+    },
+    {
+        "id": "ENG",
+        "name": "angol nyelv"
+    },
+    {
+        "id": "GER",
+        "name": "német nyelv"
+    },
+    {
+        "id": "PHY",
+        "name": "fizika"
+    },
+    {
+        "id": "CHE",
+        "name": "kémia"
+    },
+    {
+        "id": "BIO",
+        "name": "biológia"
+    },
+    {
+        "id": "INF",
+        "name": "digitális kultúra"
+    },
+    {
+        "id": "GEO",
+        "name": "földrajz"
+    },
+    {
+        "id": "HIS",
+        "name": "történelem"
+    }
+]

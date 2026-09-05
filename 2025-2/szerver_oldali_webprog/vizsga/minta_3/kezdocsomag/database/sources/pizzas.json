@@ -1,0 +1,72 @@
+[
+    {
+        "name" : "Közepes margherita",
+        "size" : 32,
+        "base" : "tomato",
+        "cheese_crust" : false,
+        "customer_id" : 1
+    },
+    {
+        "name" : "Nagyon sajtos nagy pizza",
+        "size" : 50,
+        "base" : "tomato",
+        "cheese_crust" : true,
+        "customer_id" : 2
+    },
+    {
+        "name" : "Erik kedvence",
+        "size" : 32,
+        "base" : "bbq",
+        "cheese_crust" : true,
+        "customer_id" : 3
+    },
+    {
+        "name" : "Pici magyaros",
+        "size" : 26,
+        "base" : "tomato",
+        "cheese_crust" : false,
+        "customer_id" : 1
+    },
+    {
+        "name" : "Csípős és kukoricás is",
+        "size" : 32,
+        "base" : "tomato",
+        "cheese_crust" : true,
+        "customer_id" : 5
+    },
+    {
+        "name" : "Egy kis hawaii",
+        "size" : 26,
+        "base" : "tomato",
+        "cheese_crust" : false,
+        "customer_id" : 4
+    },
+    {
+        "name" : "Mindent bele",
+        "size" : 32,
+        "base" : "tomato",
+        "cheese_crust" : true,
+        "customer_id" : 3
+    },
+    {
+        "name" : "Keménylegény",
+        "size" : 32,
+        "base" : "cream",
+        "cheese_crust" : false,
+        "customer_id" : 2
+    },
+    {
+        "name" : "Vendégem az egész tanszék",
+        "size" : 50,
+        "base" : "tomato",
+        "cheese_crust" : true,
+        "customer_id" : 1
+    },
+    {
+        "name" : "Üres pizza nyami",
+        "size" : 32,
+        "base" : "none",
+        "cheese_crust" : false,
+        "customer_id" : 5
+    }
+]

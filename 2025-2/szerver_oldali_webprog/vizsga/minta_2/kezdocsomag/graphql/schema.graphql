@@ -1,0 +1,47 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+type Query {
+    songs: [Song!]! @all
+    countries: [Country!]! @all
+    song(id: ID!): Song @find
+}
+
+type Mutation {
+    createCountry(input: CreateCountryInput!): Country @create(model: "Country")
+}
+
+input CreateCountryInput {
+    name: String! @rules(apply: ["required", "string", "unique:countries,name"])
+    email: String! @rules(apply: ["required", "email", "unique:countries,email"])
+    password: String! @rules(apply: ["required", "string"]) @hash
+}
+
+type Country {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Song {
+    id: ID!
+    title: String!
+    artist: String!
+    year: Int!
+    country_id: ID!
+    created_at: DateTime!
+    updated_at: DateTime!
+    from: String!
+}
+
+type Vote {
+    id: ID!
+    televote: Boolean!
+    from_country_id: ID!
+    to_song_id: ID!
+    points: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+}

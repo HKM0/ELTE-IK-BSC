@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "dr. Horváth Győző",
+        "email" : "horvath.gyozo@inf.elte.hu",
+        "password" : "$2y$12$hdw.jJQe2xXEfrE6QVE2GObkuhCS/TyZ7Za9RQ4rhLSpTejQBTYyW"
+    },
+    {
+        "name" : "Németh Tamás",
+        "email" : "nemeth.tamas@inf.elte.hu",
+        "password" : "$2y$12$FoiyH1gAlT1jTp4/KCn73.QAhG/PyPFDeCnFHiv5M2g.7ARWuIGby"
+    },
+    {
+        "name" : "Tűri Erik",
+        "email" : "turierik@inf.elte.hu",
+        "password" : "$2y$12$xTRbyro1POXvfckB/xRIaOImay2Pt/svXdstk/tvKOVpiUY8PWew2"
+    },
+    {
+        "name" : "Máriás Zsigmond",
+        "email" : "zmarias@inf.elte.hu",
+        "password" : "$2y$12$dembU1OagWvSTq9zOO3p/urzMdm73ZNVKV00BIugjc0blTFipxw4."
+    },
+    {
+        "name" : "Gerely Viktor",
+        "email" : "thor@inf.elte.hu",
+        "password" : "$2y$12$wyaZzhkM2IQUetE1TqMBdOBjiaL5kBVfcJfqEvnCc5xbNABR8yO7q"
+    }
+]

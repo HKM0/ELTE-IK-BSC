@@ -1,0 +1,73 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+# help javításhoz: 
+# task 8 és 9 -> type Query{...} -ben 
+# task 10 -> type Student{...} -ban 
+# task 11 -> type Mutation{...} -ben 
+# task 12 -> Query{...} -ben 
+# task 13 -> type Student {...} -ben 
+
+type Query {
+    students: [Student!]! @all # task 8 
+
+    #kell majd resolver!!
+    student(family_name: String!, given_name: String!) Student @find #task 9
+    studentsByYear(year: Int!): [Student!]! @find # task 12
+    # @field(resolver: "")
+}
+
+type Mutation {
+    changeStudentSchool(id: ID!, school_id: ID!): Student @update # task 11
+}
+
+type School {
+    id: ID!
+    name: String!
+    address: String!
+    email: String!
+    password: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+
+# task 10: 
+type Student {
+    id: ID!
+    family_name: String!
+    given_name: String!
+    mother_name: String!
+    birthdate: Date!
+    birthplace: String!
+    school_id: ID!
+    created_at: DateTime!
+    updated_at: DateTime!
+    pivot: StudentSubjectPivot!
+
+    # task 10 --------------
+    school: School!
+    subjects: [Subject!]!
+    # --------------------
+    
+    # task 13 -----------
+    age: Int!
+    # plusz az app/graphql/types/student/age.php -ban.
+    # -------------------
+}
+php artisan lighthouse:field Student.age
+
+type Subject {
+    id: ID!
+    name: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    pivot: StudentSubjectPivot!
+}
+
+type StudentSubjectPivot {
+    student_id: ID!
+    subjects_id: ID!
+    high_level: Boolean!
+    result_percent: Int
+}

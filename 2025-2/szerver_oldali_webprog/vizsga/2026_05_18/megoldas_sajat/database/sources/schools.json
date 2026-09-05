@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "name": "Lágymányosi Informatikai Tehetséggondozó Gimnázium",
+        "address": "1118 Budapest, Pázmány Péter sétány 1/C.",
+        "email": "admin@lagymanyosinf.hu",
+        "password": "$2y$12$hdw.jJQe2xXEfrE6QVE2GObkuhCS/TyZ7Za9RQ4rhLSpTejQBTYyW"
+    },
+    {
+        "id": "2",
+        "name": "Debreceni Elsőszámú Általános Iskola és Gimnázium",
+        "address": "4025 Debrecen, Negyvennegyedik utca 60.",
+        "email": "admin@deb1.hu",
+        "password": "$2y$12$FoiyH1gAlT1jTp4/KCn73.QAhG/PyPFDeCnFHiv5M2g.7ARWuIGby"
+    },
+    {
+        "id": "3",
+        "name": "Szegedi Napfényváros Általános Iskola és Hatosztályos Gimnázium",
+        "address": "6725 Szeged, Szent Ferenc utca 12.",
+        "email": "admin@napfenysuli.hu",
+        "password": "$2y$12$xTRbyro1POXvfckB/xRIaOImay2Pt/svXdstk/tvKOVpiUY8PWew2"
+    },
+    {
+        "id": "4",
+        "name": "Miskolci Szakképzési Centrum Informatikai Technikuma",
+        "address": "3530 Miskolc, Széchenyi István utca 40.",
+        "email": "admin@mszcit.hu",
+        "password": "$2y$12$dembU1OagWvSTq9zOO3p/urzMdm73ZNVKV00BIugjc0blTFipxw4."
+    },
+    {
+        "id": "5",
+        "name": "Pécsi Informatikai Leánygimnázium és Kollégium",
+        "address": "7621 Pécs, Széchenyi tér 9.",
+        "email": "admin@pecsileany.hu",
+        "password": "$2y$12$wyaZzhkM2IQUetE1TqMBdOBjiaL5kBVfcJfqEvnCc5xbNABR8yO7q"
+    }
+]
