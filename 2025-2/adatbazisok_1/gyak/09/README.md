@@ -12,7 +12,7 @@ Az oran jelzem, hogy mikor keszitsuk el a kotelezo beadando feladatot, es akkor 
 
 ### Eljut feladat
 
-A repulogepjaratok adatairol (Honnan-Hova varosparokat tartalmazo) `Jaratok` tablat ezzel a scripttel keszitsuk el: `jaratok_tabla.txt` (Linkek egy kulso oldalra).
+A repulogepjaratok adatairol (Honnan-Hova varosparokat tartalmazo) `Jaratok` tablat ezzel a scripttel keszitsuk el: `jaratok_tabla.txt`.
 
 A mai 9. gyakorlat az elso PL/SQL gyakorlat. Erre az ugynevezett "Eljut" feladatra, grafok lekerdezesere irunk PL/SQL programot.
 
@@ -35,7 +35,7 @@ Gondolja at, hogy mi a kedvenc programozasi algoritmusa, majd irja meg az ezt me
 
 Az ora legelejen az orai kotelezo feladat (aminek a megoldasahoz mar az 1. gyak. anyaganak az ismerete is elegendo: egy tabla lekerdezese, egy tabla onmagaval valo direkt szorzata).
 
-A repulogepjaratok adatairol (Honnan-Hova varosparokat tartalmazo) `Jaratok` tablat ezzel a scripttel keszitsuk el: `jaratok_tabla.txt` (Linkek egy kulso oldalra).
+A repulogepjaratok adatairol (Honnan-Hova varosparokat tartalmazo) `Jaratok` tablat ezzel a scripttel keszitsuk el: `jaratok_tabla.txt`.
 
 Majd irjunk SQL lekerdezest, amellyel lekerdezzuk azokat a Honnan-Hova varosparokat, ahonnan (az egyik varosbol) ahova (a masik varosba) egy vagy ket atszallassal el lehet jutni, de nincs kozvetlen jarat.
 

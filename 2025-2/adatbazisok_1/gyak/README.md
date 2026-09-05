@@ -64,5 +64,5 @@
 - Jelenlét, pontok, ZH-k: Canvas.
 - Teams csoport nincs; órán kívüli konzultációra az inf-es MS Teams használható.
 
-## [Adatbázis elérés](https://people.inf.elte.hu/nikovits/adatbazis_eleres.txt)
+## [Adatbázis elérés](https://people.inf.elte.hu/sila/ABGY/adatbazis_eleres.html) - [txt](https://people.inf.elte.hu/nikovits/adatbazis_eleres.txt)
 

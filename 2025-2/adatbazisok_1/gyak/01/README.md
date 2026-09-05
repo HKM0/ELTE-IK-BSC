@@ -1,10 +1,11 @@
-  1.GYAKORLAT (ADATBÁZISOK)    
+  1.GYAKORLAT (ADATBÁZISOK)
+
        
-    ÁLTALÁNOS INFORMÁCIÓ
-    - Bemutatkozás, ismerkedés, "adatlap" (ki hol találkozott az SQL nyelvvel?) 
-    - A tantárgyfelvételről információ (az előadást is fel kell venni) ea-tananyag
-    - A félév célja, az előadások és a gyakorlatok tematikája,  tankönyv, példatár
-    - A gyakorlati jegy megszerzésének feltételei, gyakorlati követelmények
+  ÁLTALÁNOS INFORMÁCIÓ
+  - Bemutatkozás, ismerkedés, "adatlap" (ki hol találkozott az SQL nyelvvel?) 
+  - A tantárgyfelvételről információ (az előadást is fel kell venni) ea-tananyag
+  - A félév célja, az előadások és a gyakorlatok tematikája,  tankönyv, példatár
+  - A gyakorlati jegy megszerzésének feltételei, gyakorlati követelmények
    
    I.RÉSZ: RELÁCIÓS ADATMODELL BEVEZETÉS "HALMAZ-SZEMLÉLET"
    - 1.gyak. egy reláció = relációs séma + előfordulás (véges sok sor halmaza),
@@ -45,6 +46,8 @@ halmazmuveletek
  8. Kik szeretnek legalább háromféle gyümölcsöt?
  9. Kik szeretnek legfeljebb kétféle gyümölcsöt?
 10. Kik szeretnek pontosan kétféle gyümölcsöt?  
+
+[Megoldás](lekerdezesek.txt)
  
 -- Folyt.köv.: "minden" kifejezése (Kik szeretnek minden gyümölcsöt?)
    

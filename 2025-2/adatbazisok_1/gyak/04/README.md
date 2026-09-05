@@ -19,7 +19,7 @@ SFW
 SFW
 ```
 
-Ha az előző 03.heti gyakorlat anyagából készített házi feladatot, akkor azt is másolja be a mai kötelező feladat alá, és együtt (egyszerre) küldje be (csak egyszer küldhető be a Canvasban a feladat).  Emlékeztető a mai gyakorlatra feladatott HF az előző 03.gyak. III.RÉSZLinkek egy külső oldalra Dolgozo-Osztaly táblák lekérdezési feladatait kellett relációs algebrában megoldani, és  új  HF a köv.  05.gyakorlatig írja át a relációs algebrai kifejezéseket SQL lekérdezésekre.  A köv.héten megbeszéljük az otthoni gyakorlás során felmerült kérdéseket,  mert az 05.gyak. lesz az I.ZH-t megelőző gyakorlat, amikor  a többtáblás lekérdezéseket (külső joinok, alkérdések) nézzük át SQL-ben. A mai gyakorlaton egytáblás lekérdezések (sorfüggvények, csoportosítás, összesítő függvények) lesznek SQL-ben.
+Ha az előző 03.heti gyakorlat anyagából készített házi feladatot, akkor azt is másolja be a mai kötelező feladat alá, és együtt (egyszerre) küldje be (csak egyszer küldhető be a Canvasban a feladat).  Emlékeztető a mai gyakorlatra feladatott HF az előző 03.gyak. III.RÉSZ Dolgozo-Osztaly táblák lekérdezési feladatait kellett relációs algebrában megoldani, és  új  HF a köv.  05.gyakorlatig írja át a relációs algebrai kifejezéseket SQL lekérdezésekre.  A köv.héten megbeszéljük az otthoni gyakorlás során felmerült kérdéseket,  mert az 05.gyak. lesz az I.ZH-t megelőző gyakorlat, amikor  a többtáblás lekérdezéseket (külső joinok, alkérdések) nézzük át SQL-ben. A mai gyakorlaton egytáblás lekérdezések (sorfüggvények, csoportosítás, összesítő függvények) lesznek SQL-ben.
 
 I.ZH/1.része (40 perc papíros dolgozat) témaköre: Az alap relációs algebrai lekérdezések és kapcsolatuk az SQL lekérdezésekkel. Az első három gyakorlat anyagát fejből kell tudniuk, nem használhatnak segédleteket. Ehhez a Tk. 2.4., 6.1.-6.2. fejezeteiből kell felkészülni (az első két és fél előadás tananyagából).
 
@@ -27,7 +27,7 @@ I.ZH/2.része (40 perc gépes zh) az első öt gyakorlat anyagából lesz, ebben
 
 Canvas > Fájlok >Oracle_SQL_Language_Reference.pdf
 
-4.gyakorlat: https://people.inf.elte.hu/sila/ABGY/ab1gy04.htmlLinkek egy külső oldalra
+4.gyakorlat:
 
 Egytáblás lekérdezések SQL-ben, kifejezések, sorfüggvények, összesítések, csoportosítás
 
@@ -70,7 +70,7 @@ SELECT SUBSTR(dnev, -3) FROM dolgozo;
 SELECT dnev FROM dolgozo WHERE SUBSTR(dnev, -2, 1) = 'T';
 ```
 
-8. Kik azok a dolgozók, akik '1982.01.01.' után léptek be? (TO_DATE (Linkek egy külső oldalra)-re példák)
+8. Kik azok a dolgozók, akik '1982.01.01.' után léptek be? 
 
 ```sql
 SELECT dnev FROM dolgozo WHERE belepes > TO_DATE('1982.01.01', 'YYYY.MM.DD');
